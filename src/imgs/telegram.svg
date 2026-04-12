@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>telegram</title>
+    <defs>
+        <polygon id="path-1" points="0 0 20 0 20 20 0 20"></polygon>
+    </defs>
+    <g id="S10首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.6">
+        <g id="2076_3Mobile首页下拉菜单" transform="translate(-250.000000, -343.000000)">
+            <g id="账号dropdown" transform="translate(231.000000, 129.000000)">
+                <g id="账户管理" transform="translate(0.000000, 199.000000)">
+                    <g id="telegram" transform="translate(19.000006, 15.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M7.68698725,17.1707932 L7.95709434,13.0140071 L15.610514,6.20389832 C15.9705797,5.93850549 15.5204783,5.76162742 15.0702998,6.02694453 L5.70612484,11.8642239 L1.65428724,10.5375626 C0.753930277,10.2722455 0.753930277,9.65309649 1.83443572,9.2109013 L17.7714478,3.10838059 C18.4918104,2.75454872 19.212096,3.28525866 18.9419118,4.43496615 L16.2407638,17.0823542 C16.0606154,17.9668203 15.5204783,18.2321374 14.7100799,17.7899422 L10.5682066,14.7828635 L8.5874213,16.728598 C8.31723712,16.9939152 8.13716573,17.1707932 7.68698725,17.1707932" id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

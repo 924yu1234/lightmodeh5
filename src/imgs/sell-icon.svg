@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>卖-icon-未点@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="首页-深" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页-1" transform="translate(-1261.000000, -246.000000)">
+            <g id="委托订单" transform="translate(1180.000000, 190.000000)">
+                <g id="卖" transform="translate(81.000000, 56.000000)">
+                    <rect id="矩形" stroke="#ED324A" x="1.5" y="1.5" width="21" height="21" rx="2"></rect>
+                    <rect id="矩形" fill="#ED324A" x="4" y="4" width="6" height="16" rx="0.8"></rect>
+                    <rect id="矩形" fill="#ED324A" x="12" y="4" width="8" height="2" rx="1"></rect>
+                    <g id="编组-3" transform="translate(12.000000, 8.500000)" fill="#ED324A">
+                        <rect id="矩形" x="0" y="0" width="8" height="2" rx="1"></rect>
+                        <rect id="矩形" x="0" y="4.5" width="8" height="2" rx="1"></rect>
+                        <rect id="矩形" x="0" y="9" width="8" height="2" rx="1"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="245px" height="45px" viewBox="0 0 245 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>name badge</title>
+    <defs>
+        <filter x="-2.9%" y="-12.5%" width="105.7%" height="135.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.996078431   0 0 0 0 0.576470588   0 0 0 0 0.184313725  0 0 0 0.296683785 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="147.567472%" y1="100%" x2="-7.68829445e-13%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#000000" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="name-badge" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-7" filter="url(#filter-1)">
+            <polygon id="矩形" fill="#666666" points="0 8 50 4 49.8046875 36.1230469 0 32 15 19.603125"></polygon>
+            <polygon id="矩形" fill="#666666" transform="translate(219.5908, 20.0312) scale(-1, 1) translate(-219.5908, -20.0312)" points="194.181641 8 244.181641 4 245 36.0625 194.181641 32 209.181641 19.603125"></polygon>
+            <rect id="矩形" fill="url(#linearGradient-2)" x="21" y="0" width="11" height="40"></rect>
+            <rect id="矩形" fill="url(#linearGradient-2)" transform="translate(219.5, 20) scale(-1, 1) translate(-219.5, -20)" x="214" y="0" width="11" height="40"></rect>
+            <g id="编组" transform="translate(23, 0)">
+                <rect id="矩形" fill="#13132F" x="0" y="0" width="200" height="40" rx="2"></rect>
+                <rect id="矩形" fill-opacity="0.4" fill="#FFFFFF" x="0" y="0" width="200" height="40" rx="2"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

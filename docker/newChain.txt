@@ -1,0 +1,13 @@
+
+1. 文案 scan_SOLANA, 
+2. ethers.js 新增Chain
+3. chainIcon
+
+trade
+1. state/send/service.js 中 withdrawalAvailability 新增Chain
+2. state/send/hook.tsx 中 useNetworksWithGasValue 新增Chain
+3. state/add/service 中 depositAvailability 新增Chain
+
+wallet
+1. 文案 scan_SOLANA, ethers.js 新增Chain
+2. da/index.tsx 新增Chain

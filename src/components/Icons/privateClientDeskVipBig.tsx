@@ -1,0 +1,144 @@
+import React from 'react';
+import styled from 'styled-components';
+
+export default function IconPrivateClientDeskVipBig({
+  className,
+  size = 70,
+}: {
+  className?: string;
+  size?: number;
+}) {
+  return (
+    <StyledSpan className={`${className || ''} dg-icon icon-pcd-vip-big`}>
+      <svg
+        width={`${size || '70'}px`}
+        height={`${size || '70'}px`}
+        viewBox="0 0 70 70"
+        version="1.1"
+      >
+        <title>icon vip big</title>
+        <defs>
+          <radialGradient
+            cx="50%"
+            cy="46.7205256%"
+            fx="50%"
+            fy="46.7205256%"
+            r="16.4506392%"
+            id="radialGradient-1"
+          >
+            <stop stopColor="#00C1F8" offset="0%"></stop>
+            <stop stopColor="#00EBFF" stopOpacity="0" offset="100%"></stop>
+          </radialGradient>
+          <linearGradient
+            x1="29.9673227%"
+            y1="14.199949%"
+            x2="78.8724459%"
+            y2="85.800051%"
+            id="linearGradient-2"
+          >
+            <stop stopColor="#4B4B4B" offset="0%"></stop>
+            <stop stopColor="#2E2E2E" offset="51.735372%"></stop>
+            <stop stopColor="#1C1C1C" offset="100%"></stop>
+          </linearGradient>
+          <path
+            d="M66.5254066,32.9992414 C70.3472639,33.0084278 72.3950601,33.1094783 73.9722968,34.2210342 C75.7072572,35.4437133 76.4359538,37.5813855 77.8933471,41.8567299 L80.2033153,48.6333017 C80.8333067,50.4810366 81.1483024,51.405066 80.932012,52.3005939 C80.7160528,53.195798 80.0115356,53.8846906 78.6031638,55.261828 L59.6842123,73.7612009 C57.4759304,75.9205082 56.371955,77 55.000018,77 C53.628081,77 52.5241056,75.9205082 50.3158237,73.7612009 L31.3969716,55.261828 C29.988401,53.8846906 29.2841157,53.195798 29.0679247,52.3005939 C28.8517668,51.405066 29.1667293,50.4810366 29.7966544,48.6333017 L32.1066889,41.8567299 C33.5641484,37.5813855 34.292845,35.4437133 36.0277392,34.2210342 C37.6048856,33.1094783 39.6527284,33.0084278 43.4747192,32.9992414 Z M64.012932,46.2964943 C62.6865262,45.5626036 60.9904577,45.998127 60.2246569,47.269263 L54.9995369,55.940742 L49.7753431,47.269263 C49.0095423,45.998127 47.3134738,45.5626036 45.987068,46.2964943 C44.6606622,47.030385 44.206202,48.6557803 44.9720027,49.9269163 L51.9050274,61.4348928 C52.5420343,62.4922468 53.8227136,62.9714225 54.9983593,62.6796163 C56.1752865,62.9721703 57.4574684,62.4930723 58.0949726,61.4348928 L65.0279973,49.9269163 C65.793798,48.6557803 65.3393378,47.030385 64.012932,46.2964943 Z"
+            id="path-3"
+          ></path>
+          <filter
+            x="-34.6%"
+            y="-40.9%"
+            width="169.2%"
+            height="181.8%"
+            filterUnits="objectBoundingBox"
+            id="filter-5"
+          >
+            <feMorphology
+              radius="1.25"
+              operator="dilate"
+              in="SourceAlpha"
+              result="shadowSpreadOuter1"
+            ></feMorphology>
+            <feOffset
+              dx="0"
+              dy="0"
+              in="shadowSpreadOuter1"
+              result="shadowOffsetOuter1"
+            ></feOffset>
+            <feGaussianBlur
+              stdDeviation="5"
+              in="shadowOffsetOuter1"
+              result="shadowBlurOuter1"
+            ></feGaussianBlur>
+            <feComposite
+              in="shadowBlurOuter1"
+              in2="SourceAlpha"
+              operator="out"
+              result="shadowBlurOuter1"
+            ></feComposite>
+            <feColorMatrix
+              values="0 0 0 0 0   0 0 0 0 0.62745098   0 0 0 0 1  0 0 0 0.853611233 0"
+              type="matrix"
+              in="shadowBlurOuter1"
+            ></feColorMatrix>
+          </filter>
+          <linearGradient
+            x1="49.9999291%"
+            y1="-5.15717372%"
+            x2="50%"
+            y2="76.6727489%"
+            id="linearGradient-6"
+          >
+            <stop stopColor="#FFFFFF" stopOpacity="0" offset="0%"></stop>
+            <stop
+              stopColor="#FFFFFF"
+              stopOpacity="0.5"
+              offset="55.986418%"
+            ></stop>
+            <stop stopColor="#FFFFFF" stopOpacity="0" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+        <g
+          id="icon-vip-big"
+          stroke="none"
+          strokeWidth="1"
+          fill="none"
+          fillRule="evenodd"
+        >
+          <g id="icon-vip" transform="translate(-20, -20)">
+            <circle
+              id="椭圆形"
+              fill="url(#radialGradient-1)"
+              cx="55"
+              cy="55"
+              r="55"
+            ></circle>
+            <mask id="mask-4" fill="white">
+              <use xlinkHref="#path-3"></use>
+            </mask>
+            <g id="路径-3" strokeLinecap="round">
+              <use
+                fill="black"
+                fillOpacity="1"
+                filter="url(#filter-5)"
+                xlinkHref="#path-3"
+              ></use>
+              <use
+                strokeOpacity="0.47342111"
+                stroke="#00A0FF"
+                strokeWidth="0.5"
+                fill="url(#linearGradient-2)"
+                fillRule="evenodd"
+                xlinkHref="#path-3"
+              ></use>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </StyledSpan>
+  );
+}
+
+const StyledSpan = styled.span`
+  display: inline-flex;
+  line-height: 0;
+`;

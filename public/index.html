@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/" />
+    <title>DeGate</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta name="keywords" content="keywords" />
+    <meta name="description" content="description" />
+    <meta property="og:type" content="website" data-react-helmet="true" />
+    <meta property="og:title" content="DeGate" data-react-helmet="true" />
+    <meta
+      property="og:url"
+      content="https://degate.com"
+      data-react-helmet="true"
+    />
+    <meta
+      property="og:description"
+      content="A fairly launched, Dao-centric, Zero Knowledge based trading protocol built on Ethereum. DeGate is Limit Orders, Decentralized"
+      data-react-helmet="true"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <style data-styled="" data-styled-version="4.4.1">
+      html body {
+        background: #13132f;
+      }
+
+      /* for dev */
+      #wallet .wallet-spin,
+      #wallet #walletIframe,
+      #wallet .dg-loading {
+        display: none !important;
+      }
+    </style>
+    <!-- DLL disabled in UED project (dev mode only) -->
+    <!-- <script src="/dll/vendor.f300db34.dll.js"></script> -->
+    <script type="text/javascript">
+      window.onerror = function (err) {
+        console.error(JSON.stringify(err));
+      };
+      // UED project: all real dev APIs, mock only for new UED features
+      window._config = {
+        DG_API: 'https://dev-backend.degate.com',
+        HUB_API: 'https://api-hub.dev.degate.tech',
+        WS_API: 'wss://dev-ws.degate.com/ws',
+        COPY_TRADE_API: 'https://api-copy-trading.dev.degate.tech',
+        DG_TEE_INTEGRITY_PUBLIC_KEY: 'b929074fd9ca29eadb036ba4ff6f7d4821457dc5ed67af7bf28c4afb40804671',
+        DEX_CHAIN_ID: '17000',
+        PUBLIC_URL: 'http://localhost:3001',
+        DISABLED_ROUTES: '',
+        LOG_API: '',
+        ENV: 'ued_mock',
+        BETA_STOP_DEPOSIT: '',
+        BETA_ENV: 'false',
+        IS_MINING: 'true',
+        RESET_APPROVAL_TOKENS: '',
+        MULTICALL_ACCOUNT: '',
+        DG_SCAN: 'https://dev.dgscan.io',
+        AIRDROP_CAMPAIGN: '',
+        VERIFY_ACCOUNT_TIME: '9999999999999',
+        RAFFLE_ALLOW_REGION: '',
+      };
+      // UED: wallet config moved to src/wallet/config.ts (editable by UED team)
+    </script>
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="root-spin dg-spin dg-spin-spinning">
+        <span class="dg-spin-dot dg-spin-dot-spin"
+          ><i class="dg-spin-dot-item"></i><i class="dg-spin-dot-item"></i
+          ><i class="dg-spin-dot-item"></i><i class="dg-spin-dot-item"></i
+        ></span>
+      </div>
+    </div>
+    <div id="wallet"></div>
+    <div id="dg" style="display: none"></div>
+
+    <!-- <script type="text/javascript">// window.SC_DISABLE_SPEEDY = true;
+    // global = globalThis
+    if (location.href.includes('alertError')) {
+      window.onerror = function (err) {
+        alert(JSON.stringify(err));
+      }
+    }
+    window._wallet_config = {
+      // TRADE_URL: 'https://dev-dg-trade.degate.com',
+      // TRADE_URL: 'http://localhost:10001',
+      PUBLIC_URL: '',
+
+      // dev
+      EXCHANGE_ADDRESS: "0x5859cCb16DC791f79AAFadD5B9768bC400797A29",
+
+      // teste
+      // EXCHANGE_ADDRESS: "0xFf632eA1974Fcb42B930f78723bB6738799c3f88",
+      // testd
+      // EXCHANGE_ADDRESS: "0x1Fd1e36C2A129c2498c80cd255Bf396bf1914A7e",
+      // testnet
+      // EXCHANGE_ADDRESS: "0xa0ef1f0BDB6c17Bdf6be66A23e610885E7A25A88",
+      // dev_2
+      // EXCHANGE_ADDRESS: "0xb556d263cadd44A67368C62Fa353798dAEDDEe25",
+      
+    };</script><link rel="icon" href="http://localhost:10004/favicon.ico"><script defer="defer" src="http://localhost:10004/main.07e077043b70e034081f.js"></script><script defer="defer" src="http://localhost:10004/main.d48f94a812edb24a8d30.js"></script> -->
+  </body>
+</html>

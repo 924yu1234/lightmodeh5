@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+public/index.dev.html
+build
+.idea
+**/.DS_Store
+.vscode
+sslforfree
+walletnode_modules/
+build/
+dist/

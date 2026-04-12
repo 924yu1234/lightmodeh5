@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="117px" height="105px" viewBox="0 0 117 105" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>increase (2)</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="PRD30" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.1">
+        <g id="mobile-Turbo-Range-MVP1.1Home-en2" transform="translate(-233, -214)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <g id="编组-2" transform="translate(19, 189)">
+                <g id="increase-(2)" transform="translate(214, 25)">
+                    <path d="M23,89 L23,105.076172 L0,105.076172 L0,89 L23,89 Z M30,105.004883 L53,105.004883 L53,68 L30,68 L30,105.004883 Z M59,105.004883 L82,105.004883 L82,48 L59,48 L59,105.004883 Z M88,105.004883 L111,105.004883 L111,27 L88,27 L88,105.004883 Z M99.5,0 L82,22 L117,22 L99.5,0 L99.5,0 Z" id="形状"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

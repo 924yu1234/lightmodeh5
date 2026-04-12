@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="468px" height="340px" viewBox="0 0 468 340" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形 3</title>
+    <defs>
+        <path d="M450,0 C450,5.5228475 454.477153,10 460,10 L460,320 C454.477153,320 450,324.477153 450,330 L10,330 C10,324.477153 5.5228475,320 0,320 L0,10 C5.5228475,10 10,5.5228475 10,0 L450,0 Z" id="path-1"></path>
+        <filter x="-2.0%" y="-1.5%" width="103.9%" height="106.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0989947552 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="资产类彩票加入组队玩法Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="资产类彩票加入组队玩法#E2详情页面ru2" transform="translate(-486, -470)">
+            <g id="编组-7" transform="translate(130, 470)">
+                <g id="矩形-3" transform="translate(360, 0)">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <path stroke-opacity="0.1" stroke="#B7BDC6" stroke-width="3" d="M448.59694,1.5 C448.932469,4.0757932 450.120338,6.38379356 451.868272,8.13172798 C453.616206,9.8796624 455.924207,11.0675309 458.5,11.4030603 L458.5,318.59694 C455.924207,318.932469 453.616206,320.120338 451.868272,321.868272 C450.120338,323.616206 448.932469,325.924207 448.59694,328.5 L11.4030603,328.5 C11.0675309,325.924207 9.8796624,323.616206 8.13172798,321.868272 C6.38379356,320.120338 4.0757932,318.932469 1.5,318.59694 L1.5,11.4030603 C4.0757932,11.0675309 6.38379356,9.8796624 8.13172798,8.13172798 C9.8796624,6.38379356 11.0675309,4.0757932 11.4030603,1.5 Z" stroke-linejoin="square" fill="#13132F" fill-rule="evenodd"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

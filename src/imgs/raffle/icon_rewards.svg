@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon rewards</title>
+    <defs>
+        <linearGradient x1="18.5388889%" y1="35.2287037%" x2="81.4611111%" y2="59.6984568%" id="linearGradient-1">
+            <stop stop-color="#FFFFD4" offset="0%"></stop>
+            <stop stop-color="#FFEFB1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="18.5388889%" y1="35.2287037%" x2="81.4611111%" y2="59.6984568%" id="linearGradient-2">
+            <stop stop-color="#FFDD00" offset="0%"></stop>
+            <stop stop-color="#FEB100" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="23.1888889%" y1="41.062963%" x2="76.8111111%" y2="58.937037%" id="linearGradient-3">
+            <stop stop-color="#FFFFD4" offset="0%"></stop>
+            <stop stop-color="#FFEFB1" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="积分彩票系统Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="资产类积分彩票系统#C-详情页面等待开奖cn" transform="translate(-954, -1378)">
+            <g id="Earn-More" transform="translate(41, 1183)">
+                <g id="My-Referral-Link" transform="translate(89, 0)">
+                    <g id="Share-my-referral-link" transform="translate(660, 84)">
+                        <g id="编组-10" transform="translate(164, 109)">
+                            <g id="icon-rewards" transform="translate(0, 2)">
+                                <circle id="椭圆形" fill="#FFA900" cx="10" cy="10" r="10"></circle>
+                                <g id="coins4" transform="translate(6, 5.2)" fill-rule="nonzero">
+                                    <path d="M0,6.71111111 L0,8.48888889 C0,9.75777778 3.33333333,9.82222222 4,9.82222222 C4.66666667,9.82222222 8,9.75777778 8,8.48888889 L8,6.71111111 L0,6.71111111 Z" id="路径" fill="url(#linearGradient-1)"></path>
+                                    <path d="M0,4.88888889 L0,6.66666667 C0,7.93555556 3.33333333,8 4,8 C4.66666667,8 8,7.93555556 8,6.66666667 L8,4.88888889 L0,4.88888889 Z" id="路径" fill="url(#linearGradient-2)"></path>
+                                    <path d="M0,3.11111111 L0,4.88888889 C0,6.15777778 3.33333333,6.22222222 4,6.22222222 C4.66666667,6.22222222 8,6.15777778 8,4.88888889 L8,3.11111111 L0,3.11111111 Z" id="路径" fill="url(#linearGradient-1)"></path>
+                                    <path d="M0,1.33333333 L0,3.11111111 C0,4.38 3.33333333,4.44444444 4,4.44444444 C4.66666667,4.44444444 8,4.38 8,3.11111111 L8,1.33333333 L0,1.33333333 Z" id="路径" fill="url(#linearGradient-2)"></path>
+                                    <ellipse id="椭圆形" fill="url(#linearGradient-3)" cx="4" cy="1.33333333" rx="4" ry="1.33333333"></ellipse>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

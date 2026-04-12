@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="190px" height="40px" viewBox="0 0 190 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>lottery label</title>
+    <defs>
+        <linearGradient x1="147.567472%" y1="100%" x2="-7.68829445e-13%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#000000" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="lottery-label" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="label">
+            <polygon id="矩形" fill="#952804" points="0 8 50 4 49.8046875 36.1230469 0 32 15 19.603125"></polygon>
+            <polygon id="矩形" fill="#952804" transform="translate(164.5908, 20.0312) scale(-1, 1) translate(-164.5908, -20.0312)" points="139.181641 8 189.181641 4 190 36.0625 139.181641 32 154.181641 19.603125"></polygon>
+            <rect id="矩形" fill="url(#linearGradient-1)" x="19" y="5" width="11" height="31"></rect>
+            <rect id="矩形" fill="url(#linearGradient-1)" transform="translate(165.5, 20.5) scale(-1, 1) translate(-165.5, -20.5)" x="160" y="5" width="11" height="31"></rect>
+            <rect id="矩形" fill="#B21616" x="22" y="0" width="146" height="40" rx="2"></rect>
+        </g>
+    </g>
+</svg>

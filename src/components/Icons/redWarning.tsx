@@ -1,0 +1,56 @@
+import React from 'react';
+import styled from 'styled-components';
+
+export default function IconRedWarning({
+  className,
+  size,
+  onClick,
+  ...rest
+}: {
+  className?: string;
+  size?: number;
+  onClick?: (e: any) => void;
+}) {
+  return (
+    <StyledSpan
+      className={`${className} dg-icon icon-red-warning`}
+      onClick={onClick}
+      {...rest}
+    >
+      <svg width={size || 14} height={size || 14} viewBox="0 0 14 14">
+        <g
+          id="N23"
+          stroke="none"
+          strokeWidth="1"
+          fill="none"
+          fillRule="evenodd"
+        >
+          <g
+            id="Swap第三方数据接口优化B001Swap页面en"
+            transform="translate(-229, -224)"
+            fill="#DE4D77"
+            fillRule="nonzero"
+          >
+            <g id="rise" transform="translate(219, 216)">
+              <g id="失败" transform="translate(10, 8)">
+                <path
+                  d="M7,0 C10.8660176,0 14,3.13399805 14,7 C14,10.8660176 10.8660176,14 7,14 C3.13401367,14 0,10.8660176 0,7 C0,3.13401367 3.13401367,0 7,0 Z M7.03673295,9.38231059 C6.60492402,9.38231059 6.25487373,9.73236089 6.25487373,10.1641698 C6.25487373,10.5959787 6.60492402,10.946029 7.03673295,10.946029 C7.46854187,10.946029 7.81859216,10.5959787 7.81859216,10.1641698 C7.81859216,9.73236089 7.46854187,9.38231059 7.03673295,9.38231059 Z M7.03673295,3.12743686 C6.60492402,3.12743686 6.25487373,3.47748716 6.25487373,3.90929608 L6.25487373,7.03673295 C6.25487373,7.46854187 6.60492402,7.81859216 7.03673295,7.81859216 C7.46854187,7.81859216 7.81859216,7.46854187 7.81859216,7.03673295 L7.81859216,3.90929608 C7.81859216,3.47748716 7.46854187,3.12743686 7.03673295,3.12743686 Z"
+                  id="形状"
+                ></path>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </StyledSpan>
+  );
+}
+
+const StyledSpan = styled.div`
+  display: inline-block;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+`;

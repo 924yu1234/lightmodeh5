@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>popup_connect</title>
+    <g id="popup_connect" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon" transform="translate(0.027133, 0.024691)" fill-rule="nonzero">
+            <g id="tips">
+                <path d="M24.8694957,-1.11022302e-15 C11.1344771,-1.11022302e-15 0,11.1344771 0,24.8694957 C0,38.6046254 11.1344771,49.7389915 24.8694957,49.7389915 C38.6046254,49.7389915 49.7389915,38.6046254 49.7389915,24.8694957 C49.7389915,11.1344216 38.6046254,-1.11022302e-15 24.8694957,-1.11022302e-15 Z" id="形状" fill="#50E4A2"></path>
+                <circle id="椭圆形" fill="#FFFFFF" cx="17.5" cy="25" r="1.66666667"></circle>
+                <circle id="椭圆形" fill="#FFFFFF" cx="25" cy="25" r="1.66666667"></circle>
+                <circle id="椭圆形" fill="#FFFFFF" cx="32.5" cy="25" r="1.66666667"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

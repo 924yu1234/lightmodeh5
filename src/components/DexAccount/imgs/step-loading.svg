@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>签名等待-icon@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M13.3023921,3.4298487 C12.9275771,2.99537089 12.5002667,2.60745475 12.0303126,2.27595206 C10.890782,1.4721344 9.50052746,1 8,1 C4.13400675,1 1,4.13400675 1,8 C1,11.8659932 4.13400675,15 8,15 C9.88024222,15 11.58734,14.2586806 12.8449591,13.0523762" id="path-1"></path>
+    </defs>
+    <g id="A1-创建交易账户" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="签名1" transform="translate(-1124.000000, -534.000000)">
+            <g id="token弹窗" transform="translate(755.000000, 360.000000)">
+                <g id="token-选择下拉">
+                    <g id="授权" transform="translate(25.000000, 172.000000)">
+                        <g id="1">
+                            <g id="等待" transform="translate(344.000000, 2.000000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="形状" stroke="#7EBAFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" xlink:href="#path-1"></use>
+                                <path d="M14.6652346,10.1450058 C14.882607,9.46903161 15,8.74822511 15,8 C15,7.04864368 14.810214,6.14161425 14.4664371,5.31470677" id="路径" stroke="#7EBAFF" stroke-width="1.4" opacity="0.899925595" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></path>
+                                <path d="M8,15 C9.88024222,15 11.58734,14.2586806 12.8449591,13.0523762" id="路径" stroke="#DFF0FF" stroke-width="1.4" opacity="0.53734189" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></path>
+                                <circle id="椭圆形" fill="#B2D7FF" cx="14.0666667" cy="11.7" r="1"></circle>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

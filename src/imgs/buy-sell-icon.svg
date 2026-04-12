@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>买卖-icon-未点@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="52.8610848%" x2="50%" y2="51.9816621%" id="linearGradient-1">
+            <stop stop-color="#43B083" offset="0%"></stop>
+            <stop stop-color="#E23C51" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="首页-深" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页-1" transform="translate(-1197.000000, -246.000000)">
+            <g id="委托订单" transform="translate(1180.000000, 190.000000)">
+                <g id="买卖" transform="translate(17.000000, 56.000000)">
+                    <rect id="矩形" stroke="url(#linearGradient-1)" x="1.5" y="1.5" width="21" height="21" rx="2"></rect>
+                    <rect id="矩形" fill="#ED324A" x="4" y="4" width="6" height="7" rx="0.8"></rect>
+                    <rect id="矩形" fill="#43B083" x="4" y="13" width="6" height="7" rx="0.8"></rect>
+                    <rect id="矩形" fill="#ED324A" x="12" y="4" width="8" height="2" rx="1"></rect>
+                    <g id="编组-3" transform="translate(12.000000, 8.500000)">
+                        <rect id="矩形" fill="#ED324A" x="0" y="0" width="8" height="2" rx="1"></rect>
+                        <rect id="矩形" fill="#43B083" x="0" y="4.5" width="8" height="2" rx="1"></rect>
+                        <rect id="矩形" fill="#43B083" x="0" y="9" width="8" height="2" rx="1"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

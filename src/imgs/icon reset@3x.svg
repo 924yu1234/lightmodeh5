@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="100px" viewBox="0 0 120 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>重置交易密码图标@3x</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="120" height="102"></rect>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" gradientTransform="translate(0.500000,0.500000),scale(0.224719,1.000000),rotate(-90.000000),scale(1.000000,3.730083),translate(-0.500000,-0.500000)" id="radialGradient-3">
+            <stop stop-color="#2196F3" offset="0%"></stop>
+            <stop stop-color="#2196F3" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.5536318%" id="linearGradient-4">
+            <stop stop-color="#9FD9FB" offset="0%"></stop>
+            <stop stop-color="#0F9FEF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="I-账户" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="06i4账户管理" transform="translate(-284.000000, -342.000000)">
+            <g id="重置交易密码" transform="translate(235.000000, 327.000000)">
+                <g id="登陆钱包查看" transform="translate(49.000000, 17.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="矩形"></g>
+                    <g id="重置交易密码图标" opacity="0.9" mask="url(#mask-2)">
+                        <g transform="translate(16.000000, 31.000000)">
+                            <ellipse id="椭圆形" fill="url(#radialGradient-3)" opacity="0.463146391" cx="44.5" cy="43" rx="44.5" ry="10"></ellipse>
+                            <g id="重置" stroke-width="1" fill="none" transform="translate(25.000000, 0.000000)">
+                                <path d="M19.8660714,0 C8.89136905,0 0,8.89668367 0,19.8660714 C0,30.8354592 8.89668367,39.7321429 19.8660714,39.7321429 C30.8354592,39.7321429 39.7321429,30.8354592 39.7321429,19.8660714 C39.7321429,8.89668367 30.8354592,0 19.8660714,0 Z" id="形状" fill="url(#linearGradient-4)"></path>
+                                <path d="M19.7119473,32.6902636 C13.3556548,32.599915 8.00382653,27.2427721 7.90816327,20.8864796 C7.8125,14.2059949 13.2121599,8.74255952 19.8660714,8.72661565 L19.8660714,6.35097789 L23.3312075,9.81611395 C23.6660289,10.1509354 23.6660289,10.6930272 23.3312075,11.0331633 L19.8660714,14.4982993 L19.8660714,12.1279762 C14.5408163,12.1439201 10.3475765,17.0280612 11.506165,22.5552721 C12.1864371,25.7918793 14.8065476,28.4119898 18.0431548,29.0922619 C23.2940051,30.1977041 27.9708759,26.4562075 28.4332483,21.5136054 C28.4757653,21.0618622 28.8265306,20.7057823 29.2782738,20.7057823 L30.9789541,20.7057823 C31.4678997,20.7057823 31.8771259,21.1150085 31.8452381,21.6039541 C31.377551,27.8592687 26.1001276,32.7859269 19.7119473,32.6902636 L19.7119473,32.6902636 Z" id="路径" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

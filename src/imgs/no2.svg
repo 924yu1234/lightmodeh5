@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>no2</title>
+    <g id="挖矿交互优化" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="展示类_挖矿交互优化#A挖矿预览弹窗en" transform="translate(-421, -335)">
+            <g id="user-guide" transform="translate(385, 120)">
+                <g id="待领取" transform="translate(30, 210)">
+                    <g id="no2" transform="translate(6, 5)">
+                        <rect id="矩形" fill="#50E4A2" opacity="0.2" x="0" y="0" width="50" height="50" rx="5"></rect>
+                        <text id="2" opacity="0.5" font-family="OpenSans-Medium, Open Sans" font-size="40" font-weight="400" line-spacing="24" fill="#F4F4F4">
+                            <tspan x="14" y="58">2</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

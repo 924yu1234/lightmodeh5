@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon card off</title>
+    <g id="icon-card-off" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.4">
+        <g id="icon-card">
+            <rect id="矩形" stroke="#B7BDC6" fill-opacity="0.08" fill="#FFFFFF" x="0.5" y="0.5" width="13" height="13" rx="2"></rect>
+            <rect id="矩形" fill="#B7BDC6" x="2.4" y="2.4" width="9" height="4" rx="0.800000012"></rect>
+            <rect id="矩形" fill="#B7BDC6" x="2.4" y="7.4" width="9" height="4" rx="0.800000012"></rect>
+        </g>
+    </g>
+</svg>

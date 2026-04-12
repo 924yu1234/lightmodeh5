@@ -1,0 +1,112 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { isMobile } from 'react-device-detect';
+
+import { Input } from 'src/UI';
+
+import IconSearch from 'src/components/Icons/serch';
+import { Type_DAChains } from 'src/da';
+import { useShowModal } from 'src/state/application/hooks';
+import { ModalKeys } from 'src/state/application/reducer';
+import { useDexAccount } from 'src/state/dexAccount/hooks';
+import { useCheckGetEarnDetail } from 'src/state/intent/earn/hooks';
+import { useRefreshSwapBalance } from 'src/state/swap/balances/hooks';
+import {
+  useChangeFlag,
+  useSort,
+  useUpdateSort,
+  useUserFlag,
+} from 'src/state/user/hooks';
+
+import useAssetsData from 'js/hooks/useAssets';
+import { useIntl } from 'js/locals';
+
+import EarnList from './earn';
+import { StyledAccountAsset } from './style';
+import ManageMenu from './tokens/manageMenu';
+import SearchTips from './tokens/searchTips';
+import Table from './tokens/table';
+import Top from './top';
+
+export default function DexBalance() {
+  const intl = useIntl();
+  const searchRef = useRef<HTMLInputElement>();
+  const [search, setSearch] = useState('');
+  const [chain, setChain] = useState<Type_DAChains | 'all'>('all');
+  const { account } = useDexAccount();
+  const hideSmallbalances = useUserFlag(`hide_small_balances_${account}`);
+  const updateFlag = useChangeFlag(`hide_small_balances_${account}`);
+  const { orderBy, orderDir } = useSort('asset_balances');
+  const updateSort = useUpdateSort('asset_balances');
+  const [tab, setTab] = useState('tokens');
+  const showModal = useShowModal();
+  useCheckGetEarnDetail();
+  const refreshSwapBalance = useRefreshSwapBalance();
+
+  const { loading, data } = useAssetsData({
+    search,
+    hideSmallbalances,
+    orderBy,
+    orderDir,
+    chain,
+  });
+
+  useEffect(() => {
+    if (!isMobile) searchRef?.current?.focus();
+    refreshSwapBalance();
+  }, [refreshSwapBalance]);
+
+  return (
+    <StyledAccountAsset>
+      <Top />
+      <div className="balance-tabs">
+        <div
+          className={`balance-tab ${tab === 'tokens' ? 'active' : ''}`}
+          onClick={() => setTab('tokens')}
+        >
+          <div className="active-bar" />
+          <div className="balance-tab-title">{intl.Tokens}</div>
+        </div>
+        <div
+          className={`balance-tab ${tab === 'earn' ? 'active' : ''}`}
+          onClick={() => setTab('earn')}
+        >
+          <div className="active-bar" />
+          <div className="balance-tab-title">{intl.Earn}</div>
+        </div>
+      </div>
+      <div className="balances-tpl">
+        {tab === 'tokens' && (
+          <div className="table-tpl">
+            <div className="search-tpl">
+              <Input
+                ref={searchRef as any}
+                leftSection={<IconSearch />}
+                value={search}
+                onChange={(e: any) => setSearch(e.target.value)}
+                placeholder={intl['account.assets_search_placeholder']}
+              />
+              <ManageMenu
+                chain={chain}
+                setChain={setChain}
+                hideSmallbalances={hideSmallbalances}
+                updateFlag={updateFlag}
+                onOpenManageTokens={() =>
+                  showModal({ modal: ModalKeys.manageTokens })
+                }
+              />
+            </div>
+            <Table
+              dataSource={data}
+              loading={loading}
+              orderBy={orderBy}
+              orderDir={orderDir}
+              updateSort={updateSort}
+            />
+            {!loading && !!search && !data?.length && <SearchTips />}
+          </div>
+        )}
+        {tab === 'earn' && <EarnList />}
+      </div>
+    </StyledAccountAsset>
+  );
+}

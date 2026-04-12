@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>资产桥icon-未点@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="A0-顶部导航" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="链接后" transform="translate(-463.000000, -85.000000)">
+            <g id="更多" transform="translate(444.000000, 65.000000)">
+                <g id="资产桥" transform="translate(0.000000, 5.000000)">
+                    <rect id="矩形" opacity="0" x="0" y="0" width="146" height="50"></rect>
+                    <g id="资产桥icon-未点" transform="translate(20.000000, 16.000000)">
+                        <path d="M15.2672914,2.54080708 C14.7967502,2.08415971 14.2764733,1.67847674 13.7153662,1.33266364 C12.3441047,0.487548329 10.7289889,0 9,0 C4.02943725,0 0,4.02943725 0,9 C0,13.9705627 4.02943725,18 9,18 C13.9705627,18 18,13.9705627 18,9 C18,7.90876854 17.805792,6.86289678 17.4500541,5.89506269" id="路径" stroke="#A1A4B1" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <circle id="椭圆形" fill="#A1A4B1" cx="16.5" cy="4.2" r="1"></circle>
+                        <rect id="矩形" stroke="#A1A4B1" stroke-width="1.4" transform="translate(9.000000, 9.000000) rotate(45.000000) translate(-9.000000, -9.000000) " x="6" y="6" width="6" height="6" rx="1"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="100px" viewBox="0 0 120 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>登陆钱包查看@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="120" height="102"></rect>
+        <linearGradient x1="39.3889167%" y1="36.484179%" x2="95.6273045%" y2="36.484179%" id="linearGradient-3">
+            <stop stop-color="#78CBFD" offset="0%"></stop>
+            <stop stop-color="#62B4E5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="71.0515401%" id="linearGradient-4">
+            <stop stop-color="#BAEAFF" offset="0%"></stop>
+            <stop stop-color="#35B2FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="71.0515401%" id="linearGradient-5">
+            <stop stop-color="#BAEAFF" offset="0%"></stop>
+            <stop stop-color="#249BE4" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="16.2973658%" y1="55.5475378%" x2="92.3438605%" y2="55.5475378%" id="linearGradient-6">
+            <stop stop-color="#6BC3FA" offset="0%"></stop>
+            <stop stop-color="#9CD2F2" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="3.30408235%" y1="50%" x2="100%" y2="50%" id="linearGradient-7">
+            <stop stop-color="#DDF4FF" offset="0%"></stop>
+            <stop stop-color="#F1FAFF" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-8" x="3" y="14" width="45" height="38" rx="3"></rect>
+        <mask id="mask-9" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="45" height="38" fill="white">
+            <use xlink:href="#path-8"></use>
+        </mask>
+        <rect id="path-10" x="42" y="27" width="16.1538462" height="12.1153846" rx="2"></rect>
+        <linearGradient x1="9.9462863%" y1="50%" x2="100%" y2="50%" id="linearGradient-12">
+            <stop stop-color="#7FCFFF" offset="0%"></stop>
+            <stop stop-color="#4ABBFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="A1-创建交易账户" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="连接钱包" transform="translate(-530.000000, -893.000000)">
+            <g id="订单" transform="translate(15.000000, 777.000000)">
+                <g id="登陆钱包查看" transform="translate(515.000000, 118.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="矩形"></g>
+                    <g id="邮件图" mask="url(#mask-2)">
+                        <g transform="translate(16.000000, 16.000000)" id="编组-8">
+                            <g>
+                                <g id="编组-18">
+                                    <ellipse id="椭圆形" fill="#7EC9F7" opacity="0.2" cx="44.5" cy="56" rx="44.5" ry="10"></ellipse>
+                                    <g id="交易完成" transform="translate(13.000000, 0.000000)">
+                                        <g id="编组-8" transform="translate(0.461538, 0.000000)">
+                                            <rect id="矩形" fill="url(#linearGradient-3)" x="3" y="11" width="55.1923077" height="44" rx="3"></rect>
+                                            <rect id="矩形" fill="url(#linearGradient-4)" opacity="0.53562128" x="21" y="0" width="22" height="18" rx="2"></rect>
+                                            <rect id="矩形" fill="url(#linearGradient-5)" x="8" y="3" width="16" height="18" rx="2"></rect>
+                                            <rect id="矩形" fill="url(#linearGradient-6)" x="0" y="11" width="51" height="44" rx="3"></rect>
+                                            <use id="矩形" stroke="url(#linearGradient-7)" mask="url(#mask-9)" opacity="0.632486979" stroke-dasharray="2,1" xlink:href="#path-8"></use>
+                                            <mask id="mask-11" fill="white">
+                                                <use xlink:href="#path-10"></use>
+                                            </mask>
+                                            <use id="矩形" fill="#2994D4" xlink:href="#path-10"></use>
+                                            <rect id="矩形" fill="url(#linearGradient-12)" mask="url(#mask-11)" x="41.1384615" y="27" width="16.1538462" height="12.1153846" rx="2"></rect>
+                                            <circle id="椭圆形" fill="#FFFFFF" opacity="0.834984189" cx="50.0192308" cy="33.0192308" r="2.01923077"></circle>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

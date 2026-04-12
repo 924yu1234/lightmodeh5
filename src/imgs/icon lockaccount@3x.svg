@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="100px" viewBox="0 0 120 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon lockaccount@3x</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="120" height="102"></rect>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" gradientTransform="translate(0.500000,0.500000),scale(0.224719,1.000000),rotate(-90.000000),scale(1.000000,3.730083),translate(-0.500000,-0.500000)" id="radialGradient-3">
+            <stop stop-color="#2196F3" offset="0%"></stop>
+            <stop stop-color="#2196F3" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.5536318%" id="linearGradient-4">
+            <stop stop-color="#9FD9FB" offset="0%"></stop>
+            <stop stop-color="#0F9FEF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.5536318%" id="linearGradient-5">
+            <stop stop-color="#9FD9FB" offset="0%"></stop>
+            <stop stop-color="#0F9FEF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="I-账户" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="06i4账户管理" transform="translate(-284.000000, -197.000000)">
+            <g id="锁定账户" transform="translate(235.000000, 182.000000)">
+                <g id="登陆钱包查看" transform="translate(49.000000, 17.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="矩形"></g>
+                    <g id="解锁图" opacity="0.9" mask="url(#mask-2)">
+                        <g transform="translate(16.000000, 31.000000)">
+                            <ellipse id="椭圆形" fill="url(#radialGradient-3)" opacity="0.463146391" cx="44.5" cy="43" rx="44.5" ry="10"></ellipse>
+                            <g id="锁" stroke-width="1" fill="none" transform="translate(29.000000, 0.000000)">
+                                <path d="M16.0984848,-4.61852778e-15 C20.8054571,-5.48318457e-15 24.6212121,3.81575497 24.6212121,8.52272727 L24.6212121,16.2391775 C24.6212121,20.9461498 20.8054571,24.7619048 16.0984848,24.7619048 C11.3915125,24.7619048 7.57575758,20.9461498 7.57575758,16.2391775 L7.57575758,8.52272727 C7.57575758,3.81575497 11.3915125,-3.753871e-15 16.0984848,-4.61852778e-15 Z M15.8712121,3.16190476 C13.1097884,3.16190476 10.8712121,5.40048101 10.8712121,8.16190476 L10.8712121,8.16190476 L10.8712121,13.1619048 C10.8712121,15.9233285 13.1097884,18.1619048 15.8712121,18.1619048 C18.6326359,18.1619048 20.8712121,15.9233285 20.8712121,13.1619048 L20.8712121,13.1619048 L20.8712121,8.16190476 C20.8712121,5.40048101 18.6326359,3.16190476 15.8712121,3.16190476 Z" id="矩形-2" fill="url(#linearGradient-4)"></path>
+                                <rect id="矩形" fill="url(#linearGradient-5)" x="0" y="15.2380952" width="31.25" height="24.7619048" rx="3"></rect>
+                                <ellipse id="椭圆形" fill="#F7FBFF" cx="16.0984848" cy="25.7142857" rx="3.78787879" ry="3.80952381"></ellipse>
+                                <rect id="矩形" fill="#F7FBFF" x="14.6780303" y="26.6666667" width="2.84090909" height="7.61904762" rx="1.42045455"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

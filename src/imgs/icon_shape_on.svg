@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon shape on</title>
+    <g id="icon-shape-on" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-shape">
+            <rect id="矩形" stroke="#00A0FF" x="0.5" y="0.5" width="13" height="13" rx="2"></rect>
+            <g id="编组-3" transform="translate(8.000000, 3.550000)" fill="#00A0FF">
+                <rect id="矩形" x="0" y="0" width="4" height="1.4" rx="0.7"></rect>
+                <rect id="矩形" x="0" y="3.15" width="4" height="1.4" rx="0.7"></rect>
+                <rect id="矩形" x="0" y="6.3" width="4" height="1.4" rx="0.7"></rect>
+            </g>
+            <g id="编组-3" transform="translate(2.000000, 3.550000)" fill="#00A0FF">
+                <rect id="矩形" x="0" y="0" width="4" height="1.4" rx="0.7"></rect>
+                <rect id="矩形" x="0" y="3.15" width="4" height="1.4" rx="0.7"></rect>
+                <rect id="矩形" x="0" y="6.3" width="4" height="1.4" rx="0.7"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

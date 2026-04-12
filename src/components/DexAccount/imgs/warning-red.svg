@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="110px" height="85px" viewBox="0 0 110 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>警告-红色icon@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="A4-导出账户" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="导出-2" transform="translate(-905.000000, -427.000000)">
+            <g id="token弹窗" transform="translate(755.000000, 330.000000)">
+                <g id="token-选择下拉">
+                    <g id="编组-3" transform="translate(150.000000, 94.000000)">
+                        <g id="警告图案" transform="translate(0.846154, 0.000000)">
+                            <ellipse id="椭圆形" fill="#EE4D61" opacity="0.364281064" cx="54.1538462" cy="71.5" rx="54.1538462" ry="13.9615385"></ellipse>
+                            <g id="编组-10" transform="translate(10.153846, 0.000000)">
+                                <path d="M52.1102142,10.7345042 L82.9524489,59.6566695 C85.3087206,63.394204 84.1889859,68.33421 80.4514514,70.6904817 C79.1741368,71.4957453 77.6950049,71.9230769 76.185044,71.9230769 L14.5005747,71.9230769 C10.0822967,71.9230769 6.5005747,68.3413549 6.5005747,63.9230769 C6.5005747,62.413116 6.92790633,60.9339841 7.73316987,59.6566695 L38.5754045,10.7345042 C40.9316763,6.99696972 45.8716823,5.87723503 49.6092168,8.23350676 C50.6190387,8.87013362 51.4735873,9.72468229 52.1102142,10.7345042 Z" id="三角形" fill="#EE4D61"></path>
+                                <g id="编组-6" transform="translate(42.215719, 25.016722)" fill="#FFFFFF">
+                                    <rect id="矩形" x="0" y="0" width="6.2541806" height="23.4531773" rx="3.1270903"></rect>
+                                    <circle id="椭圆形" cx="3.1270903" cy="29.7073579" r="3.1270903"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>密钥点亮-icon@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="A2-重置appkey" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="重置-4" transform="translate(-780.000000, -590.000000)">
+            <g id="token弹窗" transform="translate(755.000000, 467.000000)">
+                <g id="token-选择下拉">
+                    <g id="授权" transform="translate(25.000000, 121.000000)">
+                        <g id="1">
+                            <g id="密钥-点亮" transform="translate(0.000000, 2.000000)">
+                                <circle id="椭圆形" stroke="#0F84FF" stroke-width="1.1" cx="8" cy="8" r="7.45"></circle>
+                                <g id="编组-2" transform="translate(5.300000, 2.500000)">
+                                    <circle id="椭圆形" stroke="#0F84FF" stroke-width="1.1" cx="2.7" cy="2.7" r="2.15"></circle>
+                                    <rect id="矩形" fill="#0F84FF" x="2.2" y="5" width="1.1" height="6" rx="0.55"></rect>
+                                    <rect id="矩形" fill="#0F84FF" transform="translate(3.900000, 7.050000) rotate(90.000000) translate(-3.900000, -7.050000) " x="3.35" y="6.05" width="1.1" height="2" rx="0.55"></rect>
+                                    <rect id="矩形" fill="#0F84FF" transform="translate(3.700000, 9.450000) rotate(90.000000) translate(-3.700000, -9.450000) " x="3.15" y="8.45" width="1.1" height="2" rx="0.55"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_candle_normal</title>
+    <g id="icon_candle_normal" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.8">
+        <g id="编组-11" fill="#B7BDC6" transform="translate(2.857143, 0.000000)">
+            <rect id="矩形" x="8.57142857" y="7.14285714" width="7.14285714" height="8.57142857" rx="1"></rect>
+            <rect id="矩形" x="11.4285714" y="2.85714286" width="1.42857143" height="5.71428571" rx="0.5"></rect>
+            <rect id="矩形" x="11.4285714" y="14.2857143" width="1.42857143" height="5.71428571" rx="0.5"></rect>
+            <rect id="矩形" x="2.85714286" y="0" width="1.42857143" height="5.71428571" rx="0.5"></rect>
+            <rect id="矩形" x="2.85714286" y="14.2857143" width="1.42857143" height="5.71428571" rx="0.5"></rect>
+            <rect id="矩形" x="0" y="4.28571429" width="7.14285714" height="11.4285714" rx="1"></rect>
+        </g>
+    </g>
+</svg>

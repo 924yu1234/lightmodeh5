@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>转账完成-icon@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="9" cy="9" r="9"></circle>
+    </defs>
+    <g id="B6-历史记录" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="订单详情-2" transform="translate(-899.000000, -448.000000)">
+            <g id="token弹窗" transform="translate(755.000000, 355.000000)">
+                <g id="兑换成功" transform="translate(144.000000, 92.000000)">
+                    <g id="勾" transform="translate(1.000000, 2.000000)">
+                        <g id="icon">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Mask-Copy" fill="#7EBAFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+                        </g>
+                        <g id="编组-2" transform="translate(8.807143, 8.100000) rotate(45.000000) translate(-8.807143, -8.100000) translate(6.300000, 4.050000)" fill="#FFFFFD" fill-rule="nonzero">
+                            <path d="M4.62857143,7.05857143 C4.99071243,7.05857143 5.28428571,7.35214471 5.28428571,7.71428571 C5.28428571,8.05736666 5.02080166,8.33890761 4.68514897,8.36759314 L4.62857143,8.37 L1.11022302e-16,8.37 C-0.362141,8.37 -0.655714286,8.07642671 -0.655714286,7.71428571 C-0.655714286,7.37120477 -0.392230229,7.08966382 -0.0565775387,7.06097829 L1.11022302e-16,7.05857143 L4.62857143,7.05857143 Z" id="直线-2"></path>
+                            <path d="M8.48571429,3.20142857 C8.84785529,3.20142857 9.14142857,3.49500186 9.14142857,3.85714286 C9.14142857,4.2002238 8.87794451,4.48176475 8.54229182,4.51045028 L8.48571429,4.51285714 L0.771428571,4.51285714 C0.409287571,4.51285714 0.115714286,4.21928386 0.115714286,3.85714286 C0.115714286,3.51406191 0.379198342,3.23252096 0.714851033,3.20383543 L0.771428571,3.20142857 L8.48571429,3.20142857 Z" id="直线-2" transform="translate(4.628571, 3.857143) rotate(-90.000000) translate(-4.628571, -3.857143) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

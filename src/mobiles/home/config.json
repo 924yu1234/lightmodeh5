@@ -1,0 +1,40 @@
+{
+  "configs": [
+    {
+      "key": "turboRange",
+      "topProduct": "6m5aXAve4uh6Kt4ytKyCLWNMjd8PYP5vujwNCtycrUiD",
+      "size": 2
+    },
+    {
+      "key": "stocks",
+      "orderBy": "market_cap",
+      "orderDir": "desc",
+      "size": 3
+    },
+    {
+      "key": "earn",
+      "orderBy": "totalApy",
+      "orderDir": "desc",
+      "size": 2
+    },
+    {
+      "key": "airdrops",
+      "list": [
+        {
+          "name": {
+            "en-US": "Monad"
+          },
+          "url": "https://hub.degate.com/airdrop-1",
+          "icon": "https://hub.degate.com/img/airdrop/monad.png",
+          "tag": {
+            "en-US": "Potential"
+          },
+          "completeTime": {
+            "en-US": "30mins",
+            "zh-CN": "30分钟"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>stepone_on</title>
+    <g id="stepone_on" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <circle id="Mask-Copy" fill="#00A0FF" cx="8" cy="8" r="8"></circle>
+            <polygon id="1" fill="#FFFFFF" points="8.91428571 13 8.91428571 3.6 7.95428571 3.6 5.74628571 4.368 6.02228571 5.328 7.81028571 4.8 7.81028571 13"></polygon>
+        </g>
+    </g>
+</svg>

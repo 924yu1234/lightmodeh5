@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="19px" viewBox="0 0 18 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>失败icon@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="B8-提现失败重试" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="提现失败-1" transform="translate(-916.000000, -419.000000)">
+            <g id="token弹窗" transform="translate(755.000000, 325.000000)">
+                <g id="兑换成功" transform="translate(160.000000, 92.000000)">
+                    <g id="提现失败" transform="translate(0.000000, 1.000000)">
+                        <g id="编组-10">
+                            <path d="M11.7483146,3.14696619 L18.3492856,15.0287141 C18.885712,15.9942816 18.5378244,17.2118882 17.5722569,17.7483146 C17.2751409,17.913379 16.9408596,18 16.6009711,18 L3.39902892,18 C2.29445942,18 1.39902892,17.1045695 1.39902892,16 C1.39902892,15.6601115 1.48564992,15.3258301 1.65071437,15.0287141 L8.25168545,3.14696619 C8.78811182,2.18139873 10.0057184,1.83351113 10.9712859,2.3699375 C11.297766,2.55131535 11.5669367,2.82048606 11.7483146,3.14696619 Z" id="三角形" fill="#ED324A"></path>
+                            <g id="编组-6" transform="translate(9.300000, 7.000000)" fill="#FFFFFF">
+                                <rect id="矩形" x="1.84852134e-13" y="-5.19584376e-14" width="1.4" height="5.86329431" rx="0.7"></rect>
+                                <circle id="椭圆形" cx="0.7" cy="7.34506689" r="1"></circle>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

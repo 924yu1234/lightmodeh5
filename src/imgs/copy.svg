@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>复制icon@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="首页-fiat修改2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="fiat-订单详情" transform="translate(-346.000000, -780.000000)">
+            <g id="编组-4" transform="translate(16.000000, 365.000000)">
+                <g id="信息">
+                    <g id="item1" transform="translate(0.000000, 414.000000)">
+                        <g id="复制icon" transform="translate(331.000000, 2.000000)">
+                            <rect id="矩形" stroke="#42A8FF" stroke-width="1.3" stroke-linecap="round" x="0" y="3" width="9" height="9" rx="0.6"></rect>
+                            <path d="M12,5.7 L12,6.125 C12,6.60824916 11.651777,7 11.2222222,7 L5.77777778,7 C5.34822297,7 5,6.60824916 5,6.125 L5,0.875 C5,0.391750844 5.34822297,0 5.77777778,0 L5.9869281,0" id="路径" stroke="#42A8FF" stroke-width="1.3" stroke-linecap="round" transform="translate(8.500000, 3.500000) scale(-1, -1) translate(-8.500000, -3.500000) "></path>
+                            <rect id="矩形" fill="#42A8FF" x="2" y="7" width="5" height="1.2" rx="0.6"></rect>
+                            <rect id="矩形" fill="#42A8FF" transform="translate(4.500000, 7.600000) rotate(-90.000000) translate(-4.500000, -7.600000) " x="2" y="7" width="5" height="1.2" rx="0.6"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

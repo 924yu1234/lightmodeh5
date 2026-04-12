@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>提现记录icon-未@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="B1-账户资产" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="账户资产" transform="translate(-40.000000, -243.000000)" stroke="#A1A4B1" stroke-width="1.4">
+            <g id="资产" transform="translate(0.000000, 81.000000)">
+                <g id="转账记录" transform="translate(0.000000, 140.000000)">
+                    <g id="编组-6" transform="translate(40.000000, 22.000000)">
+                        <g id="资产余额">
+                            <g id="提现" transform="translate(1.000000, 1.000000)">
+                                <path d="M21.9134335,13.6168607 C22.1009027,12.8082027 22.2,11.9656741 22.2,11.1 C22.2,4.96963928 17.2303607,-5.32907052e-15 11.1,-5.32907052e-15 C4.96963928,-5.32907052e-15 2.30926389e-14,4.96963928 2.30926389e-14,11.1 C2.30926389e-14,17.2303607 4.96963928,22.2 11.1,22.2 L20.544544,22.2 L17.3812314,18.5025259" id="路径" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <rect id="矩形" transform="translate(11.500000, 11.149747) rotate(45.000000) translate(-11.500000, -11.149747) " x="8" y="7.64974747" width="7" height="7" rx="1"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,72 @@
+import React from 'react';
+import styled from 'styled-components';
+
+export default function IconRaffleUser(props: {
+  className?: string;
+  size?: number;
+}) {
+  const { className, size, ...rest } = props;
+  return (
+    <StyledSpan className={`${className} dg-icon icon-raffleUser`} {...rest}>
+      <svg
+        width={size || 48}
+        height={size || 48}
+        viewBox="0 0 48 48"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          id="me-account"
+          stroke="none"
+          strokeWidth="1"
+          fill="none"
+          fillRule="evenodd"
+        >
+          <g id="编组-5" transform="translate(0, 0)">
+            <path
+              d="M24,0 C37.254834,-2.4348735e-15 48,10.745166 48,24 C48,37.254834 37.254834,48 24,48 C10.745166,48 1.623249e-15,37.254834 0,24 C-1.623249e-15,10.745166 10.745166,2.4348735e-15 24,0 Z"
+              id="Rectangle-5-Copy"
+              fill="#FFFFFF"
+              opacity="0.1"
+            ></path>
+            <g
+              id="iconaccount_on"
+              transform="translate(5.5385, 5.5385)"
+              fill="#FE932F"
+            >
+              <circle
+                id="椭圆形"
+                opacity="0.2"
+                cx="18.4615385"
+                cy="18.4615385"
+                r="18.4615385"
+              ></circle>
+              <g
+                id="个人3"
+                transform="translate(8.0309, 6.6512)"
+                fillRule="nonzero"
+              >
+                <path
+                  d="M10.1538462,12.9230769 C6.59119067,12.9230769 3.69230769,10.0241939 3.69230769,6.46153846 C3.69230769,2.89888298 6.59119067,0 10.1538462,0 C13.7165016,0 16.6153846,2.89888298 16.6153846,6.46153846 C16.6153846,10.0241939 13.7165016,12.9230769 10.1538462,12.9230769 Z M17.3452986,23.6559441 L3.20711673,23.6559441 C2.18250135,23.6559441 1.21327058,23.1851748 0.611592258,22.3972028 C0.0451586916,21.6545455 -0.138617532,20.7205594 0.105578272,19.8318881 C0.92376009,16.8511888 3.7886552,14.7692308 7.0714524,14.7692308 L13.4784454,14.7692308 C16.7612426,14.7692308 19.6261377,16.8511888 20.4443195,19.8293706 C20.6885153,20.718042 20.5047391,21.6545455 19.9383055,22.3946853 C19.3366272,23.1851748 18.3673965,23.6559441 17.3452986,23.6559441 Z"
+                  id="路径-3"
+                ></path>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </StyledSpan>
+  );
+}
+
+const StyledSpan = styled.div`
+  display: inline-block;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  &.active {
+    color: ${({ theme }) => theme.blue};
+  }
+`;

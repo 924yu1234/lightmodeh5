@@ -1,0 +1,32 @@
+variables:
+  SERVICE_NAME: "degate-trade-fe"
+  SERVICE_VERSION: "1.0.0"
+  CICD_DIR_PREFIX: ""
+
+default:
+  tags:
+    - dind
+
+stages:
+  - build
+  - deploy
+
+build:
+  image: registry.degate.space/degate/devops-environment:0.0.4-ci
+  stage: build
+  rules:
+    - if: '$EXCLUDE_BUILD != "true" && $SERVICES != ""'
+  script:
+    - ./cicd_wrapper/build.sh "${SERVICES}"
+
+deploy:
+  image: registry.degate.space/degate/devops-environment:0.0.4
+  stage: deploy
+  rules:
+    - if: '$EXCLUDE_DEPLOY != "true" && $SERVICES != ""'
+  script:
+    - ./cicd_wrapper/deploy.sh "${SERVICES}" "${ENV}"
+
+workflow:
+  rules:
+    - if: '$SERVICES'

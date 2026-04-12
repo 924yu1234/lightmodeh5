@@ -1,0 +1,24 @@
+{
+  "isInit": true,
+  "workloadResource": "deployment",
+  "replicas": 1,
+  "podManagementPolicy": "OrderedReady",
+  "dev": {
+    "namespace": "dev-backend"
+  },
+  "testd": {
+    "namespace": "testd-be"
+  },
+  "teste": {
+    "namespace": "teste-be"
+  },
+  "testf": {
+    "namespace": "testf-be"
+  },
+  "staging": {
+    "namespace": "backend-be"
+  },
+  "production": {
+    "namespace": "backend-be"
+  }
+}

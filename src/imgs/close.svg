@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{opacity:0.6;}
+	.st2{fill:#B7BDC6;}
+</style>
+<title>关闭@3x</title>
+<desc>Created with Sketch.</desc>
+<g id="Confirm-Order">
+	<g id="_x31_0-Confirm-Order-唤醒钱包" transform="translate(-1144.000000, -419.000000)">
+		<g id="token弹窗" transform="translate(730.000000, 378.000000)">
+			<g id="关闭" transform="translate(400.000000, 27.000000)">
+				<rect id="Rectangle" y="0" class="st0" width="44" height="44"/>
+				
+					<g id="icon" transform="translate(22.000000, 22.000000) rotate(45.000000) translate(-22.000000, -22.000000) translate(10.000000, 10.000000)" class="st1">
+					<path id="Rectangle-6" class="st2" d="M12.6,3c0.2,0,0.3,0,0.3,0.1c0.1,0,0.1,0.1,0.2,0.2c0,0.1,0.1,0.1,0.1,0.3v7.3h7.3
+						c0.2,0,0.3,0,0.3,0.1s0.1,0.1,0.2,0.2c0,0.1,0.1,0.1,0.1,0.3v1.1c0,0.2,0,0.3-0.1,0.3c0,0.1-0.1,0.1-0.2,0.2
+						c-0.1,0-0.1,0.1-0.3,0.1h-7.3v7.3c0,0.2,0,0.3-0.1,0.3c0,0.1-0.1,0.1-0.2,0.2c-0.1,0-0.1,0.1-0.3,0.1h-1.1
+						c-0.2,0-0.3,0-0.3-0.1c-0.1,0-0.1-0.1-0.2-0.2s-0.1-0.1-0.1-0.3v-7.3H3.5c-0.2,0-0.3,0-0.3-0.1C3.1,13,3.1,13,3,12.9
+						C3,12.8,3,12.8,3,12.6v-1.1c0-0.2,0-0.3,0.1-0.3s0.1-0.1,0.2-0.2c0.1,0,0.1-0.1,0.3-0.1h7.3V3.5c0-0.2,0-0.3,0.1-0.3
+						C11,3.1,11,3.1,11.1,3S11.2,3,11.4,3H12.6z"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

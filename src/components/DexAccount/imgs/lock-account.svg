@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="110px" height="85px" viewBox="0 0 110 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>锁定账户@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="63.1700167%" id="linearGradient-1">
+            <stop stop-color="#69B9FF" offset="0%"></stop>
+            <stop stop-color="#86C7FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="5.21529339%" y1="23.2453237%" x2="100%" y2="75.7633238%" id="linearGradient-2">
+            <stop stop-color="#A6D6FF" offset="0%"></stop>
+            <stop stop-color="#47A9FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="A3-解锁和锁定账户" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="锁定-1" transform="translate(-905.000000, -428.000000)">
+            <g id="token弹窗" transform="translate(755.000000, 331.000000)">
+                <g id="token-选择下拉">
+                    <g id="图" transform="translate(150.000000, 97.000000)">
+                        <ellipse id="椭圆形" fill="#3DA5FF" opacity="0.463146391" cx="55.1538462" cy="68.9615385" rx="54.1538462" ry="13.9615385"></ellipse>
+                        <g id="编组-23" transform="translate(23.000000, 2.000000)">
+                            <g id="编组-6">
+                                <g id="编组-4">
+                                    <path d="M3,7 L47,7 C48.6568542,7 50,8.34314575 50,10 L50,61 C50,63.209139 48.209139,65 46,65 L3,65 C1.34314575,65 2.02906125e-16,63.6568542 0,62 L0,10 C-2.02906125e-16,8.34314575 1.34314575,7 3,7 Z" id="矩形" fill="#3DA5FF"></path>
+                                    <rect id="矩形" fill="#DCEFFF" opacity="0.874930246" x="3" y="10.5" width="44" height="51" rx="2"></rect>
+                                    <rect id="矩形" fill-opacity="0.4" fill="#FFFFFF" x="11" y="21" width="28" height="3" rx="1.5"></rect>
+                                    <rect id="矩形" fill-opacity="0.4" fill="#FFFFFF" x="11" y="34" width="28" height="3" rx="1.5"></rect>
+                                    <rect id="矩形" fill-opacity="0.4" fill="#FFFFFF" x="11" y="47" width="28" height="3" rx="1.5"></rect>
+                                    <path d="M24.64,-2.18491891e-13 C27.8535054,-2.18491891e-13 30.4922909,1.93338258 30.7749411,4.40046433 L36.72,4.4 C37.8245695,4.4 38.72,5.2954305 38.72,6.4 L38.72,9.44 C38.72,10.5445695 37.8245695,11.44 36.72,11.44 L12.56,11.44 C11.4554305,11.44 10.56,10.5445695 10.56,9.44 L10.56,6.4 C10.56,5.2954305 11.4554305,4.4 12.56,4.4 L18.5050589,4.40046433 C18.7877091,1.93338258 21.4264946,-2.18491891e-13 24.64,-2.18491891e-13 Z M24.64,2.64 C23.6679788,2.64 22.88,3.42797884 22.88,4.4 C22.88,5.37202116 23.6679788,6.16 24.64,6.16 C25.6120212,6.16 26.4,5.37202116 26.4,4.4 C26.4,3.42797884 25.6120212,2.64 24.64,2.64 Z" id="形状结合" fill="#349AF2"></path>
+                                </g>
+                                <g id="?-2" transform="translate(62.249023, 19.247070)"></g>
+                            </g>
+                        </g>
+                        <rect id="矩形" stroke="url(#linearGradient-1)" stroke-width="4" x="68" y="30" width="18" height="26" rx="9"></rect>
+                        <rect id="矩形" fill="url(#linearGradient-2)" x="60" y="46" width="33" height="26" rx="3"></rect>
+                        <circle id="椭圆形" fill="#C7E5FF" cx="77" cy="57" r="4"></circle>
+                        <rect id="矩形" fill="#C7E5FF" x="75.5" y="58" width="3" height="8" rx="1.5"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

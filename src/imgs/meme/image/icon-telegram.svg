@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>telegram</title>
+    <g id="memetool-share-card" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.6">
+        <g id="memetool-share-card3" transform="translate(-564, -418)" fill="#FFFFFF">
+            <g id="telegram" transform="translate(564, 418)">
+                <circle id="Oval" fill-opacity="0.2" fill-rule="nonzero" cx="12" cy="12" r="12"></circle>
+                <g transform="translate(6, 6.6)" id="Fill-1">
+                    <path d="M4.44860656,9.59750589 L4.62829887,6.78222384 L9.71983733,2.16991615 C9.95937579,1.99017256 9.65993989,1.87037768 9.36045271,2.05006999 L3.13081169,6.00350589 L0.435273227,5.10499307 C-0.163701132,4.92530076 -0.163701132,4.50596743 0.55511938,4.20648025 L11.1574271,0.0734033251 C11.6366578,-0.166237701 12.1158373,0.193198197 11.9360937,0.971864864 L10.1391194,9.53760845 C10.0192732,10.1366341 9.65993989,10.3163264 9.12081169,10.0168392 L6.36537579,7.98022384 L5.0476322,9.29801871 C4.86788861,9.47771102 4.74809374,9.59750589 4.44860656,9.59750589"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

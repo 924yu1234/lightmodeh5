@@ -1,0 +1,58 @@
+import React from 'react';
+import styled from 'styled-components';
+
+export default function IconTicketBg({
+  className,
+  onClick,
+  ...rest
+}: {
+  className?: string;
+  onClick?: (e?: any) => void;
+}) {
+  return (
+    <StyledSpan
+      className={`${className} dg-icon icon-ticket-bg`}
+      onClick={onClick}
+      {...rest}
+    >
+      <svg width="85px" height="36px" viewBox="0 0 85 36" version="1.1">
+        <title>路径</title>
+        <g
+          id="积分彩票系统Mobile"
+          stroke="none"
+          strokeWidth="1"
+          fill="none"
+          fillRule="evenodd"
+          fillOpacity="0.1"
+          strokeOpacity="0.2"
+        >
+          <g
+            id="资产类积分彩票系统#B-奖券页面en2"
+            transform="translate(-10, -382)"
+            fill="#FFFFFF"
+            fillRule="nonzero"
+            stroke="#FFFFFF"
+          >
+            <g id="编组-2" transform="translate(10, 290)">
+              <g id="编组" transform="translate(0, 92)">
+                <path
+                  d="M84.0671874,0.50257869 L84.4922685,13.8884521 C83.7638904,14.4786966 83.3275894,14.9841957 82.998288,15.6155891 C82.6345356,16.313038 82.4067551,17.1678706 82.4067551,18.0013469 C82.4067551,18.8346712 82.6344418,19.688971 82.9980674,20.3861768 C83.3207038,21.004791 83.7517466,21.4930403 84.2161435,21.7713818 L84.4896554,35.0564036 L0.932813134,35.4974368 L0.507733063,22.1115966 C1.23606543,21.5215615 1.67233993,21.0161082 2.00163846,20.3847202 C2.36543313,19.6871903 2.59324486,18.83218 2.59324486,17.9986531 C2.59324486,17.1652781 2.36552694,16.3108007 2.00185905,15.6135139 C1.67922832,14.9949105 1.24820796,14.5067315 0.783853399,14.2285268 L0.510346297,0.946274032 L84.0671874,0.50257869 Z"
+                  id="路径"
+                ></path>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </StyledSpan>
+  );
+}
+
+const StyledSpan = styled.div`
+  display: inline-block;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+`;

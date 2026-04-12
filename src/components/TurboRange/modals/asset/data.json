@@ -1,0 +1,40 @@
+{
+  "product": "HHQUnUbmWLrYzkscDY1C3deEFbGtiGBGoHjpANogmvum",
+  "description": {
+    "en-US": "TSLAx is an xStock issued by Backed Assets (JE) Limited. The issuance of xStocks complies with Swiss law and was approved by the FMA in Liechtenstein on May 8, 2025." 
+  },
+  "descriptionLinks":[
+    {
+      "name": {
+        "en-US": "Legal Documentation"
+      },
+      "url": "https://assets.backed.fi/legal-documentation"
+    },
+    {
+      "name": {
+        "en-US": "Factsheet"
+      },
+      "url": "https://documents.backed.fi/backed-assets-factsheet-TSLAx.pdf"
+    }
+  ],
+  "websites": [{
+    "name": {
+      "en-US": "xStocks"
+    },
+    "url": "https://xstocks.com/"
+  }, {
+    "name": {
+      "en-US": "backed.fi"
+    },
+    "url": "https://backed.fi/"
+  }],
+  "pool": {
+    "url": "https://raydium.io/pool/HHQUnUbmWLrYzkscDY1C3deEFbGtiGBGoHjpANogmvum",
+    "name": "Raydium",
+    "createTime": 1720310400000
+  },
+  "tvl": {
+    "value": 1234567890.123,
+    "date": "2025-11-23"
+  }
+}

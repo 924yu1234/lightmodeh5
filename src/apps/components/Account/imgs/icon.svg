@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>头像-未点@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="13" cy="13" r="13"></circle>
+    </defs>
+    <g id="A0-顶部导航" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="链接后" transform="translate(-1755.000000, -26.000000)">
+            <g id="头">
+                <g id="头像-未" transform="translate(1755.000000, 26.000000)">
+                    <g id="头像" transform="translate(1.000000, 1.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <circle stroke="#7EBAFF" stroke-width="1.4" cx="13" cy="13" r="12.3"></circle>
+                        <path d="M20.4171429,17.24 L20.5661872,18.0975156 C20.7553361,19.1857695 20.0264675,20.221309 18.9382137,20.4104579 C18.8251116,20.4301161 18.710527,20.44 18.5957293,20.44 L7.77760402,20.44 C6.67303452,20.44 5.77760402,19.5445695 5.77760402,18.44 C5.77760402,18.3252023 5.78748788,18.2106177 5.80714609,18.0975156 L5.95619048,17.24 C6.24599904,15.5726083 7.57908812,14.3109614 9.21428871,14.078518 C10.2461822,14.9845617 11.5990048,15.5333333 13.08,15.5333333 C14.5726222,15.5333333 15.9350515,14.9759113 16.9704737,14.0578812 C18.6906749,14.2149821 20.1162425,15.5087925 20.4171429,17.24 Z" id="形状结合" fill="#7EBAFF" mask="url(#mask-2)"></path>
+                        <circle id="椭圆形" fill="#7EBAFF" mask="url(#mask-2)" cx="13.1" cy="9.6" r="4.8"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

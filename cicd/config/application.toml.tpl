@@ -1,0 +1,20 @@
+DG_API= {{ url.backend.url }}
+WS_API= {{ url.backend.ws }}/ws
+LOG_API={{ url.backend.url }}/log
+PUBLIC_URL={{ url.frontend.cdn }}/degate-web
+
+DEX_CHAIN_ID = {{ chain.ethereum.id }}
+ENV={{ env }}
+DISABLED_ROUTES= {{ DISABLED_ROUTES }}
+RESET_APPROVAL_TOKENS= {{ RESET_APPROVAL_TOKENS }}
+
+BETA_ENV={{ BETA_ENV }}
+BETA_STOP_DEPOSIT={{ BETA_STOP_DEPOSIT }}
+IS_MINING={{ IS_MINING }}
+MULTICALL_ACCOUNT={{ MULTICALL_ACCOUNT }}
+DG_SCAN={{ url.frontend.scan }}
+AIRDROP_CAMPAIGN={{ AIRDROP_CAMPAIGN }}
+VERIFY_ACCOUNT_TIME={{ DG_TRADE_SWAP_VERIFY_ACCOUNT_TIME }}
+HUB_API={{ HUB_BE_API }}
+
+

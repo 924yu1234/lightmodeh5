@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>重置-icon-点亮@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="A2-重置appkey" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="重置-5" transform="translate(-780.000000, -636.000000)" stroke="#3D9BFF" stroke-width="1.1">
+            <g id="token弹窗" transform="translate(755.000000, 467.000000)">
+                <g id="token-选择下拉">
+                    <g id="重置" transform="translate(25.000000, 167.000000)">
+                        <g id="重置-icon-亮" transform="translate(0.000000, 2.000000)">
+                            <path d="M14.466357,4.39916161 C13.2015715,2.13272686 10.7797795,0.6 8,0.6 C3.91309285,0.6 0.6,3.91309285 0.6,8 C0.6,12.0869071 3.91309285,15.4 8,15.4 C10.4273629,15.4 12.5817547,14.2312719 13.9311528,12.4258384 C14.8537119,11.1914961 15.4,9.65954427 15.4,8" id="路径"></path>
+                            <path d="M11,1 L14.4285714,1 C14.7441627,1 15,1.25583729 15,1.57142857 L15,5" id="路径" transform="translate(13.000000, 3.000000) rotate(90.000000) translate(-13.000000, -3.000000) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

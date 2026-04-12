@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="353px" height="340px" viewBox="0 0 353 340" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形 3</title>
+    <defs>
+        <linearGradient x1="73.7975084%" y1="113.768982%" x2="2.23078547%" y2="-20.7930057%" id="linearGradient-1">
+            <stop stop-color="#FE932F" offset="0%"></stop>
+            <stop stop-color="#FDB067" offset="100%"></stop>
+        </linearGradient>
+        <path d="M335,55 C335,60.5228475 339.477153,65 345,65 L345,375 C339.477153,375 335,379.477153 335,385 L10,385 C10,379.477153 5.5228475,375 0,375 L0,65 C5.5228475,65 10,60.5228475 10,55 L335,55 Z" id="path-2"></path>
+        <filter x="-2.6%" y="-1.5%" width="105.2%" height="106.1%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0989947552 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="积分彩票系统Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="资产类积分彩票系统#B002-详情页面en1" transform="translate(-12, -365.4)">
+            <g id="矩形-3" transform="translate(16, 310.4)">
+                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                <path stroke="url(#linearGradient-1)" stroke-width="5" d="M332.750045,57.5 C333.247148,59.948913 334.460181,62.1378501 336.161165,63.8388348 C337.86215,65.5398194 340.051087,66.7528516 342.5,67.2499547 L342.5,372.750045 C340.051087,373.247148 337.86215,374.460181 336.161165,376.161165 C334.460181,377.86215 333.247148,380.051087 332.750045,382.5 L12.2499547,382.5 C11.7528516,380.051087 10.5398194,377.86215 8.83883476,376.161165 C7.13785011,374.460181 4.94891298,373.247148 2.5,372.750045 L2.5,67.2499547 C4.94891298,66.7528516 7.13785011,65.5398194 8.83883476,63.8388348 C10.5398194,62.1378501 11.7528516,59.948913 12.2499547,57.5 Z" stroke-linejoin="square" fill-opacity="0.05" fill="#FFFFFF" fill-rule="evenodd"></path>
+            </g>
+        </g>
+    </g>
+</svg>

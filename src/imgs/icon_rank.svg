@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon rank</title>
+    <g id="挖矿" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02挖矿主界面挖矿进行中有经验值" transform="translate(-790.000000, -903.000000)" fill="#7EBAFF">
+            <g id="矿池" transform="translate(230.000000, 794.000000)">
+                <g id="1" transform="translate(0.000000, 91.000000)">
+                    <g id="排行" transform="translate(560.000000, 15.000000)">
+                        <g id="icon-rank" transform="translate(0.000000, 3.000000)">
+                            <rect id="矩形" x="10" y="4" width="4" height="10" rx="1"></rect>
+                            <rect id="矩形" x="5" y="0" width="4" height="14" rx="1"></rect>
+                            <rect id="矩形" x="0" y="7" width="4" height="7" rx="1"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

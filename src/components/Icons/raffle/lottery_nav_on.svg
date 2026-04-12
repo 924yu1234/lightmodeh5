@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="90px" viewBox="0 0 200 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>lottery left nav on</title>
+    <defs>
+        <radialGradient cx="52.8493924%" cy="122.560764%" fx="52.8493924%" fy="122.560764%" r="66.7491319%" gradientTransform="translate(0.5285, 1.2256), scale(0.45, 1), rotate(90), scale(1, 1.4951), translate(-0.5285, -1.2256)" id="radialGradient-1">
+            <stop stop-color="#FFF21A" offset="0%"></stop>
+            <stop stop-color="#FFF21A" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="lottery-left-nav-on" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="矩形" fill="#FE932F" x="0" y="0" width="200" height="90" rx="20"></rect>
+        <rect id="矩形" fill="url(#radialGradient-1)" x="0" y="0" width="200" height="90" rx="20"></rect>
+    </g>
+</svg>

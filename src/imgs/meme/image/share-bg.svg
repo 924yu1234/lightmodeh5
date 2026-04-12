@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="720px" height="450px" viewBox="0 0 720 450" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>memetool share bg@3x</title>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" gradientTransform="translate(0.5, 0.5), scale(0.9926, 1), rotate(90), translate(-0.5, -0.5)" id="radialGradient-1">
+            <stop stop-color="#1E00FF" stop-opacity="0.6" offset="0%"></stop>
+            <stop stop-color="#1E00FF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" gradientTransform="translate(0.5, 0.5), scale(0.9928, 1), rotate(90), translate(-0.5, -0.5)" id="radialGradient-2">
+            <stop stop-color="#1E00FF" stop-opacity="0.6" offset="0%"></stop>
+            <stop stop-color="#1E00FF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" gradientTransform="translate(0.5, 0.5), scale(0.9923, 1), rotate(90), translate(-0.5, -0.5)" id="radialGradient-3">
+            <stop stop-color="#0080FF" stop-opacity="0.5" offset="0%"></stop>
+            <stop stop-color="#0080FF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" gradientTransform="translate(0.5, 0.5), scale(0.9926, 1), rotate(90), translate(-0.5, -0.5)" id="radialGradient-4">
+            <stop stop-color="#0080FF" stop-opacity="0.5" offset="0%"></stop>
+            <stop stop-color="#0080FF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="memetool-share-bg" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#141627" x="0" y="0" width="720" height="450"></rect>
+        <g id="bg" transform="translate(-84, -178)" fill-rule="nonzero">
+            <g id="Ellipse-5" transform="translate(522, 0)" fill="url(#radialGradient-1)">
+                <ellipse id="椭圆形" cx="226.679143" cy="225" rx="226.679143" ry="225"></ellipse>
+            </g>
+            <g id="Ellipse-5" transform="translate(0, 535)" fill="url(#radialGradient-2)">
+                <ellipse id="椭圆形" cx="209" cy="207.5" rx="209" ry="207.5"></ellipse>
+            </g>
+            <g id="Ellipse-4" transform="translate(459, 261)" fill="url(#radialGradient-3)" opacity="0.6">
+                <ellipse id="椭圆形" cx="260" cy="258" rx="260" ry="258"></ellipse>
+            </g>
+            <g id="Ellipse-6" transform="translate(46, 75)" fill="url(#radialGradient-4)" opacity="0.3">
+                <ellipse id="椭圆形" cx="176.306" cy="175" rx="176.306" ry="175"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

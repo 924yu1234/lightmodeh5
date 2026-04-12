@@ -1,0 +1,26 @@
+
+/* https://www.tradingview.com/charting-library-docs/latest/customization/styles/CSS-Color-Themes?_highlight=tv&_highlight=color&_highlight=toolbar&_highlight=button&_highlight=text */
+
+
+:not(.theme-dark) {
+}
+
+.theme-dark {
+  --tv-color-pane-background: #13132F;
+  --tv-color-platform-background: #13132F;
+  --tv-color-toolbar-button-text: #B7BDC699;  
+  --tv-color-toolbar-button-text-active: #00A0FF;  
+  --tv-color-toolbar-button-text-active-hover: #00A0FF;  
+  --tv-color-toolbar-toggle-button-background-active: #00A0FF;  
+  --tv-color-toolbar-toggle-button-background-active-hover: #00A0FF; 
+  --tv-color-popup-background: #13132F;
+  
+}
+
+.loading-indicator {
+  background: #13132F;
+}
+
+[class^="errorCardRendererContainer"] {
+ visibility: hidden;
+}

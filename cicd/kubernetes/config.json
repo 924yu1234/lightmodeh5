@@ -1,0 +1,59 @@
+{
+  "isInit": true,
+  "workloadResource": "deployment",
+  "replicas": 2,
+  "serviceClusterIP": "None",
+  "resources": {
+    "limits": {
+      "cpu": "2000m",
+      "memory": "1024Mi"
+    },
+    "requests": {
+      "cpu": "100m",
+      "memory": "128Mi"
+    }
+  },
+  "lifecycle": {
+    "postStart": {
+      "exec": {
+        "command": "[ \"/bin/sleep\", \"0\" ]"
+      }
+    },
+    "preStop": {
+      "exec": {
+        "command": "[ \"/bin/sleep\", \"0\" ]"
+      }
+    }
+  },
+  "deploymentStrategy": {
+    "type": "RollingUpdate",
+    "rollingUpdate": {
+      "maxSurge": "25%",
+      "maxUnavailable": "0"
+    }
+  },
+  "dev": {
+    "namespace": "dev-frontend",
+    "consulPrefix": "DEV"
+  },
+  "testd": {
+    "namespace": "testd-fe",
+    "consulPrefix": "testd"
+  },
+  "teste": {
+    "namespace": "teste-fe",
+    "consulPrefix": "teste"
+  },
+  "testf": {
+    "namespace": "testf-fe",
+    "consulPrefix": "testf"
+  },
+  "staging": {
+    "namespace": "frontend-fe",
+    "consulPrefix": "STG"
+  },
+  "production": {
+    "namespace": "frontend-fe",
+    "consulPrefix": "PRD"
+  }
+}

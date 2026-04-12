@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>wallet_ledger@3x</title>
+    <defs>
+        <circle id="path-1" cx="12" cy="12" r="12"></circle>
+    </defs>
+    <g id="DEG-951-直连Ledger--" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="951_1选择Ledger钱包弹窗" transform="translate(-831.000000, -299.000000)">
+            <g id="token弹窗" transform="translate(545.000000, 150.000000)">
+                <g id="编组" transform="translate(20.000000, 136.000000)">
+                    <g id="币种" transform="translate(20.000000, 13.000000)">
+                        <g id="icon" transform="translate(246.000000, 0.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Mask-Copy" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+                            <g id="ledger-logo-long" mask="url(#mask-2)" fill="#000000" fill-rule="nonzero">
+                                <g transform="translate(4.000000, 5.000000)" id="形状">
+                                    <path d="M9.89590507,13.2372377 L9.89590507,14.1265629 L16,14.1265629 L16,10.1155276 L15.1105645,10.1155276 L15.1105645,13.2372377 L9.89590507,13.2372377 Z M9.89590507,0 L9.89590507,0.889373738 L15.1105645,0.889373738 L15.1105645,4.01125607 L16,4.01125607 L16,0 L9.89590507,0 Z M7.00229349,4.01125607 L6.11291313,4.01125607 L6.11291313,10.1153179 L10.1241802,10.1153179 L10.1241802,9.3131042 L7.00229349,9.3131042 L7.00229349,4.01125607 Z M0,10.1155276 L0,14.1267837 L6.10405078,14.1267837 L6.10405078,13.2372377 L0.889373738,13.2372377 L0.889373738,10.1155276 L0,10.1155276 Z M0,0 L0,4.01125607 L0.889373738,4.01125607 L0.889373738,0.889373738 L6.10405078,0.889373738 L6.10405078,0 L0,0 Z"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

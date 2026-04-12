@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icondelete asset key</title>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" gradientTransform="translate(0.5, 0.5), scale(0.2247, 1), rotate(-90), scale(1, 3.7301), translate(-0.5, -0.5)" id="radialGradient-1">
+            <stop stop-color="#2196F3" offset="0%"></stop>
+            <stop stop-color="#2196F3" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="icondelete-asset-key" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-3" transform="translate(5, 25)">
+            <ellipse id="椭圆形" fill="url(#radialGradient-1)" opacity="0.463146391" cx="44.5" cy="42" rx="44.5" ry="10"></ellipse>
+            <g id="锁" transform="translate(29, 0)">
+                <rect id="矩形" fill="#00A0FF" x="0" y="0" width="32" height="39" rx="3"></rect>
+                <path d="M16.0984848,10.9047619 C18.1904725,10.9047619 19.8863636,12.6103438 19.8863636,14.7142857 C19.8863636,16.312884 18.907304,17.681504 17.5193377,18.2467345 L17.5189394,21.8652597 C17.5189394,22.6497551 16.8829802,23.2857143 16.0984848,23.2857143 C15.3139895,23.2857143 14.6780303,22.6497551 14.6780303,21.8652597 L14.677632,18.2467345 C13.2896657,17.681504 12.3106061,16.312884 12.3106061,14.7142857 C12.3106061,12.6103438 14.0064972,10.9047619 16.0984848,10.9047619 Z" id="椭圆形-2" fill="#F7FBFF"></path>
+            </g>
+            <g id="编组-2" transform="translate(46, 21)">
+                <circle id="椭圆形" fill="#FFFFFF" cx="11" cy="11" r="11"></circle>
+                <circle id="椭圆形" fill="#00A0FF" cx="11" cy="11" r="10"></circle>
+                <rect id="矩形" fill="#FFFFFF" x="6" y="10" width="10" height="2" rx="1"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

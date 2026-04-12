@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>出入金icon-点@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="A0-顶部导航" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="链接后-解锁-2" transform="translate(-463.000000, -135.000000)" stroke="#0F84FF" stroke-width="1.4">
+            <g id="更多" transform="translate(444.000000, 65.000000)">
+                <g id="出入金" transform="translate(0.000000, 55.000000)">
+                    <g id="出入金icon-点亮" transform="translate(19.000000, 15.000000)">
+                        <path d="M19,8.8 C18.3874605,4.28024928 14.5877117,0.8 9.99169463,0.8 C5.43543643,0.8 1.66172953,4.22029633 1,8.68293754 M1,12.2660925 C2.00674576,16.249361 5.65071193,19.2 9.9917805,19.2 C14.3568246,19.2 18.0170449,16.2166784 19,12.2" id="形状"></path>
+                        <g id="编组-4" transform="translate(1.000000, 5.000000)">
+                            <polyline id="路径" transform="translate(10.950000, 2.057585) scale(-1, 1) translate(-10.950000, -2.057585) " points="4 3.81516946 17.9 3.81516946 14.8810958 0.3"></polyline>
+                            <polyline id="路径" transform="translate(6.772272, 8.957585) scale(1, -1) translate(-6.772272, -8.957585) " points="5.06379179e-14 10.7151695 13.544544 10.7151695 10.5256398 7.2"></polyline>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

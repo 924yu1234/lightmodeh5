@@ -1,0 +1,33 @@
+---
+description: UED Design System — UI must follow theme.tsx tokens and src/UI components
+globs: src/**/*.{tsx,ts,css,less}
+alwaysApply: false
+---
+
+# UED Design System Rules
+
+This is a UED design project. All UI changes must follow these conventions:
+
+## Colors
+- Use theme variables from `src/theme.tsx` (e.g., `theme.t_fff`, `theme.bg_white_05`, `theme.buy`, `theme.sell`)
+- Never hardcode hex colors
+- Alpha variants: `theme.t_fff_80` (80% opacity white)
+
+## Components
+- Import UI components from `src/UI` only, never from `@mantine/core`
+- Use named buttons: `PrimaryBtn`, `GhostBtn`, `BuyBtn`, `SellBtn`, `MiniBtn`
+- Use `PillTabs` for tab navigation
+- Use `BottomModal` for business modals
+
+## Styling
+- Use `styled-components` with theme injection
+- Type theme as `ThemeType` from `src/theme`
+- Styled components at bottom of file, prefixed with `Styled`
+
+## Scope
+- Only modify files in: `src/UI/`, `src/theme.tsx`, `src/style/`, `src/components/*/views/`
+- Never modify: `src/state/`, `src/mock/`, `src/utils/`, `src/providers/`
+- All API data comes from mock — never write real API calls
+
+## Fonts
+- `theme.fontRegular` / `theme.fontMedium` / `theme.fontBold`
