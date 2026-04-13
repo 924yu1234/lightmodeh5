@@ -102,8 +102,13 @@ export default function Intl({ children }: { children: ReactNode }) {
   }, [walletLocale]);
 
   const localeMessage = useMemo(() => {
-    const enRes = { ...en, ...enComp };
-    const zhRes = { ...zhCN, ...zhCNComp };
+    // UED: merge wallet locale files
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const walletEn = require('src/wallet/locals/en').default || {};
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const walletZhCN = require('src/wallet/locals/zh-CN').default || {};
+    const enRes = { ...en, ...enComp, ...walletEn };
+    const zhRes = { ...zhCN, ...zhCNComp, ...walletZhCN };
     const twRes = { ...zhTW, ...zhTWComp };
     const itRes = { ...it, ...itComp };
     const ruRes = { ...ru, ...ruComp };

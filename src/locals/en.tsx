@@ -2385,7 +2385,7 @@ const en = {
     all_TSLA_will_be_converted_to_USDC:
       'All {TSLA} will be converted to {USDC}',
     claim_successful: 'Claim Successful',
-    has_been_added_to_your_account: 'added to your account',
+    has_been_added_to_your_account: 'has been added to your account',
     claim_failed: 'Claim Failed',
     convert_TSLA_to_USDC_and_receive_USDC_only:
       'Convert {TSLA} to {USDC} and receive {USDC} only',

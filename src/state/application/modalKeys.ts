@@ -219,6 +219,15 @@ const ModalKeys = {
 
   balanceManageMenu: 'balanceManageMenu',
   filterNetwork: 'filterNetwork',
+
+  // Wallet confirmation modals (migrated from dg-wallet)
+  WALLET_TURBO_RANGE_CONFIRM: 'WALLET_TURBO_RANGE_CONFIRM',
+  WALLET_SWAP_CONFIRM: 'WALLET_SWAP_CONFIRM',
+  WALLET_EARN_CONFIRM: 'WALLET_EARN_CONFIRM',
+  WALLET_SEND_CONFIRM: 'WALLET_SEND_CONFIRM',
+  WALLET_SIGNING_PROGRESS: 'WALLET_SIGNING_PROGRESS',
+  WALLET_AUTO_LOCKED: 'WALLET_AUTO_LOCKED',
+  WALLET_UPCOMING_LOCK: 'WALLET_UPCOMING_LOCK',
 };
 
 export default ModalKeys;

@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from 'react';
 
 import { callWalletBridge } from 'src/bridge/walletBridge';
+import { useWalletModalOperations } from 'src/wallet/operations';
 import { Operations } from 'src/constants/interface/operations';
 import { Wallet } from 'src/constants/interface/wallet';
 
@@ -329,17 +330,25 @@ export default function useWalletOperations(wallet: Wallet) {
   const bridgeMode = useMemo(() => isWalletBridgeMode(), []);
   const operations = wallet?.operations;
 
+  // UED: wallet modal operations to show confirm modals
+  const modalOps = useWalletModalOperations();
+
   const walletOperations = useMemo((): Operations => {
+    let baseOps: Operations;
     if (bridgeMode) {
-      return _createBridgeOperations(wallet);
+      baseOps = _createBridgeOperations(wallet);
+    } else if (wallet.isApp) {
+      baseOps = _createAppOperations(wallet, operations);
+    } else {
+      baseOps = _createLegacyOperations(operations);
     }
 
-    if (wallet.isApp) {
-      return _createAppOperations(wallet, operations);
-    }
-
-    return _createLegacyOperations(operations);
-  }, [bridgeMode, operations, wallet]);
+    // UED: override order creation operations with modal-based versions
+    return {
+      ...baseOps,
+      ...modalOps,
+    };
+  }, [bridgeMode, operations, wallet, modalOps]);
 
   useEffect(() => {
     if (wallet.isApp) {
