@@ -3,6 +3,7 @@ import { useCallback } from 'react';
 import axios from 'axios';
 import { get } from 'lodash';
 
+import { registerDgApiMock } from 'src/mock/interceptor';
 import { ModalKeys } from 'src/state/application/reducer';
 
 import {
@@ -32,10 +33,8 @@ const axiosService = axios.create();
 axiosService.defaults.timeout = 30000;
 axiosService.defaults.baseURL = DG_API;
 
-// ===== UED: mock only for specific new-feature endpoints (see src/mock/interceptor.ts) =====
-import { registerDgApiMock } from 'src/mock/interceptor';
+// UED: register mock adapter for new-feature endpoints
 registerDgApiMock(axiosService);
-// ===== END UED MOCK =====
 
 axiosService.interceptors.request.use(
   (config) => {

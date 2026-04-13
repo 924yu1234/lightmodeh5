@@ -1,5 +1,3 @@
-// UED: disable all log/tracking requests
-const IS_UED = true;
 import axios from 'axios';
 import { debounce } from 'lodash';
 

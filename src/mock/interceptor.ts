@@ -25,13 +25,14 @@ export function setMockSimulateError(enabled: boolean) {
 function matchRoute(url: string, params?: any): any {
   if (!url) return undefined;
   for (const route of mockRoutes) {
-    if (url.includes(route.pattern)) {
-      if (route.paramMatch && params) {
-        const matches = Object.entries(route.paramMatch).every(
-          ([key, val]) => params[key] === val
-        );
-        if (!matches) continue;
-      }
+    if (!url.includes(route.pattern)) {
+      // eslint-disable-next-line no-continue
+    } else if (route.paramMatch && params) {
+      const matches = Object.entries(route.paramMatch).every(
+        ([key, val]) => params[key] === val
+      );
+      if (matches) return { matched: true, data: route.data };
+    } else {
       return { matched: true, data: route.data };
     }
   }
@@ -40,7 +41,9 @@ function matchRoute(url: string, params?: any): any {
 
 function delay(ms: number): Promise<void> {
   if (ms <= 0) return Promise.resolve();
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 }
 
 const defaultAdapter = axios.defaults.adapter;
@@ -52,8 +55,7 @@ const defaultAdapter = axios.defaults.adapter;
  * Everything else passes through to real dev backend.
  */
 export function registerDgApiMock(axiosInstance: any) {
-  const originalAdapter =
-    axiosInstance.defaults.adapter || defaultAdapter;
+  const originalAdapter = axiosInstance.defaults.adapter || defaultAdapter;
 
   axiosInstance.defaults.adapter = async (config: any) => {
     const url = config.url || '';
@@ -73,6 +75,7 @@ export function registerDgApiMock(axiosInstance: any) {
         });
       }
 
+      // eslint-disable-next-line no-console
       console.debug('[UED Mock] Mocked:', url);
       return {
         data: {
@@ -98,11 +101,13 @@ export function registerDgApiMock(axiosInstance: any) {
 /**
  * HUB_API: no mock, all real.
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function registerHubApiMock(_axiosInstance: any) {
   // no-op
 }
 
 export function setupMockInterceptors() {
+  // eslint-disable-next-line no-console
   console.log(
     '[UED Mock] Per-endpoint mock active. Only endpoints in mockRoutes are mocked.'
   );

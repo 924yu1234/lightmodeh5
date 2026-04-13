@@ -2,12 +2,7 @@
 import React, { useCallback, useContext, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  ReadyState,
-  Result,
-  Subscribe,
-  Unsubscribe,
-} from '../useWebsocket';
+import { ReadyState, Result, Subscribe, Unsubscribe } from '../useWebsocket';
 
 const SetContext = React.createContext<Result>({} as Result);
 

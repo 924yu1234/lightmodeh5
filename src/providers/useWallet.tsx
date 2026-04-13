@@ -1,9 +1,4 @@
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-} from 'react';
+import React, { useCallback, useContext, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import useWalletOperations from 'src/bridge/useWalletOperations';
@@ -32,7 +27,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     const isMobileMode = mode === 'mobile';
     const isH5Mode = mode === 'h5';
 
-    const ws = walletSnapshot;
+    const ws = walletSnapshot as any;
     const hasToken = isLoggedIn && !!ws.accessToken?.token;
 
     // Sync window globals for H5 mode
@@ -54,7 +49,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
 
     return {
       walletStateReady: true,
-      selectedWallet: hasToken ? (ws.selectedWallet || 'ued-wallet') : '',
+      selectedWallet: hasToken ? ws.selectedWallet || 'ued-wallet' : '',
       locale: ws.locale || 'en-US',
       handleLocaleChange: noopFn,
       account: hasToken ? ws.account : '',
@@ -65,9 +60,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       connections: {} as any,
       renderSwapBtn: noopFn,
       gaEvent: noopFn,
-      accessToken: hasToken
-        ? ws.accessToken
-        : { token: '', da_owner: '' },
+      accessToken: hasToken ? ws.accessToken : { token: '', da_owner: '' },
       allowQuickTrading: ws.allowQuickTrading ?? false,
       isHideQuickTradingTips: ws.isHideQuickTradingTips ?? false,
       isMobile: isMobileMode,
