@@ -266,6 +266,13 @@ function parseSnapshotText(text: string): any {
   return result;
 }
 
+// When REACT_APP_PUBLIC_DEPLOY=1 is set at build time (e.g. on Vercel),
+// the baked-in DEFAULT_WALLET_SNAPSHOT is ignored so no credentials ship
+// in the build artifact. Users must paste their own snapshot via the UED
+// settings panel on first visit (saved to localStorage).
+const IS_PUBLIC_DEPLOY = process.env.REACT_APP_PUBLIC_DEPLOY === '1';
+const EFFECTIVE_DEFAULT: any = IS_PUBLIC_DEPLOY ? {} : DEFAULT_WALLET_SNAPSHOT;
+
 function loadWalletSnapshot(): any {
   try {
     const saved =
@@ -281,7 +288,7 @@ function loadWalletSnapshot(): any {
   } catch {
     // ignore corrupt storage, fall back to default
   }
-  return DEFAULT_WALLET_SNAPSHOT;
+  return EFFECTIVE_DEFAULT;
 }
 
 // The live walletSnapshot that the app reads. Consumers import this as a

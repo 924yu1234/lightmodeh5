@@ -82,8 +82,17 @@ module.exports = {
     },
     configure: (webpackConfig) => {
       webpackConfig.devtool = isProduction ? false : 'source-map';
+      // For UED public deploys (Vercel etc.) we keep the dev-mode
+      // public/index.html so the API URLs in window._config are baked
+      // in. The index_pro.html template is designed for docker runtime
+      // substitution via docker/fixEnv.js which we don't run on Vercel.
+      const isPublicDeployBuild = process.env.REACT_APP_PUBLIC_DEPLOY === '1';
       webpackConfig.plugins = webpackConfig.plugins.map((plugin) => {
-        if (plugin instanceof HtmlWebpackPlugin && isProduction) {
+        if (
+          plugin instanceof HtmlWebpackPlugin &&
+          isProduction &&
+          !isPublicDeployBuild
+        ) {
           plugin.userOptions.template = path.join(
             process.cwd(),
             'public/index_pro.html'
@@ -106,8 +115,14 @@ module.exports = {
       const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
       const devPublicUrlOrPath = `http://localhost:${DEFAULT_PORT}/`;
 
+      // For UED public deploys (Vercel etc.), use a real `/` publicPath so
+      // assets are served directly. The `vvvvv/` placeholder is only useful
+      // when docker/fixEnv.js does runtime substitution.
+      const isPublicDeploy = process.env.REACT_APP_PUBLIC_DEPLOY === '1';
+      const prodPublicPath = isPublicDeploy ? '/' : 'vvvvv/';
+
       webpackConfig.output = Object.assign(webpackConfig.output, {
-        publicPath: isProduction ? 'vvvvv/' : devPublicUrlOrPath,
+        publicPath: isProduction ? prodPublicPath : devPublicUrlOrPath,
         library: `trade-[name]`,
         libraryTarget: 'umd',
       });

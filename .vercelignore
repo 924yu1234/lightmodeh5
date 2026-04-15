@@ -1,0 +1,13 @@
+# Files not needed for Vercel build
+.git
+.DS_Store
+.idea
+.vscode
+node_modules
+build
+docker
+scripts
+*.log
+coverage
+.env.local
+.env.*.local
