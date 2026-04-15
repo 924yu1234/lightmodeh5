@@ -99,14 +99,27 @@ const StyledPositionSummary = styled.div`
     width: 100%;
     height: 100%;
     min-height: 135px;
-    background-image: linear-gradient(
-      270deg,
-      rgba(0, 138, 220, 0.8) 0%,
-      #00a0ff 69%
-    );
-    border-radius: 5px;
+    background-image: ${({ theme }: { theme: ThemeType }) =>
+      theme.summaryCardBg};
+    border-radius: 16px;
     padding: 15px 20px;
     position: relative;
+    overflow: hidden;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 80%;
+      background: radial-gradient(
+        circle at top right,
+        rgba(34, 186, 125, 0.2) 0%,
+        transparent 70%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
   }
   .summary-content {
     position: relative;

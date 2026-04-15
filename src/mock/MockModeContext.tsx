@@ -1,6 +1,7 @@
 import React, { useCallback, useContext, useMemo, useState } from 'react';
 
 export type UEDMode = 'pc' | 'mobile' | 'h5';
+export type UEDTheme = 'dark' | 'light';
 
 export interface UEDSettings {
   mode: UEDMode;
@@ -8,6 +9,7 @@ export interface UEDSettings {
   networkDelay: number;
   simulateError: boolean;
   locale: string;
+  theme: UEDTheme;
 }
 
 interface UEDSettingsContextValue extends UEDSettings {
@@ -16,6 +18,7 @@ interface UEDSettingsContextValue extends UEDSettings {
   setNetworkDelay: (ms: number) => void;
   setSimulateError: (v: boolean) => void;
   setLocale: (locale: string) => void;
+  setTheme: (theme: UEDTheme) => void;
   updateSettings: (patch: Partial<UEDSettings>) => void;
 }
 
@@ -49,6 +52,7 @@ const defaultSettings: UEDSettings = {
   networkDelay: 0,
   simulateError: false,
   locale: 'en-US',
+  theme: 'dark',
 };
 
 export function UEDSettingsProvider({
@@ -74,6 +78,7 @@ export function UEDSettingsProvider({
       setNetworkDelay: (networkDelay) => updateSettings({ networkDelay }),
       setSimulateError: (simulateError) => updateSettings({ simulateError }),
       setLocale: (locale) => updateSettings({ locale }),
+      setTheme: (theme) => updateSettings({ theme }),
       updateSettings,
     }),
     [settings, updateSettings]

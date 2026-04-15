@@ -58,9 +58,10 @@ const StyledApy = styled.div`
   margin-bottom: 10px;
 
   .apy-inner {
-    background: ${({ theme }) => theme.bg_white_10};
-    border-radius: 5px;
-    padding: 12px;
+    background: ${({ theme }: { theme: ThemeType }) => theme.cardBg};
+    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.cardBorder};
+    border-radius: 10px;
+    padding: 12px 16px;
     font-size: 16px;
     line-height: 24px;
     margin-top: 10px;

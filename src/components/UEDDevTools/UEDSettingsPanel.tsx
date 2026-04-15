@@ -1,12 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { UEDMode, useUEDSettings } from 'src/mock/MockModeContext';
+import { UEDMode, UEDTheme, useUEDSettings } from 'src/mock/MockModeContext';
 
 const MODES: { value: UEDMode; label: string }[] = [
   { value: 'pc', label: 'PC' },
   { value: 'mobile', label: 'Mobile' },
   { value: 'h5', label: 'APP H5' },
+];
+
+const THEMES: { value: UEDTheme; label: string }[] = [
+  { value: 'dark', label: 'Dark' },
+  { value: 'light', label: 'Light' },
 ];
 
 const DELAYS = [
@@ -50,6 +55,22 @@ export default function UEDSettingsPanel({ onClose }: Props) {
                 onClick={() => settings.setMode(m.value)}
               >
                 {m.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="section">
+          <div className="section-label">Theme</div>
+          <div className="btn-group">
+            {THEMES.map((t) => (
+              <button
+                type="button"
+                key={t.value}
+                className={settings.theme === t.value ? 'active' : ''}
+                onClick={() => settings.setTheme(t.value)}
+              >
+                {t.label}
               </button>
             ))}
           </div>

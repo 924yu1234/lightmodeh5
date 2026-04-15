@@ -70,10 +70,11 @@ export const commonButtonStyle = css`
 `;
 
 export const primaryButtonStyle = css`
-  color: ${({ theme }) => theme.t_000};
+  color: ${({ theme }: { theme: ThemeType }) =>
+    theme.darkMode ? theme.t_000 : '#ffffff'};
   background: ${({ theme }) => theme.blue};
   ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-  border-radius: 8px;
+  border-radius: ${({ theme }: { theme: ThemeType }) => theme.buttonRadius};
   display: flex;
   align-items: center;
   height: 46px;
@@ -87,13 +88,15 @@ export const primaryButtonStyle = css`
 
   @media (hover: hover) {
     &:hover {
-      color: ${({ theme }) => theme.t_000};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_000 : '#ffffff'};
       background: ${({ theme }) => theme.blue};
-      background-image: linear-gradient(
-        180deg,
-        rgba(255, 253, 253, 0.35) 0%,
-        rgba(0, 193, 255, 0.35) 100%
-      );
+      background-image: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode
+          ? 'linear-gradient(180deg, rgba(255, 253, 253, 0.35) 0%, rgba(0, 193, 255, 0.35) 100%)'
+          : 'none'};
+      filter: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? 'none' : 'brightness(1.08)'};
     }
   }
 
@@ -101,19 +104,20 @@ export const primaryButtonStyle = css`
   &:focus {
     transform: none;
     outline: unset;
-    color: ${({ theme }) => theme.t_000};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_000 : '#ffffff'};
     background: ${({ theme }) => theme.blue};
-    background-image: linear-gradient(
-      180deg,
-      rgba(113, 113, 113, 0.35) 0%,
-      rgba(20, 58, 69, 0.35) 100%
-    );
+    background-image: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode
+        ? 'linear-gradient(180deg, rgba(113, 113, 113, 0.35) 0%, rgba(20, 58, 69, 0.35) 100%)'
+        : 'none'};
   }
 
   &[data-loading],
   &[data-loading]:focus {
-    background: #00a0ff;
-    color: #000;
+    background: ${({ theme }) => theme.blue};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? '#000' : '#ffffff'};
     cursor: default;
     &::before {
       content: none;
@@ -129,17 +133,21 @@ export const primaryButtonStyle = css`
     background: ${({ theme }) => theme.bg_1a1a1a_50};
     background-image: none;
     &[data-loading] {
-      color: #000;
-      background: #00a0ff;
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? '#000' : '#ffffff'};
+      background: ${({ theme }) => theme.blue};
     }
   }
 
   &.btn-with-tips:disabled,
   &.btn-with-tips[disabled]:hover,
   &.btn-with-tips[disabled]:focus {
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
-    background: ${({ theme }) => theme.bg_blue_20};
-    border: 1px solid ${({ theme }) => theme.border_white_10};
+    color: ${({ theme }: { theme: ThemeType }) => theme.disabledCtaText};
+    background: ${({ theme }: { theme: ThemeType }) => theme.disabledCtaBg};
+    border: 1px solid
+      ${({ theme }: { theme: ThemeType }) => theme.disabledCtaBorder};
+    font-weight: 600;
+    opacity: 1;
   }
 `;
 
@@ -148,7 +156,7 @@ export const ghostButtonStyle = css`
   background: none;
   border: 1px solid ${({ theme }) => theme.border_blue};
   ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-  border-radius: 8px;
+  border-radius: ${({ theme }: { theme: ThemeType }) => theme.buttonRadius};
   display: flex;
   height: 46px;
   min-height: 46px;

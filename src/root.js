@@ -23,6 +23,7 @@ import ComponentLibrary from './components/UEDDevTools/ComponentLibrary';
 import UEDSettingsButton from './components/UEDDevTools/UEDSettingsButton';
 import { useShowH5Header } from './h5/utils';
 import useWindowSize from './hooks/useWindowSize';
+import { useUEDSettings } from './mock/MockModeContext';
 import useMessage from './providers/useMessage';
 import useWallet, { useIsAppH5, useIsMobile } from './providers/useWallet';
 import MantineThemeProvider from './UI/Provider';
@@ -38,6 +39,7 @@ export default function root({ updaters }) {
   const isMobile = useIsMobile();
   const isAppH5 = useIsAppH5();
   const showH5Header = useShowH5Header();
+  const { theme: uedTheme } = useUEDSettings();
   const themeObject = useMemo(
     () =>
       getTheme({
@@ -46,8 +48,9 @@ export default function root({ updaters }) {
         isMobile: isMobile || isAppH5,
         isAppH5,
         showH5Header,
+        theme: uedTheme,
       }),
-    [width, height, isMobile, isAppH5, showH5Header]
+    [width, height, isMobile, isAppH5, showH5Header, uedTheme]
   );
   const message = useMessage();
   window.message = message;

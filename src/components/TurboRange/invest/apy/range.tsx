@@ -103,24 +103,27 @@ const StyledRange = styled.div`
     display: flex;
     align-items: center;
     gap: 5px;
-    background: ${({ theme }) => theme.bg_white_10};
-    border-radius: 5px;
+    background: ${({ theme }: { theme: ThemeType }) => theme.cardBg};
+    border-radius: 10px;
     height: 50px;
-    padding: 0 10px;
+    padding: 0 14px;
     ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
     color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
     font-size: 16px;
     line-height: 20px;
     cursor: pointer;
-    border: 1px solid ${({ theme }) => theme.border_transparent};
+    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.cardBorder};
+    transition: border-color 180ms ease;
     .icon-right-outlined {
       color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b};
       font-size: 12px;
       margin-left: auto;
     }
     @media (hover: hover) {
+      &:hover,
       &:active {
-        border: 1px solid ${({ theme }) => theme.border_blue};
+        border: 1px solid
+          ${({ theme }: { theme: ThemeType }) => theme.border_blue};
       }
     }
   }

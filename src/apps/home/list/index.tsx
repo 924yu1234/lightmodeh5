@@ -81,7 +81,7 @@ export const StyledTopPairs = styled.div`
       font-size: 14px;
       ${(props) => props.theme.fontRegular};
       cursor: pointer;
-      color: ${({ theme }) => theme.t_f4f};
+      color: ${({ theme }) => theme.t_b7b};
       line-height: 34px;
       margin-right: 40px;
       border-bottom: 1px solid transparent;
