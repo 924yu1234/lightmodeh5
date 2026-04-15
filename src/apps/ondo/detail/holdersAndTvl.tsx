@@ -24,6 +24,7 @@ import { DailyTokenSupplyForSingleTokenApiItem } from './service';
 // 自定义工具提示组件 - 使用React.memo优化
 const CustomTooltip = React.memo(({ active, payload, label }: any) => {
   if (!active || !payload || !payload.length) {
+  const tooltipTheme = useThemeParams();
     return null;
   }
 
@@ -152,7 +153,8 @@ export default function HoldersAndTvl({
     return buildChartData(holdersData, dailyTokenSupply);
   }, [holdersData, dailyTokenSupply]);
 
-  const { isMobile } = useThemeParams();
+  const { isMobile, darkMode: tooltipThemeDarkMode } = useThemeParams();
+  const tooltipTheme = { darkMode: tooltipThemeDarkMode };
   const intl = useIntl();
 
   const [isVisible, setIsVisible] = useState(false);
@@ -220,8 +222,8 @@ export default function HoldersAndTvl({
                 isAnimationActive={false}
                 contentStyle={{
                   fontSize: 11,
-                  backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  backgroundColor: tooltipTheme.darkMode ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.95)',
+                  border: tooltipTheme.darkMode ? '1px solid rgba(255, 255, 255, 0.2)' : '1px solid rgba(9, 45, 31, 0.12)',
                   borderRadius: '6px',
                 }}
                 content={<CustomTooltip />}

@@ -79,18 +79,19 @@ function buildChartData(
 // 优化的自定义 Tooltip 组件
 const CustomTooltip = React.memo(({ active, payload, label }: any) => {
   if (!active || !payload || !payload.length) return null;
+  const tooltipTheme = useThemeParams();
 
   const value = payload[0].value as number;
 
   return (
     <div
       style={{
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        border: '1px solid rgba(255, 255, 255, 0.2)',
+        backgroundColor: tooltipTheme.darkMode ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.95)',
+        border: tooltipTheme.darkMode ? '1px solid rgba(255, 255, 255, 0.2)' : '1px solid rgba(9, 45, 31, 0.12)',
         borderRadius: '6px',
         padding: '8px 12px',
         fontSize: '11px',
-        color: '#fff',
+        color: tooltipTheme.darkMode ? '#fff' : '#092d1f',
       }}
     >
       <div style={{ marginBottom: '4px', fontWeight: 'bold' }}>{label}</div>
@@ -124,7 +125,13 @@ export default function TotalAum({
     return buildChartData(dailyTotalAumData);
   }, [dailyTotalAumData]);
 
-  const { isMobile, viewWidth, windowHeight } = useThemeParams();
+  const {
+    isMobile,
+    viewWidth,
+    windowHeight,
+    darkMode: tooltipThemeDarkMode,
+  } = useThemeParams();
+  const tooltipTheme = { darkMode: tooltipThemeDarkMode };
 
   const [isVisible, setIsVisible] = useState(false);
   const { ref, inViewport } = useInViewport();
@@ -232,8 +239,8 @@ export default function TotalAum({
                 cursor={false}
                 contentStyle={{
                   fontSize: 11,
-                  backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  backgroundColor: tooltipTheme.darkMode ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.95)',
+                  border: tooltipTheme.darkMode ? '1px solid rgba(255, 255, 255, 0.2)' : '1px solid rgba(9, 45, 31, 0.12)',
                   borderRadius: '6px',
                   padding: '8px',
                 }}

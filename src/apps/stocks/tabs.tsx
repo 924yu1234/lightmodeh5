@@ -92,7 +92,7 @@ export default function StocksTabs() {
           <Tabs.Tab value="ondo">
             <div className="tab-item">
               <div className="tab-item-inner">
-                <img src={IconOndo} alt="Ondo" className="icon" />
+                <img src={IconOndo} alt="Ondo" className="icon icon-ondo" />
                 <div className="tab-label">Ondo</div>
               </div>
               <div className="tab-item-aum">
@@ -175,6 +175,10 @@ export const StyledStocks = styled.div`
     .icon {
       width: 30px;
       height: 30px;
+    }
+    .icon-ondo {
+      ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? '' : 'filter: brightness(0.15);'}
     }
     .tab-label {
       ${({ theme }: { theme: ThemeType }) => theme.fontBold};

@@ -26,17 +26,18 @@ import { generateWatermarkCSS } from '../utils/watermark';
 // 自定义 Tooltip 组件，一行显示2个token数据
 const CustomTooltip = React.memo(({ active, payload, label }: any) => {
   if (!active || !payload || !payload.length) return null;
+  const tooltipTheme = useThemeParams();
 
   const size = Math.ceil(payload.length / 2);
   return (
     <div
       style={{
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        border: '1px solid rgba(255, 255, 255, 0.2)',
+        backgroundColor: tooltipTheme.darkMode ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.95)',
+        border: tooltipTheme.darkMode ? '1px solid rgba(255, 255, 255, 0.2)' : '1px solid rgba(9, 45, 31, 0.12)',
         borderRadius: '6px',
         padding: '8px 12px',
         fontSize: '11px',
-        color: '#fff',
+        color: tooltipTheme.darkMode ? '#fff' : '#092d1f',
         maxWidth: '300px',
       }}
     >

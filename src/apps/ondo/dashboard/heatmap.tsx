@@ -198,7 +198,8 @@ export default function Heatmap({
     return value.toLocaleString();
   }, []);
 
-  const { isMobile } = useThemeParams();
+  const { isMobile, darkMode: tooltipThemeDarkMode } = useThemeParams();
+  const tooltipTheme = { darkMode: tooltipThemeDarkMode };
   const intl = useIntl();
 
   // 早期返回，避免不必要的渲染
@@ -247,8 +248,8 @@ export default function Heatmap({
                 cursor={false}
                 contentStyle={{
                   fontSize: 11,
-                  backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  backgroundColor: tooltipTheme.darkMode ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.95)',
+                  border: tooltipTheme.darkMode ? '1px solid rgba(255, 255, 255, 0.2)' : '1px solid rgba(9, 45, 31, 0.12)',
                   borderRadius: '6px',
                   padding: '8px',
                 }}
