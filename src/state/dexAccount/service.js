@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 import { logRequest } from 'src/utils/log';
 
-import axios, { useCreateHeaders, useHandleCommonErr } from 'js/utils/axios';
+import axios, { useHandleCommonErr } from 'js/utils/axios';
 
 export const getDexAccount = ({ account }) => {
   const preTime = Date.now();
@@ -50,25 +50,6 @@ export const usePostSyncToApp = () => {
     [handleCommonErr]
   );
 };
-
-export function useGetListTotal() {
-  const createHeaders = useCreateHeaders();
-  return useCallback(
-    (params, source = '') => {
-      const headers = createHeaders();
-      return axios({
-        method: 'POST',
-        url:
-          source === 'gridMarketplace'
-            ? 'order-book-api/gridLanding/list/total'
-            : 'order-book-api/user/list/total',
-        data: params,
-        headers,
-      }).then((resp) => resp.data);
-    },
-    [createHeaders]
-  );
-}
 
 export const fetchAccessToken = ({ time, ecdsa_signature, wallet_id }) => {
   return axios({

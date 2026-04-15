@@ -78,11 +78,19 @@ export const StyledVideoCard = styled.div`
   }
 
   iframe,
+  .youtube-player-shell,
   .video-poster,
   .video-poster-image {
     width: 100%;
     height: 100%;
     display: block;
+  }
+
+  .youtube-player-shell iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
   }
 
   iframe,
@@ -158,6 +166,54 @@ export const StyledVideoCard = styled.div`
     }
   }
 
+  &.is-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+    background: #000;
+    aspect-ratio: auto;
+  }
+
+  .overlay-close {
+    right: 16px;
+    top: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    z-index: 1;
+
+    .close-icon {
+      width: 16px;
+      height: 16px;
+      position: relative;
+      display: block;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 16px;
+        height: 2px;
+        background: #fff;
+        border-radius: 1px;
+      }
+
+      &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+
   @media (hover: hover) {
     .video-play:hover {
       background: #ffffff;
@@ -165,6 +221,10 @@ export const StyledVideoCard = styled.div`
 
     .video-fullscreen:hover {
       background: rgba(15, 23, 40, 0.88);
+    }
+
+    .overlay-close:hover {
+      background: rgba(255, 255, 255, 0.24);
     }
   }
 `;
@@ -174,11 +234,15 @@ export const StyledLandscapeOverlay = styled.div`
   inset: 0;
   z-index: 9999;
   background: rgba(6, 10, 18, 0.96);
+  padding: max(16px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+  box-sizing: border-box;
 
   .landscape-close {
     position: absolute;
-    top: 16px;
-    left: 16px;
+    top: max(16px, env(safe-area-inset-top));
+    left: max(16px, env(safe-area-inset-left));
     min-width: 36px;
     height: 36px;
     border: 0;
@@ -200,23 +264,18 @@ export const StyledLandscapeOverlay = styled.div`
   }
 
   .landscape-stage {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 100vh;
-    height: 100vw;
-    transform: translate(-50%, -50%) rotate(90deg);
-    transform-origin: center;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 18px;
+    padding: 56px 0 24px;
     box-sizing: border-box;
   }
 
   .landscape-player {
-    width: 100%;
-    max-width: 100vh;
+    width: min(100%, calc((100vh - 136px) * 16 / 9));
+    max-height: calc(100vh - 136px);
     aspect-ratio: 16 / 9;
     background: #000;
     border-radius: 12px;

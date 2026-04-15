@@ -13,6 +13,7 @@ import TurboRangeDepositDetailModal from './details/depositDetail';
 import TurboRangeIncreaseInvestmentDetailModal from './details/increseInvestmentDetail';
 import TurboRangeWithdrawDetailModal from './details/withdrawDetail';
 import AboutTurboRangeModal from './faq/aboutTurboRange';
+import HourlyBreakdownModal from './hourlyBreakdown';
 import IncreaseInvestmentModal from './increaseInvestmemt';
 import OutOfRangeTipsModal from './outOfRangeTips/modal';
 import TurboRangeDetailModal from './positionDetail';
@@ -72,6 +73,9 @@ export default function TurboRangeModals() {
       )}
       {modals[ModalKeys.turboRangeCreatePosition]?.visible && (
         <CreatePositionModal />
+      )}
+      {modals[ModalKeys.turboRangeHourlyBreakdown]?.visible && (
+        <HourlyBreakdownModal />
       )}
     </>
   );

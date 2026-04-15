@@ -5,8 +5,12 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-// import _ from 'lodash';
+import lodashMerge from 'lodash/merge';
 import PropTypes from 'prop-types';
+
+// UED: wallet locale files are merged into en/zh
+import walletEn from 'src/wallet/locals/en';
+import walletZhCN from 'src/wallet/locals/zh-CN';
 
 import useWallet from 'js/providers/useWallet';
 
@@ -102,13 +106,10 @@ export default function Intl({ children }: { children: ReactNode }) {
   }, [walletLocale]);
 
   const localeMessage = useMemo(() => {
-    // UED: merge wallet locale files
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const walletEn = require('src/wallet/locals/en').default || {};
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const walletZhCN = require('src/wallet/locals/zh-CN').default || {};
-    const enRes = { ...en, ...enComp, ...walletEn };
-    const zhRes = { ...zhCN, ...zhCNComp, ...walletZhCN };
+    // UED: deep-merge wallet locale files (shallow spread would clobber
+    // nested objects like `turboRange` because wallet only defines a few keys)
+    const enRes = lodashMerge({}, en, enComp, walletEn);
+    const zhRes = lodashMerge({}, zhCN, zhCNComp, walletZhCN);
     const twRes = { ...zhTW, ...zhTWComp };
     const itRes = { ...it, ...itComp };
     const ruRes = { ...ru, ...ruComp };

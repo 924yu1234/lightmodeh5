@@ -43,10 +43,7 @@ export default function BaseBalance() {
         onHandleMax={(num) => setBaseAmount(num)}
       />
       {overBaseBalance && (
-        <div className="error_tips">
-          {intl.turboRange?.insufficientTokenABalance ||
-            `Insufficient ${product.baseToken?.symbol} balance`}
-        </div>
+        <div className="error_tips">{intl.insufficient_balance}</div>
       )}
 
       <div className="balance-inner">

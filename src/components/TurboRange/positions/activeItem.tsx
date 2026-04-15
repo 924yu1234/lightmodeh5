@@ -22,12 +22,7 @@ export default function ActiveItem({
   const intl = useIntl();
   const navigate = useCustomNavigate();
   const { baseToken } = position;
-  let yesterdayApyText = '--';
-  if (position.isYesterdayUpdating) {
-    yesterdayApyText = intl.turboRange.updating;
-  } else if (position.yesterday_apy_display !== '--') {
-    yesterdayApyText = `${position.yesterday_apy_display}`;
-  }
+  const last24hApyText = position.last24hApy_display || '--';
   return (
     <div
       key={position.id}
@@ -71,13 +66,13 @@ export default function ActiveItem({
           </div>
         </div>
         <div className="item-info">
-          <div className="item-info-title">{intl.turboRange.yesterday_apy}</div>
+          <div className="item-info-title">{intl.turboRange.last_24h_apy}</div>
           <div
             className={`item-info-value ${
-              Number(position.yesterday_apy) > 0 ? 'color-green' : ''
-            } ${position.isYesterdayUpdating ? 'updating' : ''}`}
+              Number(position.last24hApy) > 0 ? 'color-green' : ''
+            }`}
           >
-            {yesterdayApyText}
+            {last24hApyText}
           </div>
         </div>
       </div>

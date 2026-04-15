@@ -3,6 +3,7 @@ export const DEX_CHAIN_ID = Number(_config.DEX_CHAIN_ID);
 export const DG_API = _config.DG_API;
 export const HUB_API = _config.HUB_API;
 export const WS_API = _config.WS_API;
+export const COPY_TRADE_API = _config.COPY_TRADE_API;
 export const LOG_API = _config.LOG_API;
 export const PUBLIC_URL = _config.PUBLIC_URL;
 export const DISABLED_ROUTES = _config.DISABLED_ROUTES;

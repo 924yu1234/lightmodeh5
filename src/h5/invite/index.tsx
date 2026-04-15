@@ -108,7 +108,7 @@ export default function CardDetail() {
             logAPPH5({
               event: 'claimInvite success',
             });
-            setRefreshIndex((prev) => prev + 1);
+            // setRefreshIndex((prev) => prev + 1);
             setStatus('claimSuccess');
           })
           .catch((err: any) => {

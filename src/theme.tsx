@@ -16,6 +16,7 @@ export default function getTheme({
 }) {
   const withAlpha = (hex: string, alphaHex: string) => `${hex}${alphaHex}`;
   const alphaMap = {
+    '02': '05',
     '05': '0d',
     '06': '0f',
     '07': '12',
@@ -240,6 +241,7 @@ export default function getTheme({
     bg_sell: '#DE4D77',
     ...withAlphas('#000000', 'bg_black', ['20', '30', '40', '50', '70', '80']),
     ...withAlphas('#ffffff', 'bg_white', [
+      '02',
       '05',
       '06',
       '07',
@@ -297,7 +299,15 @@ export default function getTheme({
 
     // border aliases
     border_transparent: 'transparent',
-    ...withAlphas('#ffffff', 'border_white', ['05', '10', '20', '30', '50']),
+    ...withAlphas('#ffffff', 'border_white', [
+      '02',
+      '05',
+      '07',
+      '10',
+      '20',
+      '30',
+      '50',
+    ]),
     ...withAlphas('#B7BDC6', 'border_b7b', [
       '10',
       '15',

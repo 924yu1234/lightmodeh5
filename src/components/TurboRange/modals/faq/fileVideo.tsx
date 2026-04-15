@@ -2,12 +2,9 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import Close from 'src/components/Icons/close';
-import TvFullScreen from 'src/components/Icons/tv_fullScreen';
 import { useIntl } from 'src/locals';
-import { useIsAppH5 } from 'src/providers/useWallet';
 
 import {
-  canUseDocumentFullscreen,
   FullscreenElement,
   FullscreenVideoElement,
   StyledLandscapeOverlay,
@@ -24,7 +21,6 @@ export default function TurboRangeFAQFileVideo({
   isMobile: boolean;
 }) {
   const intl = useIntl();
-  const isAppH5 = useIsAppH5();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const shouldAutoFullscreenRef = useRef(false);
@@ -32,8 +28,7 @@ export default function TurboRangeFAQFileVideo({
   const [playerSeed, setPlayerSeed] = useState(0);
   const [showLandscapePlayer, setShowLandscapePlayer] = useState(false);
 
-  const useLandscapeOverlay = isAppH5 && isMobile;
-  const showPlayOverlay = useLandscapeOverlay || !isPlaying;
+  const showPlayOverlay = !isPlaying;
 
   const resetVideo = useCallback(() => {
     const video = videoRef.current;
@@ -69,52 +64,40 @@ export default function TurboRangeFAQFileVideo({
 
   const enterFullscreen = useCallback(() => {
     const video = videoRef.current as FullscreenVideoElement | null;
-    const wrapper = wrapperRef.current as FullscreenElement | null;
+    if (!video) return;
 
-    if (video?.requestFullscreen && canUseDocumentFullscreen()) {
-      const fullscreenPromise = video.requestFullscreen();
-      fullscreenPromise.catch(() => {
-        if (video?.webkitEnterFullscreen) {
-          video.webkitEnterFullscreen();
-        }
-      });
+    // iOS WKWebView (Flutter 等) 中 requestFullscreen() 只能做到 WebView 内部全屏，
+    // 无法触发系统级全屏。优先使用 webkitEnterFullscreen() 走原生 AVPlayer 全屏。
+    if (video.webkitEnterFullscreen) {
+      video.webkitEnterFullscreen();
       return;
     }
 
-    if (video?.webkitRequestFullscreen && canUseDocumentFullscreen()) {
+    // 非 iOS 环境（Android / 桌面浏览器）走标准 Fullscreen API
+    const wrapper = wrapperRef.current as FullscreenElement | null;
+
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+      return;
+    }
+
+    if (video.webkitRequestFullscreen) {
       video.webkitRequestFullscreen();
       return;
     }
 
-    if (wrapper?.requestFullscreen && canUseDocumentFullscreen()) {
-      const fullscreenPromise = wrapper.requestFullscreen();
-      fullscreenPromise.catch(() => {
-        if (video?.webkitEnterFullscreen) {
-          video.webkitEnterFullscreen();
-        }
-      });
+    if (wrapper?.requestFullscreen) {
+      wrapper.requestFullscreen();
       return;
     }
 
-    if (wrapper?.webkitRequestFullscreen && canUseDocumentFullscreen()) {
+    if (wrapper?.webkitRequestFullscreen) {
       wrapper.webkitRequestFullscreen();
-      return;
-    }
-
-    if (video?.webkitEnterFullscreen) {
-      video.webkitEnterFullscreen();
     }
   }, []);
 
   const handlePlay = useCallback(() => {
     const video = videoRef.current;
-
-    if (useLandscapeOverlay) {
-      setShowLandscapePlayer(true);
-      setIsPlaying(true);
-      return;
-    }
-
     if (!video) {
       return;
     }
@@ -123,14 +106,14 @@ export default function TurboRangeFAQFileVideo({
       video.currentTime = 0;
     }
 
-    shouldAutoFullscreenRef.current = true;
+    shouldAutoFullscreenRef.current = !isMobile;
     const playPromise = video.play();
     if (playPromise && typeof playPromise.catch === 'function') {
       playPromise.catch(() => {
         shouldAutoFullscreenRef.current = false;
       });
     }
-  }, [useLandscapeOverlay]);
+  }, [isMobile]);
 
   const handleLandscapeClose = useCallback(() => {
     setShowLandscapePlayer(false);
@@ -191,7 +174,7 @@ export default function TurboRangeFAQFileVideo({
           ref={videoRef}
           src={src}
           preload="metadata"
-          controls={!useLandscapeOverlay}
+          controls
           playsInline
           onPlay={() => {
             setIsPlaying(true);
@@ -215,14 +198,6 @@ export default function TurboRangeFAQFileVideo({
             <span className="play-icon" />
           </button>
         )}
-        <button
-          type="button"
-          className="video-action video-fullscreen"
-          onClick={useLandscapeOverlay ? handlePlay : enterFullscreen}
-          aria-label={intl.icon_full_screen}
-        >
-          <TvFullScreen size={18} />
-        </button>
       </StyledVideoCard>
       {landscapePlayer}
     </>

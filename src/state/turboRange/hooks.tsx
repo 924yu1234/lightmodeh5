@@ -339,6 +339,11 @@ export function useTurboRangePositionSummary() {
           loadingPositions: acc.loadingPositions,
           positionValue:
             acc.positionValue + Number(position.positionValue || 0),
+          last24hYield:
+            acc.last24hYield +
+            (isNumber(position.last24hYield)
+              ? Number(position.last24hYield || '0')
+              : 0),
           yesterdayYield:
             acc.yesterdayYield +
             (isNumber(position.yesterdayYield)
@@ -355,6 +360,7 @@ export function useTurboRangePositionSummary() {
       {
         loadingPositions,
         positionValue: 0,
+        last24hYield: 0,
         yesterdayYield: 0,
         totalYield: 0,
         isYesterdayYieldUpdating: false,

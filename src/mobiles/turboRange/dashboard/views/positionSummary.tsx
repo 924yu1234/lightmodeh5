@@ -24,12 +24,8 @@ export default function PositionSummary() {
   const navigate = useCustomNavigate();
   const hasAccessToken = useHasAccessToken();
 
-  const {
-    positionValue,
-    yesterdayYield,
-    totalYield,
-    isYesterdayYieldUpdating,
-  } = useTurboRangePositionSummary();
+  const { positionValue, last24hYield, totalYield } =
+    useTurboRangePositionSummary();
   return (
     <>
       <StyledPositionSummary className="position-summary">
@@ -68,16 +64,10 @@ export default function PositionSummary() {
                         </div>
                         <div className="summary-item">
                           <div className="summary-item-title">
-                            {intl.turboRange.yesterday_yield}
+                            {intl.turboRange.last_24h_yield}
                           </div>
-                          <div
-                            className={`summary-item-value profit ${
-                              isYesterdayYieldUpdating ? 'updating' : ''
-                            }`}
-                          >
-                            {isYesterdayYieldUpdating
-                              ? intl.turboRange.updating
-                              : formatUsd(yesterdayYield)}
+                          <div className="summary-item-value profit">
+                            {formatUsd(last24hYield)}
                           </div>
                         </div>
                       </>

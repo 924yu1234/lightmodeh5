@@ -21,7 +21,7 @@
 
 - `Tabs/*`
   - `PillTabs`
-  - `UnderlineTabs`
+  - `UITabs`
 
 - `Input/*`
   - `UITextInput`
@@ -58,7 +58,7 @@
 
 3. Tabs
    - 多处 `Tabs.List / Tabs.Tab / Tabs.Panel` 样式分散
-   - 可优先用 `UnderlineTabs` 收敛
+   - 可优先用 `PillTabs` / `UITabs` 收敛
 
 4. 卡片/标题/信息行
    - 多处 `background + radius + padding` 和 `item-title` 重复

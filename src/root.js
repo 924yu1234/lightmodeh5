@@ -19,6 +19,7 @@ import { useSetLocale } from 'js/locals';
 import NotificationProvider from 'js/providers/useNotification';
 import getTheme from 'js/theme';
 
+import ComponentLibrary from './components/UEDDevTools/ComponentLibrary';
 import UEDSettingsButton from './components/UEDDevTools/UEDSettingsButton';
 import { useShowH5Header } from './h5/utils';
 import useWindowSize from './hooks/useWindowSize';
@@ -94,6 +95,7 @@ export default function root({ updaters }) {
                   );
                 })}
                 <Route path="/disabled" element={<Disabled />} />
+                <Route path="/ued-components" element={<ComponentLibrary />} />
                 <Route
                   path="*"
                   element={

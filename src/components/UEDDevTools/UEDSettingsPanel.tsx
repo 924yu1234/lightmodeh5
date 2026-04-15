@@ -33,6 +33,12 @@ export default function UEDSettingsPanel({ onClose }: Props) {
           </button>
         </div>
 
+        <div className="quick-links">
+          <a className="quick-link" href="/ued-components">
+            📐 UI Components Library
+          </a>
+        </div>
+
         <div className="section">
           <div className="section-label">Display Mode</div>
           <div className="btn-group">
@@ -148,6 +154,27 @@ const StyledPanel = styled.div`
     cursor: pointer;
     &:hover {
       color: #fff;
+    }
+  }
+
+  .quick-links {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .quick-link {
+    display: block;
+    padding: 10px 14px;
+    background: rgba(80, 228, 162, 0.1);
+    border: 1px solid rgba(80, 228, 162, 0.3);
+    border-radius: 6px;
+    color: #50e4a2;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.15s;
+    &:hover {
+      background: rgba(80, 228, 162, 0.18);
     }
   }
 

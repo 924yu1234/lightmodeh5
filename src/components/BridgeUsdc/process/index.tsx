@@ -28,7 +28,7 @@ export default function BridgeUsdcProgressModal() {
   };
 
   return (
-    <Modal title={null} centered onClose={closeModal} opened={!!visible}>
+    <Modal centered title={null} onClose={closeModal} opened={!!visible}>
       <StyledOrder>
         <div className="modal-title"></div>
         {status === IntentOrderStatus.success && (

@@ -35,12 +35,14 @@ export default function SwapTrade() {
         <IntentOrderBtn />
 
         {!!account && (
-          <div className="add_funds">
-            <AddFunds
-              token={orderDir === OrderDirs.SELL ? baseToken : usdcToken}
-            />
+          <>
+            <div className="add_funds">
+              <AddFunds
+                token={orderDir === OrderDirs.SELL ? baseToken : usdcToken}
+              />
+            </div>
             <AddFundsGuide />
-          </div>
+          </>
         )}
       </Spin>
     </StyledSwapTrade>

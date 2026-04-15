@@ -16,12 +16,8 @@ import { formatUsd } from 'src/utils/format';
 export default function PositionSummary() {
   const intl = useIntl();
   const { positions, loadingPositions } = useTurboRangeActivePositions();
-  const {
-    positionValue,
-    yesterdayYield,
-    totalYield,
-    isYesterdayYieldUpdating,
-  } = useTurboRangePositionSummary();
+  const { positionValue, last24hYield, totalYield } =
+    useTurboRangePositionSummary();
 
   const hasAccessToken = useHasAccessToken();
 
@@ -61,16 +57,10 @@ export default function PositionSummary() {
                 </div>
                 <div className="summary-item">
                   <div className="summary-item-title">
-                    {intl.turboRange.yesterday_yield}
+                    {intl.turboRange.last_24h_yield}
                   </div>
-                  <div
-                    className={`summary-item-value color-green ${
-                      isYesterdayYieldUpdating ? 'updating' : ''
-                    }`}
-                  >
-                    {isYesterdayYieldUpdating
-                      ? intl.turboRange.updating
-                      : formatUsd(yesterdayYield)}
+                  <div className="summary-item-value color-green">
+                    {formatUsd(last24hYield)}
                   </div>
                 </div>
               </>

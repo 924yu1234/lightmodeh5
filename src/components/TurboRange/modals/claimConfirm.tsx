@@ -114,10 +114,10 @@ export default function TurboRangeClaimConfirmModal() {
             gasToken: gasToken?.code,
           });
           message.error(intl.common_err);
+          timer.current = setTimeout(() => {
+            setRefreshIndex(refreshIndex + 1);
+          }, 6000);
           return Promise.reject(err);
-          // timer.current = setTimeout(() => {
-          //   setRefreshIndex(refreshIndex + 1);
-          // }, 3000);
         });
     },
     [
@@ -135,6 +135,12 @@ export default function TurboRangeClaimConfirmModal() {
     doTry(gasToken);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doTry]);
+
+  useEffect(() => {
+    return () => {
+      if (timer.current) clearTimeout(timer.current);
+    };
+  }, []);
 
   const _baseToken = useMemo(
     () =>

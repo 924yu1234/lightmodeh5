@@ -150,7 +150,7 @@ export default function SendDataProvider({
       return '';
     }
     if (
-      !!isMaxModel &&
+      !isMaxModel &&
       (!isNumber(debouncedAmount) || Number(debouncedAmount) <= 0)
     ) {
       return '';

@@ -128,7 +128,6 @@ export default function TurboRangeFAQVideo({
     <TurboRangeFAQYoutubeVideo
       watchUrl={videoSource.watchUrl}
       visible={visible}
-      isMobile={isMobile}
     />
   );
 }

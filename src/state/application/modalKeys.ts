@@ -195,6 +195,8 @@ const ModalKeys = {
   turboRangePositionHistory: 'turboRangePositionHistory',
   turboRangeStrategyDetail: 'turboRangeStrategyDetail',
   turboRangeCreatePosition: 'turboRangeCreatePosition',
+  turboRangeHourlyBreakdown: 'turboRangeHourlyBreakdown',
+  turboRangeMoreMenu: 'turboRangeMoreMenu',
 
   bridgeUsdc: 'bridgeUsdc',
   bridgeUsdcChooseToken: 'bridgeUsdcChooseToken',

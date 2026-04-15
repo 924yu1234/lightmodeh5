@@ -215,10 +215,7 @@ export default function Btn() {
       return intl.turboRange.not_enough_balance_to_proceed;
     }
     if (overBaseBalance) {
-      return (
-        intl.turboRange?.not_enough_tokenA_balance ||
-        `Insufficient ${product.baseToken?.symbol} balance`
-      );
+      return intl.insufficient_balance;
     }
     if (overPriceImpact) {
       return intl.turboRange.adjust_the_input_to_proceed;
@@ -238,7 +235,6 @@ export default function Btn() {
     intl,
     overPriceImpact,
     belowQuoteMin,
-    product.baseToken?.symbol,
   ]);
 
   return (

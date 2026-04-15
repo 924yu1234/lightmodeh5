@@ -51,6 +51,15 @@ export interface TurboRangeRangeStatusTarget {
   status: 'OPEN' | 'CLOSED' | 'PENDING';
 }
 
+export interface HourlyBreakdownRow {
+  hour_ts: number;
+  end_ts: number;
+  is_partial: boolean;
+  yield_usd: string;
+  apy: string;
+  in_range: boolean;
+}
+
 export interface TurboRangePosition extends TurboRangeRangeStatusTarget {
   id: string;
   chain: Type_DAChains;
@@ -69,6 +78,19 @@ export interface TurboRangePosition extends TurboRangeRangeStatusTarget {
   apy_display: string;
   intentId: number;
   duration: number;
+
+  // Last 24h
+  last24hYield: string;
+  last24hYield_display: string;
+  last24hApy: string;
+  last24hApy_display: string;
+
+  // Hourly detail
+  currentHourApy: string;
+  currentHourYieldUsd: string;
+  currentHourStartTs: number;
+  lastCompleteHourApy: string;
+  hourlyBreakdown: HourlyBreakdownRow[];
 
   // active
   baseToken: Token;

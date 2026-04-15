@@ -58,15 +58,13 @@ const TurboRangeSharePosterDom = React.forwardRef<
 
           <div className="yields-card">
             <div className="yield-label">{intl.turboRange.all_time_yield}</div>
-            <div className="yield-label">{intl.turboRange.yesterday_yield}</div>
+            <div className="yield-label">{intl.turboRange.last_24h_yield}</div>
             <div className="yield-value">{position.totalYield_display}</div>
             <div className="yield-value green">
-              {position.isYesterdayUpdating
-                ? intl.turboRange.updating
-                : `${position.yesterdayYield_display}`}
+              {position.last24hYield_display}
             </div>
             <div className="yield-label">{intl.turboRange.all_time_apy}</div>
-            <div className="yield-label">{intl.turboRange.yesterday_apy}</div>
+            <div className="yield-label">{intl.turboRange.last_24h_apy}</div>
             <div className="yield-value">{allTimeApyValue}</div>
             <div className="yield-value green">{yesterdayApyValue}</div>
           </div>

@@ -2,10 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
-import IconWrapper2 from 'src/components/Icons/IconWrapper2';
-import IconPositionHistory from 'src/components/Icons/PositionHistory';
 import BottomModal from 'src/components/Modals/bottomModal';
-import { PositionHistoryPanel } from 'src/components/TurboRange/modals/positionHistory';
 import {
   useRefreshTurboRangePostions,
   useRefreshTurboRangePostionsIndex,
@@ -15,12 +12,14 @@ import { useGetTurboRangeDetail } from 'src/state/turboRange/service';
 import { ThemeType, useThemeParams } from 'src/theme';
 import { logger } from 'src/utils/logger';
 
-import Close from 'js/components/Icons/close';
-import { useModals, useShowModal } from 'js/state/application/hooks';
+import { useModals } from 'js/state/application/hooks';
 import { ModalKeys } from 'js/state/application/reducer';
 
-import TurboRangeDetailActive from './active';
 import TurboRangeDetailClosed from './closed';
+import MobileDetail from './mobile';
+import PCDetail from './web';
+
+const POLL_INTERVAL = 30000;
 
 export default function TurboRangeDetailModal() {
   const {
@@ -28,8 +27,6 @@ export default function TurboRangeDetailModal() {
     hide,
     position: positionData,
   } = useModals(ModalKeys.turboRangeDetail);
-  const showModal = useShowModal();
-  const [historyVisible, setHistoryVisible] = useState(false);
   const getTurboRangeDetail = useGetTurboRangeDetail();
   const [position, setPosition] = useState<TurboRangePosition>(positionData);
 
@@ -49,7 +46,7 @@ export default function TurboRangeDetailModal() {
     setLoading(true);
   }, [positionData?.positionAddress]);
 
-  useEffect(() => {
+  const fetchDetail = useCallback(() => {
     if (!positionData?.positionAddress) return;
     getTurboRangeDetail({
       positionAddress: positionData.positionAddress,
@@ -68,38 +65,31 @@ export default function TurboRangeDetailModal() {
         setLoading(false);
       });
   }, [
-    refreshPostionsIndex,
     getTurboRangeDetail,
     positionData?.positionAddress,
     positionData?.duration,
-    refrehPostions,
     positionData?.status,
+    refrehPostions,
   ]);
+
+  useEffect(() => {
+    fetchDetail();
+  }, [refreshPostionsIndex, fetchDetail]);
+
+  // Poll for current hour data updates
+  useEffect(() => {
+    if (!visible || !positionData?.positionAddress) return undefined;
+    const timer = setInterval(fetchDetail, POLL_INTERVAL);
+    return () => clearInterval(timer);
+  }, [visible, positionData?.positionAddress, fetchDetail]);
 
   const location = useLocation();
   const isChartPage = location.pathname.includes('/turbo-range/info');
 
   const modalWidth = useMemo(() => {
     if (isMobile) return '100%';
-    return '460px';
+    return '896px';
   }, [isMobile]);
-
-  const toggleHistory = useCallback(() => {
-    if (!isMobile) {
-      setHistoryVisible((pre) => !pre);
-    } else {
-      showModal({
-        modal: ModalKeys.turboRangePositionHistory,
-        position,
-      });
-    }
-  }, [showModal, position, isMobile]);
-
-  useEffect(() => {
-    if (!visible) {
-      setHistoryVisible(false);
-    }
-  }, [visible]);
 
   if (isChartPage) {
     return null;
@@ -111,60 +101,38 @@ export default function TurboRangeDetailModal() {
       opened={visible}
       className="full-modal"
       noHeader={isMobile}
-      historyVisible={historyVisible}
       modalWidth={modalWidth}
     >
       <StyledModal className="modal-wrapper">
-        {!isMobile && (
-          <div className="modal-title">
-            <Close onClick={hideModal} />
-          </div>
-        )}
         <div className="modal-content-wrapper">
           {position && (
             <div className="modal-content" id="turboRangeDetail">
-              {position?.status === 'OPEN' ? (
-                <TurboRangeDetailActive
-                  position={position}
-                  loading={loading}
-                  toggleHistory={toggleHistory}
-                  historyVisible={historyVisible}
-                />
-              ) : (
+              {position?.status !== 'OPEN' && (
                 <TurboRangeDetailClosed
                   position={position}
-                  historyVisible={historyVisible}
-                  toggleHistory={toggleHistory}
+                  historyVisible={false}
+                  toggleHistory={() => {}}
+                />
+              )}
+              {position?.status === 'OPEN' && isMobile && (
+                <MobileDetail position={position} loading={loading} />
+              )}
+              {position?.status === 'OPEN' && !isMobile && (
+                <PCDetail
+                  position={position}
+                  loading={loading}
+                  onClose={hideModal}
                 />
               )}
             </div>
           )}
         </div>
       </StyledModal>
-      {!isMobile && (
-        <PositionHistoryPanel
-          position={position}
-          visible={historyVisible}
-          toggleHistory={toggleHistory}
-        />
-      )}
-      {!isMobile && !historyVisible && (
-        <div className="web-position-history-btn">
-          <IconWrapper2
-            size={50}
-            onClick={toggleHistory}
-            className={historyVisible ? 'active' : ''}
-          >
-            <IconPositionHistory size={16} />
-          </IconWrapper2>
-        </div>
-      )}
     </StyledBottomModal>
   );
 }
 
 const StyledBottomModal = styled(BottomModal)<{
-  historyVisible: boolean;
   modalWidth: string;
 }>`
   .mantine-Modal-content {
@@ -182,23 +150,10 @@ const StyledBottomModal = styled(BottomModal)<{
     .modal-wrapper {
       background: #22223c;
       border-radius: 12px;
-      width: 460px;
-      min-width: 460px;
+      width: 100%;
       overflow: hidden;
       padding-top: ${({ theme }: { theme: ThemeType }) =>
         theme.isMobile ? 52 : 10}px;
-      .product {
-        height: 52px;
-      }
-    }
-  }
-  .web-position-history-btn {
-    position: absolute;
-    right: -60px;
-    top: 0px;
-    .dg-icon-wrapper2 {
-      background: #22223c;
-      border-radius: 25px;
     }
   }
 `;
@@ -248,10 +203,6 @@ const StyledModal = styled.div`
       align-items: center;
       gap: 5px;
     }
-  }
-
-  .price-range {
-    margin-bottom: 20px;
   }
 
   .modal-content {

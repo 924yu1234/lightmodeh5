@@ -82,6 +82,13 @@ export const convertTurboRangePosition = (
     total_yield_usd,
     yesterday_yield_usd,
     yesterday_apy,
+    last_24h_yield_usd,
+    last_24h_apy,
+    current_hour_apy,
+    current_hour_yield_usd,
+    current_hour_start_ts,
+    last_complete_hour_apy,
+    hourly_breakdown,
     unclaimed_rewards,
     apy,
     total_pnl,
@@ -233,6 +240,15 @@ export const convertTurboRangePosition = (
     ? formatTurboRangeAPY(yesterday_apy)
     : '--';
 
+  const last24hYield = last_24h_yield_usd || '0';
+  const last24hYield_display = isNumber(last_24h_yield_usd)
+    ? formatUsd(last_24h_yield_usd)
+    : '--';
+
+  const last24hApy_display = isNumber(last_24h_apy)
+    ? formatTurboRangeAPY(last_24h_apy)
+    : '--';
+
   const entryPrice = divide(
     position.init_price_a,
     position.init_price_b
@@ -295,6 +311,24 @@ export const convertTurboRangePosition = (
       status: position.status,
       yesterdayApyCalculatedTime,
     }),
+
+    last24hYield,
+    last24hYield_display,
+    last24hApy: last_24h_apy || '0',
+    last24hApy_display,
+
+    currentHourApy: current_hour_apy || '0',
+    currentHourYieldUsd: current_hour_yield_usd || '0',
+    currentHourStartTs: (current_hour_start_ts || 0) * 1000,
+    lastCompleteHourApy: last_complete_hour_apy || '',
+    hourlyBreakdown: (hourly_breakdown || []).map((row: any) => ({
+      hour_ts: row.hour_ts * 1000,
+      end_ts: row.end_ts * 1000,
+      is_partial: row.is_partial,
+      yield_usd: row.yield_usd || '0',
+      apy: row.apy || '0',
+      in_range: row.in_range,
+    })),
 
     totalYield: totalYield.toString(),
     totalYield_display: formatUsd(totalYield),
@@ -362,6 +396,7 @@ export const convertTurboRangeStrategyLeaderboardItem = (
 
   return {
     id: [
+      item.create_time,
       product.pool_address,
       priceRange.tick_lower,
       priceRange.tick_upper,

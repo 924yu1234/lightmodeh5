@@ -125,10 +125,10 @@ export default function DAUpdater() {
     account,
     dexChainId,
     getDA,
-    gaEvent,
     accessToken?.da_owner,
-    syncFetchOriginDexAccount,
+    gaEvent,
     isAppH5,
+    syncFetchOriginDexAccount,
   ]);
 
   useEffect(() => {

@@ -10,7 +10,6 @@ import { formatTurboRangeDuration } from 'src/state/turboRange/utils';
 
 import { usePositionHistoryData } from './data';
 import {
-  HistoryDot,
   HistoryItemLeft,
   HistoryItemRight,
   HistoryItemRow,
@@ -68,7 +67,6 @@ export default function PositionHistoryList({
           onClick={handleItemClick(item)}
         >
           <HistoryItemLeft>
-            <HistoryDot />
             <HistoryTitle>{getTypeLabel(item.type)}</HistoryTitle>
           </HistoryItemLeft>
           <HistoryItemRight>

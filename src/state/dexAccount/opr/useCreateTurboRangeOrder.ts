@@ -101,6 +101,7 @@ export function useCreateTurboRangeDepositTryData() {
           extra_data: {
             fee_address: (solverAddresses?.[chain] ?? {}).solver,
             caller: DA,
+            receiver: DA,
             deposit_amount: volume,
             token_mint: usdc?.code,
             fee_percent: product.feePercent,
@@ -202,6 +203,7 @@ export function useCreateTurboRangeWithdrawTryData() {
           extra_data: {
             pool: position.poolAddress,
             caller: DA,
+            receiver: DA,
             convert_to_usdc,
             nft_mint: position.positionAddress,
             fee_address: (solverAddresses?.[chain] ?? {}).solver,
@@ -292,6 +294,7 @@ export function useCreateTurboRangeClaimTryData() {
           extra_data: {
             pool: position.poolAddress,
             caller: DA,
+            receiver: DA,
             nft_mint: position.positionAddress,
             fee_address: (solverAddresses?.[chain] ?? {}).solver,
             token_mint: usdc?.code,
@@ -405,6 +408,7 @@ export function useCreateTurboRangeIncreaseInvestmentTryData() {
           extra_data: {
             fee_address: (solverAddresses?.[chain] ?? {}).solver,
             caller: DA,
+            receiver: DA,
             deposit_amount: volume,
             token_mint: usdc?.code,
             fee_percent: product.feePercent,
@@ -569,6 +573,7 @@ export function useCreateTurboRangeDualDepositTryData() {
           extra_data: {
             fee_address: (solverAddresses?.[chain] ?? {}).solver,
             caller: DA,
+            receiver: DA,
             deposit_amount: volume,
             token_mint: usdc?.code,
             fee_percent: product.feePercent,
@@ -726,6 +731,7 @@ export function useCreateTurboRangeDualIncreaseInvestmentTryData() {
           extra_data: {
             fee_address: (solverAddresses?.[chain] ?? {}).solver,
             caller: DA,
+            receiver: DA,
             deposit_amount: volume,
             token_mint: usdc?.code,
             fee_percent: product.feePercent,

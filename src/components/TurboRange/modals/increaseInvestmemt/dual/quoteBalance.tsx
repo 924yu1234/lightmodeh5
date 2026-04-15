@@ -50,19 +50,13 @@ export default function QuoteBalance() {
         }}
       />
       {overQuoteBalance && (
-        <div className="error_tips">
-          {intl.turboRange?.insufficientUsdcBalance ||
-            intl.insufficient_balance}
-        </div>
+        <div className="error_tips">{intl.insufficient_balance}</div>
       )}
       {overMax && !overQuoteBalance && (
         <div className="error_tips">{intl.turboRange.maximum_500000}</div>
       )}
       {belowQuoteMin && !overQuoteBalance && (
-        <div className="error_tips">
-          {intl.turboRange?.usdcMinAmount ||
-            intl.min_XXX.replace('XXX', '0.01')}
-        </div>
+        <div className="error_tips">{intl.min_XXX.replace('XXX', '0.01')}</div>
       )}
 
       <div className="balance-inner">

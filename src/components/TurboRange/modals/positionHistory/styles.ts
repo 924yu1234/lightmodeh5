@@ -10,7 +10,7 @@ export const HistoryListWrap = styled.div`
   min-height: 100px;
   overflow: auto;
   padding: ${({ theme }: { theme: ThemeType }) =>
-    theme.isMobile ? '0 20px' : '0 20px 0 62px'};
+    theme.isMobile ? '0 20px' : ''};
   max-height: ${(props: any) => {
     return props.theme.windowHeight - 52 - props.theme.modalTop * 2 - 30 - 82;
   }}px;
@@ -24,35 +24,12 @@ export const HistoryItemRow = styled.div`
   cursor: pointer;
   height: 20px;
   position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 2.5px;
-    top: 12px;
-    bottom: -20px;
-    width: 1px;
-    background: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_60};
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_60};
-  }
-  &:last-child::before {
-    display: none;
-  }
 `;
 
 export const HistoryItemLeft = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-`;
-
-export const HistoryDot = styled.span`
-  position: relative;
-  z-index: 1;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_60};
 `;
 
 export const HistoryTitle = styled.div`
