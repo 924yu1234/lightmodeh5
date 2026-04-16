@@ -1,12 +1,7 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { UEDMode, UEDTheme, useUEDSettings } from 'src/mock/MockModeContext';
-import {
-  clearWalletSnapshot,
-  getWalletSnapshotSummary,
-  setWalletSnapshotFromText,
-} from 'src/wallet/config';
 
 const MODES: { value: UEDMode; label: string }[] = [
   { value: 'pc', label: 'PC' },
@@ -32,30 +27,6 @@ interface Props {
 
 export default function UEDSettingsPanel({ onClose }: Props) {
   const settings = useUEDSettings();
-  const walletSummary = useMemo(() => getWalletSnapshotSummary(), []);
-  const [showWalletEditor, setShowWalletEditor] = useState(false);
-  const [walletJsonInput, setWalletJsonInput] = useState('');
-  const [walletSaveError, setWalletSaveError] = useState<string | null>(null);
-
-  const handleSaveWallet = () => {
-    const result = setWalletSnapshotFromText(walletJsonInput);
-    if (!result.ok) {
-      setWalletSaveError(result.error || 'Parse error');
-      return;
-    }
-    setWalletSaveError(null);
-    window.location.reload();
-  };
-
-  const handleClearWallet = () => {
-    // eslint-disable-next-line no-alert
-    const ok = window.confirm(
-      'Clear the saved wallet override and reload with the baked-in default?'
-    );
-    if (!ok) return;
-    clearWalletSnapshot();
-    window.location.reload();
-  };
 
   return (
     <StyledOverlay onClick={onClose}>
@@ -147,89 +118,6 @@ export default function UEDSettingsPanel({ onClose }: Props) {
               <span className="toggle-knob" />
             </button>
           </div>
-        </div>
-
-        <div className="section">
-          <div className="section-label">Wallet Config</div>
-          <div className="wallet-info">
-            <div className="wallet-row">
-              <span className="wallet-row-label">Account</span>
-              <span className="wallet-row-value mono">
-                {walletSummary.accountShort}
-              </span>
-            </div>
-            <div className="wallet-row">
-              <span className="wallet-row-label">Token</span>
-              <span
-                className={`wallet-row-value ${
-                  walletSummary.hasToken ? 'ok' : 'warn'
-                }`}
-              >
-                {walletSummary.hasToken ? '✓ set' : '✗ missing'}
-              </span>
-            </div>
-            <div className="wallet-row">
-              <span className="wallet-row-label">Source</span>
-              <span className="wallet-row-value">
-                {walletSummary.overridden ? 'localStorage' : 'baked-in'}
-              </span>
-            </div>
-          </div>
-          {!showWalletEditor ? (
-            <div className="btn-group wallet-btns">
-              <button
-                type="button"
-                onClick={() => {
-                  setWalletJsonInput('');
-                  setWalletSaveError(null);
-                  setShowWalletEditor(true);
-                }}
-              >
-                Paste JSON
-              </button>
-              <button type="button" onClick={handleClearWallet}>
-                Clear
-              </button>
-            </div>
-          ) : (
-            <div className="wallet-editor">
-              <textarea
-                className="wallet-textarea"
-                value={walletJsonInput}
-                onChange={(e) => {
-                  setWalletJsonInput(e.target.value);
-                  if (walletSaveError) setWalletSaveError(null);
-                }}
-                placeholder={
-                  'Paste walletSnapshot from dg-wallet console\n' +
-                  '(Chrome DevTools → Copy object, or JSON)'
-                }
-                spellCheck={false}
-              />
-              {walletSaveError && (
-                <div className="wallet-error">{walletSaveError}</div>
-              )}
-              <div className="btn-group wallet-btns">
-                <button
-                  type="button"
-                  className="primary"
-                  onClick={handleSaveWallet}
-                >
-                  Save &amp; Reload
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowWalletEditor(false);
-                    setWalletJsonInput('');
-                    setWalletSaveError(null);
-                  }}
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          )}
         </div>
 
         <div className="hint">
@@ -380,75 +268,7 @@ const StyledPanel = styled.div`
     }
   }
 
-  .wallet-info {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    padding: 8px 10px;
-    margin-bottom: 8px;
-  }
-  .wallet-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 11px;
-    line-height: 18px;
-  }
-  .wallet-row-label {
-    color: #888;
-  }
-  .wallet-row-value {
-    color: #e0e0e0;
-    &.mono {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    }
-    &.ok {
-      color: #50e4a2;
-    }
-    &.warn {
-      color: #febe2f;
-    }
-  }
-  .wallet-btns {
-    margin-top: 4px;
-    button.primary {
-      background: #50e4a2;
-      color: #000;
-      border-color: #50e4a2;
-      font-weight: 600;
-    }
-  }
-  .wallet-editor {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .wallet-textarea {
-    width: 100%;
-    min-height: 140px;
-    max-height: 240px;
-    resize: vertical;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(0, 0, 0, 0.3);
-    color: #e0e0e0;
-    font-size: 11px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    outline: none;
-    &:focus {
-      border-color: #50e4a2;
-    }
-    &::placeholder {
-      color: #555;
-    }
-  }
-  .wallet-error {
-    color: #ff6b81;
-    font-size: 11px;
-    padding: 4px 6px;
-    background: rgba(255, 107, 129, 0.08);
-    border-radius: 4px;
+  /* Wallet config moved to Connect Wallet modal */
   }
 
   .hint {
