@@ -76,7 +76,7 @@ export default function AppH5() {
                   </>
                 );
               })}
-              <Route path="*" element={<Navigate to="home" replace />} />
+              <Route path="*" element={<Navigate to="menus" replace />} />
             </Routes>
           )}
         </div>

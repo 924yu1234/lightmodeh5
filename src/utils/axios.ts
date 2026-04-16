@@ -44,10 +44,6 @@ axiosService.interceptors.request.use(
       source: window.isMobile ? 'degate_mobile' : 'degate_web',
     };
 
-    if (window._degate_app) {
-      config.headers['device-id'] = window._degate_app.deviceId;
-    }
-
     // 如果是POST请求，记录GA事件
     if (config.method?.toLowerCase() === 'post') {
       if (window.gaEvent) {
@@ -233,32 +229,7 @@ export default function makeRequest(
     !isSyncPrivy &&
     !isSwapInfo
   ) {
-    const callAppPromise = window.callAppPromise;
-    if (!callAppPromise) {
-      return makeRequest(params, maxRetries, true);
-    }
-    try {
-      return callAppPromise('httpRequest', {
-        cacheTime: 30 * 60 * 1000, // 30 minutes
-        ...params,
-      }).catch((error: any) => {
-        if (!error?.includes('不支持的HTTP请求路径')) {
-          logRequest({
-            event: 'APP httpRequest error',
-            url: params?.url,
-            error,
-          });
-        }
-        return makeRequest(params, maxRetries, true);
-      });
-    } catch (error) {
-      logRequest({
-        event: 'APP httpRequest error',
-        url: params?.url,
-        error,
-      });
-      return makeRequest(params, maxRetries, true);
-    }
+    return makeRequest(params, maxRetries, true);
   }
 
   return axiosService(params).catch((error) => {

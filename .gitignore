@@ -9,3 +9,4 @@ sslforfree
 walletnode_modules/
 build/
 dist/
+.vercel

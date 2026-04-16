@@ -343,7 +343,10 @@ export default function useWalletOperations(wallet: Wallet) {
       baseOps = _createLegacyOperations(operations);
     }
 
-    // UED: override order creation operations with modal-based versions
+    // UED: override operations with modal-based versions (PC/Mobile only, not H5 app)
+    if (wallet.isApp) {
+      return baseOps;
+    }
     return {
       ...baseOps,
       ...modalOps,
