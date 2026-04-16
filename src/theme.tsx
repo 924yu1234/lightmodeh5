@@ -291,7 +291,9 @@ export default function getTheme({
     bg_f5f5f5_10: darkMode
       ? withAlpha('#f5f5f5', '1a')
       : 'rgba(240, 245, 241, 0.1)',
-    bg_1a1a1a_50: darkMode ? withAlpha('#1a1a1a', '80') : 'rgba(9, 45, 31, 0.5)',
+    bg_1a1a1a_50: darkMode
+      ? withAlpha('#1a1a1a', '80')
+      : 'rgba(9, 45, 31, 0.5)',
     bg_333: darkMode ? '#333333' : '#4a7a5c',
     bg_131a2a: darkMode ? '#131a2a' : '#f7faf8',
     bg_f0f0f0: darkMode ? '#f0f0f0' : '#f0f5f1',
@@ -418,9 +420,7 @@ export default function getTheme({
     accentDark: darkMode ? '#04ba6f' : '#15663a', // deep accent (pill)
     mid: darkMode ? '#B7BDC6' : '#4a7a5c', // secondary text
     mutedUi: darkMode ? '#a1a4b1' : '#8fb89e', // muted UI elements
-    mutedText: darkMode
-      ? 'rgba(183, 189, 198, 0.45)'
-      : 'rgba(9, 45, 31, 0.45)',
+    mutedText: darkMode ? 'rgba(183, 189, 198, 0.45)' : 'rgba(9, 45, 31, 0.45)',
 
     // Surfaces
     pageBg: darkMode ? '#13132F' : '#f7faf8',

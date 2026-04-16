@@ -5,6 +5,8 @@ import { Menu, PrimaryBtn } from 'src/UI';
 
 import IconAccount from 'src/components/Icons/account';
 import { useShowAccount } from 'src/hooks/useShowAccount';
+import { useShowModal } from 'src/state/application/hooks';
+import { ModalKeys } from 'src/state/application/reducer';
 import { useThemeParams } from 'src/theme';
 
 import IconArrows from 'js/components/Icons/arrowDown';
@@ -22,8 +24,14 @@ export default function GlobalAccount() {
   const { account } = useWalletWeb3();
   const intl = useIntl();
   const { isMobile, windowWidth } = useThemeParams();
-  const login = useShowModalLogin();
+  const loginOriginal = useShowModalLogin();
+  const showModal = useShowModal();
   const showAccount = useShowAccount();
+
+  // UED: when not connected, show the paste-JSON modal directly
+  const login = account
+    ? loginOriginal
+    : () => showModal({ modal: ModalKeys.ued_connect_wallet });
 
   const hideAccount = windowWidth <= 1024;
 

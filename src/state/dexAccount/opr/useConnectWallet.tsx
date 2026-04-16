@@ -25,9 +25,14 @@ export default function useConnectWallet() {
   const changeUserInterviewConditions = useChangeUserInterviewConditions();
   const showModal = useShowModal();
   const isAppH5 = useIsAppH5();
-  const { updateWallet } = useWallet();
+  const { updateWallet, account: currentAccount } = useWallet();
   return useCallback(
     ({ switchWallet }: { switchWallet?: boolean } = {}) => {
+      // UED: if not connected, do nothing here — the Account component
+      // intercepts the click and shows the connect wallet modal directly.
+      if (!currentAccount) {
+        return Promise.resolve();
+      }
       logWalletStart(switchWallet ? 'switch_address' : 'connect_wallet');
       if (isAppH5) {
         return callAppPromise('connectWallet', {})
@@ -80,6 +85,7 @@ export default function useConnectWallet() {
       isAppH5,
       callAppPromise,
       updateWallet,
+      currentAccount,
     ]
   );
 }

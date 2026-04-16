@@ -40,6 +40,7 @@ import UserInterview from 'src/components/TipsModal/userInterview';
 import WrapUnwrapSite from 'src/components/TipsModal/wrapUnwrapSite';
 import XStocksTips from 'src/components/TipsModal/XStocksTips';
 import TurboRangeModals from 'src/components/TurboRange/modals';
+import ConnectWalletModal from 'src/components/UEDDevTools/ConnectWalletModal';
 import UsdcSuppliedChartModal from 'src/components/UsdcSupplied/chartModal';
 import WalletModals from 'src/wallet/modals';
 
@@ -65,6 +66,7 @@ export default function CommonModals() {
   return (
     <>
       <WalletModals />
+      <ConnectWalletModal />
       <DexAccountModal />
       <TurboRangeModals />
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="12px" viewBox="0 0 16 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>email (1)</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-329, -400.5351)">
+            <g transform="translate(285, 65)">
+                <g transform="translate(20, 316)">
+                    <g transform="translate(20, 13)">
+                        <g transform="translate(4, 6.5351)">
+                            <path d="M16,2.72747935 L16,9.27252065 C16,10.770816 14.7982222,12 13.3333333,12 L2.66666667,12 C1.20177778,12 0,10.770816 0,9.27252065 L0,2.72747935 L6.33333333,7.09235548 C7.26755556,7.84150314 8.66666667,7.84150314 9.60088889,7.09235548 L16,2.72747935 Z" id="Fill-1" fill="#00A0FF"></path>
+                            <path d="M16,2.72747935 L9.66666667,7.77422532 C8.73244444,8.52337298 7.33333333,8.52337298 6.39911111,7.77422532 L0,2.72747935 C0,1.22463823 1.20177778,9.08433114e-16 2.66666667,9.08433114e-16 L13.3333333,9.08433114e-16 C14.7982222,9.08433114e-16 16,1.15736041 16,2.72747935" id="Fill-2" fill="#6AC8FF"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -8,6 +8,7 @@ import { useIsPrivy } from 'src/hooks/useWalletHooks';
 import { useGaEvent, useWalletOprs } from 'src/providers/useWallet';
 import useSyncToApp from 'src/state/dexAccount/opr/useSyncToApp';
 import useViewAddress from 'src/state/dexAccount/opr/useViewAddress';
+import { clearWalletSnapshot } from 'src/wallet/config';
 
 import IconAccountAsset from 'js/components/Icons/accountAsset';
 import IconAccountOrder from 'js/components/Icons/accountOrder';
@@ -30,7 +31,7 @@ export default function DrawMenu() {
   const showLogin = useShowModalLogin();
   const dexAccount = useDexAccount();
 
-  const { disconnect } = useWalletOprs();
+  useWalletOprs();
   const register = useRegister();
   const viewAddress = useViewAddress();
   const toggleMenu = useToggleMenu();
@@ -54,7 +55,8 @@ export default function DrawMenu() {
       eventName: 'disconnect',
       account: dexAccount?.account,
     });
-    if (disconnect) disconnect();
+    clearWalletSnapshot();
+    window.location.reload();
   };
 
   const syncToApp = useSyncToApp();

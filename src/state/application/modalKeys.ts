@@ -230,6 +230,9 @@ const ModalKeys = {
   WALLET_SIGNING_PROGRESS: 'WALLET_SIGNING_PROGRESS',
   WALLET_AUTO_LOCKED: 'WALLET_AUTO_LOCKED',
   WALLET_UPCOMING_LOCK: 'WALLET_UPCOMING_LOCK',
+
+  // UED: Connect Wallet via JSON paste
+  ued_connect_wallet: 'ued_connect_wallet',
 };
 
 export default ModalKeys;

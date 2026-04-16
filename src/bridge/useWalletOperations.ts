@@ -1,9 +1,9 @@
 import { useEffect, useMemo } from 'react';
 
 import { callWalletBridge } from 'src/bridge/walletBridge';
-import { useWalletModalOperations } from 'src/wallet/operations';
 import { Operations } from 'src/constants/interface/operations';
 import { Wallet } from 'src/constants/interface/wallet';
+import { useWalletModalOperations } from 'src/wallet/operations';
 
 import { logCommon } from 'js/utils/log';
 
