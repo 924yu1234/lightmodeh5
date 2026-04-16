@@ -122,7 +122,7 @@ module.exports = {
       // assets are served directly. The `vvvvv/` placeholder is only useful
       // when docker/fixEnv.js does runtime substitution.
       const isPublicDeploy = process.env.REACT_APP_PUBLIC_DEPLOY === '1';
-      const prodPublicPath = isPublicDeploy ? '/' : 'vvvvv/';
+      const prodPublicPath = isPublicDeploy ? '/' : '/';
 
       webpackConfig.output = Object.assign(webpackConfig.output, {
         publicPath: isProduction ? prodPublicPath : devPublicUrlOrPath,
