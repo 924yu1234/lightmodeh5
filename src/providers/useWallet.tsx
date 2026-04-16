@@ -28,7 +28,9 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     const isH5Mode = mode === 'h5';
 
     const ws = walletSnapshot as any;
-    const hasToken = isLoggedIn && !!ws.accessToken?.token;
+    // H5 mode always uses the injected token (real app handles auth);
+    // isLoggedIn toggle only affects PC/Mobile modes.
+    const hasToken = (isLoggedIn || isH5Mode) && !!ws.accessToken?.token;
 
     // Sync window globals for H5 mode
     if (isH5Mode) {
