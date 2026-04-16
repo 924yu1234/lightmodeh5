@@ -103,7 +103,10 @@ module.exports = {
       });
 
 
-      if (!shouldLintOrTypeCheck) {
+      // DllReferencePlugin expects vendor DLL loaded via <script> in
+      // index_pro.html. For public deploys we use index.html (no DLL
+      // script) so skip it entirely to avoid "v1_dll is not defined".
+      if (!shouldLintOrTypeCheck && !isPublicDeployBuild) {
         webpackConfig.plugins = webpackConfig.plugins.concat(
           new DllReferencePlugin({
             context: path.join(__dirname),
