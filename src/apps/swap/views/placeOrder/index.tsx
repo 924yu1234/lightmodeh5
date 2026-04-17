@@ -82,6 +82,20 @@ export const StyledSwapTrade = styled.div`
   .dg-swap-sell {
     margin-top: 20px;
   }
+
+  .dg-swap-buy.mantine-Button-root {
+    border-radius: ${({ theme }: { theme: ThemeType }) =>
+      theme.swapCtaPillRadius};
+  }
+
+  .dg-swap-sell.mantine-Button-root {
+    border-radius: ${({ theme }: { theme: ThemeType }) => theme.buttonRadius};
+  }
+
+  .dg-primary.opr-btn.mantine-Button-root {
+    border-radius: ${({ theme }: { theme: ThemeType }) =>
+      theme.swapCtaPillRadius};
+  }
   .enable-quick-trading-btns {
     margin-top: 20px;
     .mantine-Button-root {
@@ -105,6 +119,21 @@ export const StyledSwapTrade = styled.div`
     margin-top: 15px;
     cursor: pointer;
     justify-content: center;
+
+    .add_funds_link {
+      border-radius: 8px;
+      padding: 5px 8px;
+      transition: background-color 0.15s ease;
+      @media (hover: hover) {
+        &:hover {
+          background: ${({ theme }: { theme: ThemeType }) => theme.pressTint};
+        }
+      }
+      &:active {
+        background: ${({ theme }: { theme: ThemeType }) =>
+          theme.segmentedCompactActiveBg};
+      }
+    }
   }
   .add-funds-guide {
     margin-top: 5px;

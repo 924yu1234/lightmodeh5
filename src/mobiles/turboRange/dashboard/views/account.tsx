@@ -30,7 +30,8 @@ const StyledAccount = styled.div`
   position: relative;
   .account-title {
     ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff : theme.ink};
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 20px;

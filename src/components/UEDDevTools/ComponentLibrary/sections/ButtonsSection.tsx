@@ -3,11 +3,13 @@ import styled from 'styled-components';
 
 import { BuyBtn, GhostBtn, MiniBtn, PrimaryBtn, SellBtn } from 'src/UI';
 
+import { useIntl } from 'src/locals';
 import { ThemeType } from 'src/theme';
 
 import ComponentCard from '../shared/ComponentCard';
 
 export default function ButtonsSection() {
+  const intl = useIntl();
   return (
     <StyledSection>
       <h2 className="section-title">Buttons</h2>
@@ -20,6 +22,14 @@ export default function ButtonsSection() {
           {
             label: 'Disabled',
             node: <PrimaryBtn disabled>Confirm</PrimaryBtn>,
+          },
+          {
+            label: 'With tips (disabled)',
+            node: (
+              <PrimaryBtn withTips disabled fullWidth>
+                {intl.turboRange.enter_amount_to_continue}
+              </PrimaryBtn>
+            ),
           },
           { label: 'Loading', node: <PrimaryBtn loading>Confirm</PrimaryBtn> },
           {

@@ -28,6 +28,8 @@ export default function ApyView() {
             {formatTurboRangeAPY(apy)}
 
             <SegmentedControl
+              appearance="compact"
+              style={{ width: 180, marginLeft: 'auto', flexShrink: 0 }}
               data={[
                 {
                   value: 'day',
@@ -104,38 +106,6 @@ const StyledApy = styled.div`
       justify-content: space-between;
       gap: 5px;
       color: ${({ theme }: { theme: ThemeType }) => theme.green};
-    }
-  }
-  .mantine-SegmentedControl-root {
-    background: ${({ theme }) => theme.bg_b7b_10};
-    border-radius: 15px;
-    height: 28px;
-    width: 180px;
-    margin-left: auto;
-    padding: 4px;
-    .mantine-SegmentedControl-indicator {
-      background: ${({ theme }: { theme: ThemeType }) => theme.bg_blue_10};
-      border-radius: 10px;
-      height: 20px;
-    }
-    .mantine-SegmentedControl-control {
-      height: 20px;
-      &:before {
-        display: none;
-      }
-      .mantine-SegmentedControl-label {
-        line-height: 20px;
-        padding: 0 10px;
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b};
-        ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-        font-size: 14px;
-      }
-      &[data-active] {
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
-        .mantine-SegmentedControl-label {
-          color: ${({ theme }: { theme: ThemeType }) => theme.blue};
-        }
-      }
     }
   }
 `;

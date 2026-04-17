@@ -60,6 +60,25 @@ const StyledCheckbox = styled(Checkbox)<{ height?: number }>`
           background-color: ${(props) => props.theme.bg_177ddc};
           border-color: ${(props) => props.theme.border_177ddc};
         }
+        &:disabled {
+          cursor: not-allowed;
+          background-color: ${({ theme }: { theme: ThemeType }) =>
+            theme.checkboxDisabledBg} !important;
+          border-color: ${({ theme }: { theme: ThemeType }) =>
+            theme.checkboxDisabledBorder} !important;
+        }
+        &:disabled:checked {
+          background-color: ${({ theme }: { theme: ThemeType }) =>
+            theme.checkboxDisabledCheckedBg} !important;
+          border-color: ${({ theme }: { theme: ThemeType }) =>
+            theme.checkboxDisabledCheckedBorder} !important;
+        }
+      }
+      .mantine-Checkbox-inner
+        .mantine-Checkbox-input:disabled
+        ~ .mantine-Checkbox-icon {
+        color: ${({ theme }: { theme: ThemeType }) =>
+          theme.checkboxDisabledIcon} !important;
       }
     }
     .mantine-Checkbox-labelWrapper {
@@ -100,13 +119,25 @@ const StyledCheckbox = styled(Checkbox)<{ height?: number }>`
             border-color: ${({ theme }: { theme: ThemeType }) => theme.green};
           }
           &:disabled {
+            cursor: not-allowed;
+            background-color: ${({ theme }: { theme: ThemeType }) =>
+              theme.checkboxDisabledBg} !important;
             border-color: ${({ theme }: { theme: ThemeType }) =>
-              theme.t_b7b_50};
-            cursor: default;
+              theme.checkboxDisabledBorder} !important;
+          }
+          &:disabled:checked {
+            background-color: ${({ theme }: { theme: ThemeType }) =>
+              theme.checkboxDisabledCheckedBg} !important;
+            border-color: ${({ theme }: { theme: ThemeType }) =>
+              theme.checkboxDisabledCheckedBorder} !important;
           }
         }
         .mantine-Checkbox-icon {
           color: ${({ theme }: { theme: ThemeType }) => theme.t_000};
+        }
+        .mantine-Checkbox-input:disabled ~ .mantine-Checkbox-icon {
+          color: ${({ theme }: { theme: ThemeType }) =>
+            theme.checkboxDisabledIcon} !important;
         }
       }
     }

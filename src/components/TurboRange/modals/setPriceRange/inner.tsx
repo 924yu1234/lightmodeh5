@@ -18,6 +18,7 @@ import {
   formatTurboRangeAPY,
   useCheckPriceRange,
 } from 'src/state/turboRange/utils';
+import { ThemeType } from 'src/theme';
 import digit, { isNumber } from 'src/utils/digit';
 import {
   enterNumberCheck,
@@ -417,8 +418,9 @@ export const commonStyledSetPriceRangeModal = css`
     display: flex;
     flex-direction: column;
     .price-input-label {
-      ${({ theme }: any) => theme.fontMedium};
-      color: ${({ theme }: any) => theme.t_b7b_80};
+      ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_b7b_80 : theme.mutedText};
       font-size: 14px;
       line-height: 18px;
       margin-bottom: 7px;
@@ -451,7 +453,7 @@ export const commonStyledSetPriceRangeModal = css`
         cursor: pointer;
         user-select: none;
         .dg-icon {
-          color: ${({ theme }: any) => theme.t_b7b_80};
+          color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_80};
         }
       }
     }
@@ -468,12 +470,16 @@ export const commonStyledSetPriceRangeModal = css`
       line-height: 36px;
       height: 36px;
       flex: 1;
-      background: ${({ theme }) => theme.bg_white_05};
-      border: 1px solid ${({ theme }) => theme.border_b7b_20};
+      background: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.bg_white_05 : theme.shellSurfaceSecondary};
+      border: 1px solid
+        ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.border_b7b_20 : theme.cardBorder};
       padding: 0 10px;
       text-align: center;
       border-radius: 5px;
-      color: ${({ theme }: any) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
       &.selected {
         border: 1px solid ${({ theme }) => theme.border_blue};
       }
@@ -487,9 +493,9 @@ export const commonStyledSetPriceRangeModal = css`
   }
   .error-tips {
     margin-top: 10px;
-    ${({ theme }: any) => theme.fontRegular};
+    ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
     font-size: 14px;
-    color: ${({ theme }: any) => theme.red};
+    color: ${({ theme }: { theme: ThemeType }) => theme.red};
   }
   .summary-item {
     display: flex;
@@ -497,18 +503,20 @@ export const commonStyledSetPriceRangeModal = css`
     align-items: center;
     margin-bottom: 10px;
     .summary-label {
-      ${({ theme }: any) => theme.fontRegular};
-      color: ${({ theme }: any) => theme.t_b7b_80};
+      ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_b7b_80 : theme.mutedText};
       font-size: 14px;
       line-height: 20px;
     }
     .summary-value {
-      ${({ theme }: any) => theme.fontRegular};
-      color: ${({ theme }: any) => theme.t_fff};
+      ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
       font-size: 14px;
       line-height: 20px;
       &.apy-value {
-        color: ${({ theme }: any) => theme.green};
+        color: ${({ theme }: { theme: ThemeType }) => theme.green};
       }
     }
   }

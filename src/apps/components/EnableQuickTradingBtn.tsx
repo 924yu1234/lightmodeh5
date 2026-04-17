@@ -56,12 +56,14 @@ const StyledBtns = styled.div<{ disabled?: boolean }>`
   width: 100%;
   .enable-quick-trading-btn {
     cursor: pointer;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 ${({ theme }) => theme.swapCtaPillRadius}
+      ${({ theme }) => theme.swapCtaPillRadius} 0;
     position: relative;
     background: ${({ theme }) => theme.blue};
-    border-left: 0.5px solid rgba(58, 66, 89, 1);
+    border-left: 0.5px solid ${({ theme }) => theme.innerBorder};
     &:hover {
-      border-radius: 0 5px 5px 0;
+      border-radius: 0 ${({ theme }) => theme.swapCtaPillRadius}
+        ${({ theme }) => theme.swapCtaPillRadius} 0;
       background: ${({ theme }) => theme.blue};
       background-image: linear-gradient(
         180deg,
@@ -71,12 +73,20 @@ const StyledBtns = styled.div<{ disabled?: boolean }>`
     }
   }
   &.enable-quick-trading-btns {
+    border-radius: ${({ theme }) => theme.swapCtaPillRadius};
+    overflow: hidden;
+
     .mantine-Button-root,
     .mantine-Button-root.dg-buy,
     .mantine-Button-root.dg-sell,
-    .mantine-Button-root.dg-swap-buy,
     .mantine-Button-root.dg-swap-sell {
-      border-radius: 5px 0 0 5px;
+      border-radius: ${({ theme }) => theme.swapCtaPillRadius} 0 0
+        ${({ theme }) => theme.swapCtaPillRadius};
+    }
+
+    .mantine-Button-root.dg-swap-buy {
+      border-radius: ${({ theme }) => theme.swapCtaPillRadius} 0 0
+        ${({ theme }) => theme.swapCtaPillRadius};
     }
   }
 

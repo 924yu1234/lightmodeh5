@@ -14,8 +14,6 @@ import ConnectMetamaskIcon from 'imgs/metamask.svg';
 import ConnectWalletConnectIcon from 'imgs/walletConnect.svg';
 import styled from 'styled-components';
 
-import PrivyCodeModal from './PrivyCodeModal';
-
 import { Input, Modal, PrimaryBtn } from 'src/UI';
 
 import Close from 'src/components/Icons/close';
@@ -24,6 +22,8 @@ import { useModals } from 'src/state/application/hooks';
 import ModalKeys from 'src/state/application/modalKeys';
 import { ThemeType } from 'src/theme';
 import { setWalletSnapshotFromText } from 'src/wallet/config';
+
+import PrivyCodeModal from './PrivyCodeModal';
 
 type Step = 'select' | 'code' | 'paste';
 
@@ -105,12 +105,14 @@ export default function ConnectWalletModal() {
 
   if (!visible) return null;
 
-  const title =
-    step === 'select'
-      ? 'Connect Wallet'
-      : step === 'code'
-      ? 'Enter Confirmation Code'
-      : `Connect via ${selectedWallet || 'Email'}`;
+  let title: string;
+  if (step === 'select') {
+    title = 'Connect Wallet';
+  } else if (step === 'code') {
+    title = 'Enter Confirmation Code';
+  } else {
+    title = `Connect via ${selectedWallet || 'Email'}`;
+  }
 
   return (
     <Modal

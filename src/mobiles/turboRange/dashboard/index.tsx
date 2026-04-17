@@ -131,7 +131,7 @@ export default function TurboRangeDashboard() {
       )}
       <div className="page-inner" id="turboRangeDashboardScrollTop">
         <Account />
-        <PillTabs value={activeTab} onChange={handleMainTabChange}>
+        <PillTabs fullWidth value={activeTab} onChange={handleMainTabChange}>
           <Tabs.List className="mobile-main-tabs">
             <Tabs.Tab value="products">{intl.turboRange.all_products}</Tabs.Tab>
             <Tabs.Tab value="strategies">{intl.turboRange.strategies}</Tabs.Tab>

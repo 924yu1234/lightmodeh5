@@ -41,11 +41,13 @@ export default function ComponentCard({
 }
 
 const StyledCard = styled.div`
-  background: ${({ theme }: { theme: ThemeType }) => theme.bg_white_05};
-  border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.border_b7b_20};
-  border-radius: 8px;
+  background: ${({ theme }: { theme: ThemeType }) => theme.cardBg};
+  border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.cardBorder};
+  border-radius: 10px;
   padding: 20px;
   margin-bottom: 24px;
+  box-shadow: ${({ theme }: { theme: ThemeType }) =>
+    theme.componentLibraryCardShadow};
 
   .card-header {
     margin-bottom: 16px;
@@ -91,8 +93,9 @@ const StyledCard = styled.div`
   }
 
   .variant-preview {
-    background: ${({ theme }: { theme: ThemeType }) => theme.bg_white_05};
-    border-radius: 6px;
+    background: transparent;
+    border: 1px dashed ${({ theme }: { theme: ThemeType }) => theme.divider};
+    border-radius: 8px;
     padding: 14px;
     display: flex;
     align-items: center;

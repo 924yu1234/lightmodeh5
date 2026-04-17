@@ -40,7 +40,8 @@ const StyledFee = styled.div`
     }
     .item-fee-desc {
       font-size: 14px;
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
       line-height: 20px;
     }
   }

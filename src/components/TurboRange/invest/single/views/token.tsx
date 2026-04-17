@@ -49,7 +49,8 @@ const StyledToken = styled.div`
   .token-symbol {
     font-size: 18px;
     line-height: 20px;
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff : theme.ink};
     ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
   }
   .dg-icon-wrapper2 {

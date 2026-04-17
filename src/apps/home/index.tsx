@@ -73,10 +73,12 @@ const StyledHome = styled.div<{ width: number }>`
 
   .section-title {
     ${(props) => props.theme.fontMedium};
-    color: ${(props) => props.theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff : theme.ink};
     font-size: 20px;
     line-height: 24px;
     margin-bottom: 20px;
+    letter-spacing: 0.01em;
   }
   .home-inner {
     width: ${({ width }) => width}px;
@@ -93,32 +95,30 @@ const StyledHome = styled.div<{ width: number }>`
       font-size: 20px;
       line-height: 24px;
       ${({ theme }) => theme.fontMedium};
-      color: ${({ theme }) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
       margin-bottom: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      letter-spacing: 0.01em;
       .title-more {
         display: flex;
         font-size: 12px;
         line-height: 20px;
         cursor: pointer;
-        ${({ theme }) => theme.fontRegular};
-        color: ${({ theme }) => theme.t_fff_60};
+        ${({ theme }) => theme.fontMedium};
+        color: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff_60 : theme.mutedText};
         align-items: center;
+        gap: 4px;
+        transition: color 150ms ease;
         &:hover {
           color: ${({ theme }) => theme.blue};
           .icon-right-outlined {
             color: ${({ theme }) => theme.blue};
           }
         }
-      }
-    }
-    .carousel-item {
-      border-radius: 5px;
-      border: 1px solid ${({ theme }) => theme.border_transparent};
-      &:hover {
-        border: 1px solid ${({ theme }) => theme.blue};
       }
     }
   }

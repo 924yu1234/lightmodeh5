@@ -9,30 +9,62 @@ export type UITextareaProps = TextareaProps;
 const StyledTextarea = styled(Textarea)`
   && .mantine-Input-input {
     height: 40px;
-    border-radius: 5px;
+    border-radius: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? '5px' : '8px'};
     ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-    border: 1px solid ${({ theme }) => theme.border_transparent};
+    border: 1px solid
+      ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.inputDefaultBorder : theme.cardBorder};
     font-size: 14px;
     color: ${({ theme }: { theme: ThemeType }) => theme.input};
-    background: ${({ theme }: { theme: ThemeType }) => theme.inputBackground};
+    background: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.inputBackground : theme.cardBg};
+    box-shadow: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'none' : theme.componentLibraryCardShadow};
     min-height: auto;
+    transition: border-color 150ms ease, box-shadow 150ms ease,
+      background-color 150ms ease;
   }
 
   && .mantine-Input-input:focus,
   && .mantine-Input-input:focus-within {
-    box-shadow: none;
     border-color: ${({ theme }: { theme: ThemeType }) =>
       theme.inputFocusBorder};
+    box-shadow: ${({ theme }: { theme: ThemeType }) => theme.inputFocusRing};
   }
 
   && .mantine-Input-input:hover {
-    box-shadow: none;
     border-color: ${({ theme }: { theme: ThemeType }) =>
       theme.inputHoverBorder};
   }
 
+  && .mantine-Input-input:hover:focus,
+  && .mantine-Input-input:hover:focus-within {
+    border-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.inputFocusBorder};
+    box-shadow: ${({ theme }: { theme: ThemeType }) => theme.inputFocusRing};
+  }
+
   && .mantine-Input-input::placeholder {
     color: ${({ theme }: { theme: ThemeType }) => theme.placeholder};
+  }
+
+  && .mantine-Input-input:disabled {
+    border-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.inputDisabledBorder};
+    color: ${({ theme }: { theme: ThemeType }) => theme.mutedText};
+    background: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.bg_white_10 : theme.shellSurfaceSecondary};
+    cursor: default;
+    box-shadow: none;
+  }
+
+  &&.err-border .mantine-Input-input {
+    border-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.border_sell_important} !important;
+    box-shadow: none;
+    background: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.inputBackground : theme.cardBg};
   }
 `;
 

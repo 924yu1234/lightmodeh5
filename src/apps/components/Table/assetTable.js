@@ -12,7 +12,8 @@ export const StyledAssetTable = styled(StyledTable)`
       tr {
         th {
           font-size: 14px;
-          ${(props) => props.theme.fontRegular};
+          ${(props) => props.theme.fontMedium};
+          letter-spacing: 0.01em;
           &:first-child {
             border-radius: 5px 0 0 5px;
             padding-left: 20px;
@@ -56,6 +57,7 @@ export const StyledAssetTable = styled(StyledTable)`
           &:first-child {
             padding-left: 20px;
             border-radius: 5px 0 0 5px;
+            ${(props) => props.theme.fontMedium};
           }
           &.td-color-up {
             color: ${(props) => props.theme.up} !important;

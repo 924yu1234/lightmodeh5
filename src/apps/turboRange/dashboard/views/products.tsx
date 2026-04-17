@@ -103,6 +103,7 @@ export default function Products() {
   );
 }
 
+/** All Products grid — UED `CardsSection` ProductCard / `.impeccable.md` (no corner arrow). */
 const StyledProducts = styled.div`
   .list-content {
     display: grid;
@@ -113,36 +114,54 @@ const StyledProducts = styled.div`
     align-content: start;
   }
   .product-item {
-    background-image: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.01) -102.86%,
-      rgba(255, 255, 255, 0.1) 165%
-    );
-    border-radius: 10px;
+    position: relative;
+    min-height: 140px;
     height: 140px;
     padding: 20px 24px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    transition: all 0.2s ease;
-    position: relative;
-    &:hover {
-      transform: translateY(-4px);
+    background: ${({ theme }: { theme: ThemeType }) => theme.cardBg};
+    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.cardBorder};
+    box-shadow: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'none' : theme.componentLibraryCardShadow};
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+      border-color 0.2s ease, background-color 0.2s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-4px);
+        background: ${({ theme }: { theme: ThemeType }) => theme.infoBarBg};
+        box-shadow: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? 'none' : theme.primaryBtnHoverShadow};
+      }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+      @media (hover: hover) {
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+
     .item-info {
       display: flex;
       align-items: center;
       gap: 8px;
       ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
       font-size: 16px;
       line-height: 22px;
     }
     .item-profit {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
       padding-left: 36px;
       .item-profit-value {
         ${({ theme }: { theme: ThemeType }) => theme.fontBold};
@@ -152,24 +171,10 @@ const StyledProducts = styled.div`
       }
       .item-profit-title {
         ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff_60};
+        color: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff_60 : theme.mutedText};
         font-size: 12px;
         line-height: 18px;
-      }
-    }
-    .invest-btn {
-      width: 40px;
-      height: 40px;
-      position: absolute;
-      right: 24px;
-      bottom: 30px;
-      border-radius: 50%;
-      display: flex;
-      border: 1px solid ${(props) => props.theme.border_blue_50};
-      align-items: center;
-      justify-content: center;
-      .icon-right-outlined {
-        color: ${({ theme }: { theme: ThemeType }) => theme.blue};
       }
     }
   }

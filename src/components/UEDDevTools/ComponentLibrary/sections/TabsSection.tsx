@@ -19,11 +19,10 @@ export default function TabsSection() {
         title="PillTabs"
         description="Pill-shaped tabs with background highlight. Most common in trade-fe."
       >
-        <PillTabs value={pillTab} onChange={setPillTab}>
+        <PillTabs fullWidth value={pillTab} onChange={setPillTab}>
           <Tabs.List>
             <Tabs.Tab value="single">Single</Tabs.Tab>
             <Tabs.Tab value="dual">Dual</Tabs.Tab>
-            <Tabs.Tab value="auto">Auto</Tabs.Tab>
           </Tabs.List>
         </PillTabs>
       </ComponentCard>
@@ -62,8 +61,9 @@ const StyledSection = styled.div`
   }
   .panel {
     padding: 16px;
-    background: ${({ theme }: { theme: ThemeType }) => theme.bg_white_05};
-    border-radius: 6px;
+    background: ${({ theme }: { theme: ThemeType }) => theme.panelBg};
+    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.cardBorder};
+    border-radius: 8px;
     color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b};
     font-size: 13px;
   }

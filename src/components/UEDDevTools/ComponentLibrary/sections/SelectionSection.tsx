@@ -13,7 +13,7 @@ export default function SelectionSection() {
   const [switch1, setSwitch1] = useState(false);
   const [switch2, setSwitch2] = useState(true);
   const [seg2, setSeg2] = useState('buy');
-  const [seg3, setSeg3] = useState('1d');
+  const [seg3, setSeg3] = useState('month');
   const [seg4, setSeg4] = useState('all');
 
   return (
@@ -35,7 +35,8 @@ export default function SelectionSection() {
             onChange={(e: any) => setCheck2(e.currentTarget.checked)}
             label="Checked"
           />
-          <Checkbox checked disabled label="Disabled" />
+          <Checkbox checked disabled label="Disabled (checked)" />
+          <Checkbox disabled label="Disabled (unchecked)" />
         </div>
       </ComponentCard>
 
@@ -60,9 +61,10 @@ export default function SelectionSection() {
         description="Pill-style button group selector."
         variants={[
           {
-            label: '2 options',
+            label: 'Swap Buy / Sell',
             node: (
               <SegmentedControl
+                appearance="swap"
                 value={seg2}
                 onChange={setSeg2}
                 data={[
@@ -73,15 +75,17 @@ export default function SelectionSection() {
             ),
           },
           {
-            label: '3 options',
+            label: '24H / 7D / 30D (compact)',
             node: (
               <SegmentedControl
+                appearance="compact"
+                style={{ width: 200 }}
                 value={seg3}
                 onChange={setSeg3}
                 data={[
-                  { label: '1H', value: '1h' },
-                  { label: '1D', value: '1d' },
-                  { label: '1W', value: '1w' },
+                  { label: '24H', value: 'day' },
+                  { label: '7D', value: 'week' },
+                  { label: '30D', value: 'month' },
                 ]}
               />
             ),

@@ -21,6 +21,8 @@ import Account from './views/account';
 import Products from './views/products';
 import Strategies from './views/strategies';
 
+const LIGHT_RAYS_COLOR_DARK = '#0f574b';
+
 const MAIN_TABS = ['products', 'strategies', 'positions'] as const;
 type MainTab = typeof MAIN_TABS[number];
 
@@ -64,7 +66,7 @@ export default function TurboRange() {
     refreshTurboRangePostions();
   }, [refreshIndex, refreshTurboRangePostions]);
 
-  const { viewWidth } = useThemeParams();
+  const { viewWidth, darkMode, green } = useThemeParams();
   const className = useMemo(() => {
     if (viewWidth >= 2560) {
       return 'view-2560';
@@ -84,13 +86,13 @@ export default function TurboRange() {
       <div className="bg">
         <LightRays
           raysOrigin="top-center"
-          raysColor="#0f574b"
-          raysSpeed={0.5}
+          raysColor={darkMode ? LIGHT_RAYS_COLOR_DARK : green}
+          raysSpeed={darkMode ? 0.5 : 0.35}
           lightSpread={2}
           rayLength={2}
           pulsating={false}
           fadeDistance={1}
-          saturation={1}
+          saturation={darkMode ? 1 : 0.42}
           noiseAmount={0}
           distortion={0}
         />

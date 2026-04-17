@@ -190,7 +190,8 @@ const StyledSetPriceRangeModal = styled.div`
 
       .marker-text {
         ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+        color: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff : theme.ink};
         font-size: 10px;
         line-height: 14px;
         margin-bottom: 2px;
@@ -224,7 +225,8 @@ const StyledSetPriceRangeModal = styled.div`
       width: 1px;
       height: 50px;
       border-left: 1px dashed
-        ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+        ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff : theme.divider};
     }
   }
 
@@ -234,7 +236,7 @@ const StyledSetPriceRangeModal = styled.div`
     align-items: center;
     margin: 0 0px;
     padding-top: 10px;
-    border-top: 1px solid ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    border-top: 1px solid ${({ theme }: { theme: ThemeType }) => theme.divider};
 
     .price-tick {
       ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
@@ -267,11 +269,13 @@ const StyledSetPriceRangeModal = styled.div`
       width: 13px;
       height: 1px;
       border-bottom: 1px dashed
-        ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+        ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff : theme.divider};
     }
 
     .price-value {
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
     }
   }
 `;

@@ -40,7 +40,8 @@ export const StyledNoAccountTips = styled.div`
   .no-account-tips-title {
     ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
     font-size: 14px;
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff_80};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff_80 : theme.mutedText};
     line-height: 20px;
   }
   .dg-primary {

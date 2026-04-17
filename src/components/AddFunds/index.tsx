@@ -145,26 +145,31 @@ export default function AddFunds({
 
 const StyledAddFunds = styled.div`
   height: 26px;
-  padding: 5px 6px;
-
-  display: flex;
+  padding: 5px 8px;
+  display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   cursor: pointer;
   font-size: 14px;
   line-height: 16px;
   ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
   color: ${({ theme }: { theme: ThemeType }) => theme.blue};
-  border-radius: 5px;
+  border-radius: 8px;
+  transition: background-color 0.15s ease, color 0.15s ease;
   .icon-right-outlined {
     color: ${({ theme }: { theme: ThemeType }) => theme.blue};
+    transition: color 0.15s ease;
   }
   &:active {
-    background: ${({ theme }) => theme.bg_white_10};
+    background: ${({ theme }) => theme.segmentedCompactActiveBg};
   }
   @media (hover: hover) {
     &:hover {
-      background: ${({ theme }) => theme.bg_white_10};
+      background: ${({ theme }) => theme.pressTint};
+      color: ${({ theme }) => theme.blue};
+      .icon-right-outlined {
+        color: ${({ theme }) => theme.blue};
+      }
     }
   }
 `;

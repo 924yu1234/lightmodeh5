@@ -119,8 +119,8 @@ const StyledAccount = styled.div`
     font-size: 14px;
     width: 200px;
     min-width: 200px;
-    background: ${({ theme }) => theme.bg_black_20};
-    border-right: 1px solid ${({ theme }) => theme.border};
+    background: transparent;
+    border-right: 1px solid ${({ theme }) => theme.divider};
 
     .account-left-fixed {
       width: 200px;
@@ -173,15 +173,20 @@ const StyledSideItem = styled.div`
   align-items: center;
   line-height: 24px;
   cursor: pointer;
-  ${(props) => props.theme.fontRegular};
+  ${(props) => props.theme.fontMedium};
   font-size: 16px;
   color: ${(props) => props.theme.t_b7b};
-  letter-spacing: 0;
+  letter-spacing: 0.01em;
   border-radius: 10px;
+  border: 1px solid transparent;
   margin: 0 10px 5px;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease;
 
   .dg-icon {
     margin-right: 10px;
+    color: ${(props) => props.theme.t_b7b};
+    transition: color 0.15s ease;
   }
   &.collapse .icon-down {
     transform: rotate(0);
@@ -192,20 +197,31 @@ const StyledSideItem = styled.div`
     transform: rotate(180deg);
   }
 
-  &:hover {
-    background: ${({ theme }) => theme.bg_blue_15};
-    color: ${(props) => props.theme.btn};
-    .dg-icon {
-      color: ${(props) => props.theme.hoveIcon};
+  @media (hover: hover) {
+    &:hover:not(.active) {
+      background: ${({ theme }) => theme.pressTint};
+      color: ${(props) => props.theme.ink};
+
+      .dg-icon {
+        color: ${(props) => props.theme.green};
+      }
     }
   }
+
   &.active {
-    background: ${({ theme }) => theme.bg_blue_15};
-    color: ${(props) => props.theme.btn};
+    ${(props) => props.theme.fontMedium};
+    background: ${({ theme }) =>
+      theme.darkMode ? theme.bg_white_10 : theme.infoBarBg};
+    color: ${(props) => props.theme.ink};
+    border: 1px solid
+      ${({ theme }) =>
+        theme.darkMode ? theme.border_transparent : theme.infoBarBorder};
+
     .dg-icon {
-      color: ${(props) => props.theme.hoveIcon};
+      color: ${(props) => props.theme.green};
     }
   }
+
   &.child-item {
     padding-left: 60px;
   }

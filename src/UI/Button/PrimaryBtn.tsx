@@ -11,11 +11,21 @@ const StyledPrimaryBtn = styled(BaseButton)`
   }
 `;
 
-export default function PrimaryBtn(props: UIButtonProps) {
-  const { className, ...rest } = props;
+export type PrimaryBtnProps = UIButtonProps & {
+  /** Disabled CTA with copy (Turbo Range “Enter amount to continue”). Adds `btn-with-tips` for light outline style. */
+  withTips?: boolean;
+};
+
+export default function PrimaryBtn({
+  withTips,
+  className,
+  ...rest
+}: PrimaryBtnProps) {
   return (
     <StyledPrimaryBtn
-      className={`${className} dg-primary`}
+      className={`${className ?? ''} dg-primary${
+        withTips ? ' btn-with-tips' : ''
+      }`}
       uiVariant="primary"
       {...rest}
     />

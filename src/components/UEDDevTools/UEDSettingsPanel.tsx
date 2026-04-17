@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { UEDMode, UEDTheme, useUEDSettings } from 'src/mock/MockModeContext';
+import { ThemeType } from 'src/theme';
 
 const MODES: { value: UEDMode; label: string }[] = [
   { value: 'pc', label: 'PC' },
@@ -29,8 +30,12 @@ export default function UEDSettingsPanel({ onClose }: Props) {
   const settings = useUEDSettings();
 
   return (
-    <StyledOverlay onClick={onClose}>
-      <StyledPanel onClick={(e) => e.stopPropagation()}>
+    <StyledOverlay onClick={onClose} role="presentation">
+      <StyledPanel
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-label="UED Settings"
+      >
         <div className="panel-header">
           <span>UED Settings</span>
           <button type="button" className="close-btn" onClick={onClose}>
@@ -84,6 +89,7 @@ export default function UEDSettingsPanel({ onClose }: Props) {
               type="button"
               className={`toggle ${settings.isLoggedIn ? 'on' : ''}`}
               onClick={() => settings.setIsLoggedIn(!settings.isLoggedIn)}
+              aria-pressed={settings.isLoggedIn}
             >
               <span className="toggle-knob" />
             </button>
@@ -114,6 +120,7 @@ export default function UEDSettingsPanel({ onClose }: Props) {
               type="button"
               className={`toggle ${settings.simulateError ? 'on' : ''}`}
               onClick={() => settings.setSimulateError(!settings.simulateError)}
+              aria-pressed={settings.simulateError}
             >
               <span className="toggle-knob" />
             </button>
@@ -139,7 +146,7 @@ const StyledOverlay = styled.div`
   position: fixed;
   inset: 0;
   z-index: 99998;
-  background: rgba(0, 0, 0, 0.3);
+  background: ${({ theme }: { theme: ThemeType }) => theme.bg_black_30};
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -147,16 +154,17 @@ const StyledOverlay = styled.div`
 `;
 
 const StyledPanel = styled.div`
-  background: #1a1a2e;
+  background: ${({ theme }: { theme: ThemeType }) => theme.modalBg};
   border-radius: 12px;
   padding: 16px;
   width: 320px;
   max-height: 80vh;
   overflow-y: auto;
-  color: #e0e0e0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: ${({ theme }: { theme: ThemeType }) => theme.t_d4d};
+  ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
   font-size: 13px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 32px
+    ${({ theme }: { theme: ThemeType }) => theme.border_black_80};
 
   .panel-header {
     display: flex;
@@ -165,37 +173,55 @@ const StyledPanel = styled.div`
     margin-bottom: 12px;
     font-size: 15px;
     font-weight: 600;
-    color: #fff;
+    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
   }
   .close-btn {
     background: none;
     border: none;
-    color: #888;
+    color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_60};
     font-size: 16px;
     cursor: pointer;
+    border-radius: 4px;
+    line-height: 1;
+    padding: 4px 6px;
+    transition: color 0.15s ease-out, background 0.15s ease-out;
+
     &:hover {
-      color: #fff;
+      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+      background: ${({ theme }: { theme: ThemeType }) => theme.bg_white_10};
+    }
+
+    &:focus-visible {
+      outline: 2px solid ${({ theme }: { theme: ThemeType }) => theme.blue};
+      outline-offset: 2px;
     }
   }
 
   .quick-links {
     margin-bottom: 14px;
     padding-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid
+      ${({ theme }: { theme: ThemeType }) => theme.border_white_10};
   }
   .quick-link {
     display: block;
     padding: 10px 14px;
-    background: rgba(80, 228, 162, 0.1);
-    border: 1px solid rgba(80, 228, 162, 0.3);
+    background: ${({ theme }: { theme: ThemeType }) => theme.bg_buy_10};
+    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.border_buy};
     border-radius: 6px;
-    color: #50e4a2;
+    color: ${({ theme }: { theme: ThemeType }) => theme.green};
     font-size: 13px;
     text-decoration: none;
     text-align: center;
-    transition: all 0.15s;
+    transition: background 0.15s ease-out, border-color 0.15s ease-out;
+
     &:hover {
-      background: rgba(80, 228, 162, 0.18);
+      background: ${({ theme }: { theme: ThemeType }) => theme.bg_buy_40};
+    }
+
+    &:focus-visible {
+      outline: 2px solid ${({ theme }: { theme: ThemeType }) => theme.blue};
+      outline-offset: 2px;
     }
   }
 
@@ -203,7 +229,7 @@ const StyledPanel = styled.div`
     margin-bottom: 14px;
   }
   .section-label {
-    color: #888;
+    color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_60};
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -217,20 +243,29 @@ const StyledPanel = styled.div`
     button {
       padding: 5px 12px;
       border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: rgba(255, 255, 255, 0.05);
-      color: #ccc;
+      border: 1px solid
+        ${({ theme }: { theme: ThemeType }) => theme.border_white_10};
+      background: ${({ theme }: { theme: ThemeType }) => theme.bg_white_05};
+      color: ${({ theme }: { theme: ThemeType }) => theme.t_c4c4c4};
       cursor: pointer;
       font-size: 12px;
-      transition: all 0.15s;
+      transition: background 0.15s ease-out, border-color 0.15s ease-out,
+        color 0.15s ease-out;
+
       &:hover {
-        background: rgba(255, 255, 255, 0.1);
+        background: ${({ theme }: { theme: ThemeType }) => theme.bg_white_10};
       }
+
+      &:focus-visible {
+        outline: 2px solid ${({ theme }: { theme: ThemeType }) => theme.blue};
+        outline-offset: 2px;
+      }
+
       &.active {
-        background: #50e4a2;
-        color: #000;
-        border-color: #50e4a2;
-        font-weight: 600;
+        background: ${({ theme }: { theme: ThemeType }) => theme.green};
+        color: ${({ theme }: { theme: ThemeType }) => theme.t_000};
+        border-color: ${({ theme }: { theme: ThemeType }) => theme.green};
+        ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
       }
     }
   }
@@ -245,52 +280,76 @@ const StyledPanel = styled.div`
     height: 22px;
     border-radius: 11px;
     border: none;
-    background: #444;
+    background: ${({ theme }: { theme: ThemeType }) => theme.bg_333};
     cursor: pointer;
     position: relative;
-    transition: background 0.2s;
+    transition: background 0.2s ease-out;
+    flex-shrink: 0;
+
+    &:focus-visible {
+      outline: 2px solid ${({ theme }: { theme: ThemeType }) => theme.blue};
+      outline-offset: 2px;
+    }
+
     &.on {
-      background: #50e4a2;
+      background: ${({ theme }: { theme: ThemeType }) => theme.green};
     }
     .toggle-knob {
       display: block;
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: #fff;
+      background: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
       position: absolute;
       top: 2px;
       left: 2px;
-      transition: transform 0.2s;
+      transition: transform 0.2s ease-out;
     }
     &.on .toggle-knob {
       transform: translateX(18px);
     }
   }
 
-  /* Wallet config moved to Connect Wallet modal */
-  }
-
   .hint {
     margin-top: 12px;
     padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #888;
+    border-top: 1px solid
+      ${({ theme }: { theme: ThemeType }) => theme.border_white_10};
+    color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_60};
     font-size: 11px;
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-wrap: wrap;
   }
   .reload-btn {
     padding: 3px 10px;
     border-radius: 4px;
-    border: 1px solid #50e4a2;
+    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.green};
     background: transparent;
-    color: #50e4a2;
+    color: ${({ theme }: { theme: ThemeType }) => theme.green};
     cursor: pointer;
     font-size: 11px;
+    transition: background 0.15s ease-out;
+
     &:hover {
-      background: rgba(80, 228, 162, 0.1);
+      background: ${({ theme }: { theme: ThemeType }) => theme.bg_buy_10};
+    }
+
+    &:focus-visible {
+      outline: 2px solid ${({ theme }: { theme: ThemeType }) => theme.blue};
+      outline-offset: 2px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .close-btn,
+    .quick-link,
+    .btn-group button,
+    .toggle,
+    .toggle .toggle-knob,
+    .reload-btn {
+      transition: none;
     }
   }
 `;

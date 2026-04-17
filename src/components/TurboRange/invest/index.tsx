@@ -43,14 +43,16 @@ const StyledInvest = styled.div`
   flex-direction: column;
   .title {
     ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff : theme.ink};
     font-size: 24px;
     line-height: 32px;
     margin-bottom: 20px;
   }
   .item-title {
     ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff : theme.ink};
     font-size: 16px;
     line-height: 22px;
   }

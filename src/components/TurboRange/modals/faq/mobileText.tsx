@@ -37,7 +37,11 @@ export default function FAQMobileText() {
 const StyledTips = styled.div`
   display: flex;
   align-items: center;
-  background: ${({ theme }) => theme.bg_white_05};
+  background: ${({ theme }: { theme: ThemeType }) =>
+    theme.darkMode ? theme.bg_white_05 : theme.shellSurfaceSecondary};
+  border: 1px solid
+    ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'transparent' : theme.cardBorder};
   border-radius: 5px;
   min-height: 44px;
   margin-top: 10px;
@@ -50,7 +54,8 @@ const StyledTips = styled.div`
     ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
     font-size: 13px;
     line-height: 20px;
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff : theme.ink};
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -60,6 +65,6 @@ const StyledTips = styled.div`
   }
   .icon-right-outlined {
     margin-left: auto;
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) => theme.blue};
   }
 `;

@@ -109,6 +109,8 @@ export default function getTheme({
     profit: darkMode ? '#50E4A2' : '#22ba7d',
 
     blue: darkMode ? '#00A0FF' : '#22ba7d',
+    /** Legacy token used by `containers/app` / mobile / h5 shell (`color: theme.colorMain`) */
+    colorMain: darkMode ? '#00A0FF' : '#22ba7d',
     blue1: darkMode ? '#0f84ff' : '#22ba7d',
     blue_7eb: darkMode ? '#7ebaff' : '#22ba7d',
     green: darkMode ? '#50E4A2' : '#22ba7d',
@@ -372,12 +374,40 @@ export default function getTheme({
     inputBackground: darkMode ? 'rgba(255,255,255,0.10)' : '#f0f5f1',
     inputFocusBorder: darkMode ? '#00A0FF' : '#22ba7d',
     inputHoverBorder: darkMode ? '#b7bdc680' : 'rgba(9,45,31,0.35)',
+    /** Default TextInput / Textarea outline (visible on white fills) */
+    inputDefaultBorder: darkMode
+      ? 'rgba(183, 189, 198, 0.32)'
+      : 'rgba(9, 45, 31, 0.16)',
+    /** App Light `.input-interactive:focus` — brand ring + border */
+    inputFocusRing: darkMode
+      ? '0 0 0 3px rgba(0, 160, 255, 0.16)'
+      : '0 0 0 3px rgba(34, 186, 125, 0.1)',
     inputDisabled: '#B4B6C1;',
     inputDisabledBorder: 'rgba(151,151,151,0.25)',
     inputErrorBorder: darkMode ? ' #DE4D77' : '#DC2626',
     placeholder: darkMode
       ? 'rgba(183, 189, 198, 0.5)'
       : 'rgba(9, 45, 31, 0.35)',
+    /** TextInput / amount row control height (Turbo Range Create Position) */
+    inputControlHeight: '50px',
+    /** Checkbox disabled — neutral (no green/brand tint) in light */
+    checkboxDisabledBg: darkMode
+      ? 'rgba(255, 255, 255, 0.06)'
+      : 'rgba(9, 45, 31, 0.06)',
+    checkboxDisabledBorder: darkMode
+      ? 'rgba(183, 189, 198, 0.35)'
+      : 'rgba(9, 45, 31, 0.18)',
+    checkboxDisabledCheckedBg: darkMode
+      ? 'rgba(255, 255, 255, 0.1)'
+      : 'rgba(9, 45, 31, 0.12)',
+    checkboxDisabledCheckedBorder: darkMode
+      ? 'rgba(183, 189, 198, 0.45)'
+      : 'rgba(9, 45, 31, 0.22)',
+    checkboxDisabledIcon: darkMode
+      ? 'rgba(183, 189, 198, 0.9)'
+      : 'rgba(9, 45, 31, 0.4)',
+    /** Swap Buy/Sell segmented bar */
+    swapSegmentedMinWidth: '170px',
 
     btn: darkMode ? '#fff' : '#fff', // button text stays white on colored bg
     hoveIcon: darkMode ? '#0f84ff' : '#22ba7d',
@@ -441,11 +471,29 @@ export default function getTheme({
     pillTabsActiveText: darkMode ? '#000000' : '#ffffff',
     pillTabsTrack: darkMode ? 'rgba(255,255,255,0.1)' : '#e4ede6',
     pillTabsInactiveText: darkMode ? '#B7BDC6' : 'rgba(9,45,31,0.7)',
+    /** Active pill elevation — aligned with app-light-mode-main tactile depth */
+    pillTabsActiveShadow: darkMode
+      ? '0 1px 8px rgba(0, 0, 0, 0.28)'
+      : '0 2px 12px rgba(9, 45, 31, 0.1)',
     // Segment pill deep green
     segmentPillGreen: darkMode ? '#04ba6f' : '#15663a',
     // White card surface (Historical APY, Price Range row, etc.)
     cardBg: darkMode ? 'rgba(255,255,255,0.05)' : '#ffffff',
     cardBorder: darkMode ? 'rgba(255,255,255,0.1)' : '#eef2ef',
+    /** /ued-components: light cards sit on pageBg with subtle lift */
+    componentLibraryCardShadow: darkMode
+      ? 'none'
+      : '0 1px 3px rgba(9, 45, 31, 0.06)',
+    /** App Light PrimaryButton / SecondaryButton `focus-visible:ring-2` */
+    ctaFocusRing: darkMode
+      ? '0 0 0 2px rgba(0, 160, 255, 0.45)'
+      : '0 0 0 2px rgba(34, 186, 125, 0.45)',
+    ctaGhostFocusRing: darkMode
+      ? '0 0 0 2px rgba(0, 160, 255, 0.35)'
+      : '0 0 0 2px rgba(34, 186, 125, 0.35)',
+    sellCtaFocusRing: darkMode
+      ? '0 0 0 2px rgba(222, 77, 119, 0.45)'
+      : '0 0 0 2px rgba(220, 38, 38, 0.45)',
     // Info bar (faded green info band)
     infoBarBg: darkMode ? 'rgba(34,186,125,0.1)' : '#e6f4ec',
     infoBarBorder: darkMode ? 'rgba(34,186,125,0.2)' : '#c6dece',
@@ -459,6 +507,73 @@ export default function getTheme({
     disabledCtaText: darkMode ? '#B7BDC6' : '#092d1f',
     // Primary button radius — pill in light mode
     buttonRadius: darkMode ? '8px' : '23px',
+    /** Swap PC main CTA (Buy) — full pill in light mode per UED / `.impeccable.md` */
+    swapCtaPillRadius: darkMode ? '10px' : '9999px',
+    /** Primary CTA hover elevation (app-light-mode-main `.btn-primary:hover`) */
+    primaryBtnHoverShadow: darkMode
+      ? '0 1px 12px rgba(0, 0, 0, 0.22)'
+      : '0 2px 10px rgba(34, 186, 125, 0.22)',
+    /** Ghost / outline CTA hover (app-light-mode-main `.btn-secondary:hover`) */
+    ghostBtnHoverShadow: darkMode
+      ? 'none'
+      : '0 1px 4px rgba(34, 186, 125, 0.12)',
+    /** Buy CTA hover elevation (same green lift as light `.btn-primary`) */
+    buyBtnHoverShadow: darkMode
+      ? '0 1px 12px rgba(0, 0, 0, 0.22)'
+      : '0 2px 10px rgba(34, 186, 125, 0.22)',
+    /** Sell CTA hover elevation — soft sell-color bloom */
+    sellBtnHoverShadow: darkMode
+      ? '0 1px 12px rgba(0, 0, 0, 0.22)'
+      : '0 2px 10px rgba(222, 77, 119, 0.22)',
+    /** App Swap — full-width Buy/Sell CTA resting shadow */
+    buyBtnRestShadow: darkMode ? 'none' : '0 4px 14px rgba(34, 186, 125, 0.35)',
+    sellBtnRestShadow: darkMode ? 'none' : '0 4px 14px rgba(220, 38, 38, 0.28)',
+    /** Disabled solid CTA — ~30% opacity brand tint */
+    primaryBtnDisabledBg: darkMode
+      ? 'rgba(0, 160, 255, 0.3)'
+      : 'rgba(34, 186, 125, 0.3)',
+    buyBtnDisabledBg: darkMode
+      ? 'rgba(80, 228, 162, 0.3)'
+      : 'rgba(34, 186, 125, 0.3)',
+    sellBtnDisabledBg: darkMode
+      ? 'rgba(222, 77, 119, 0.3)'
+      : 'rgba(220, 38, 38, 0.3)',
+    /** App HomeSearchBar shell (rest / hover / focus-within — app light home top) */
+    homeSearchRestShadow: darkMode ? 'none' : '0 1px 0 rgba(9, 45, 31, 0.06)',
+    homeSearchHoverShadow: darkMode
+      ? '0 1px 8px rgba(0, 0, 0, 0.2)'
+      : '0 1px 5px rgba(9, 45, 31, 0.08)',
+    homeSearchActiveShadow: darkMode
+      ? '0 1px 10px rgba(0, 0, 0, 0.22)'
+      : '0 2px 10px rgba(9, 45, 31, 0.07)',
+    /** Create Position — Historical APY 24H / 7D / 30D segmented row */
+    segmentedCompactTrackBg: darkMode ? 'rgba(255, 255, 255, 0.06)' : '#fafafa',
+    segmentedCompactInsetShadow: darkMode
+      ? 'inset 0 1px 2px rgba(0, 0, 0, 0.22)'
+      : 'inset 0 1px 2px rgba(9, 45, 31, 0.04)',
+    segmentedCompactActiveBg: darkMode
+      ? 'rgba(34, 186, 125, 0.2)'
+      : 'rgba(34, 186, 125, 0.14)',
+    segmentedCompactActiveShadow: darkMode
+      ? 'none'
+      : '0 1px 3px rgba(34, 186, 125, 0.12)',
+    /** Swap Buy/Sell pill — SELL thumb shadow (App `SwapBuySellBar`) */
+    swapSellPillShadow: darkMode
+      ? '0 1px 8px rgba(0, 0, 0, 0.28)'
+      : '0 1px 8px rgba(220, 38, 38, 0.22)',
+    /** Skeleton — Light Mode surfaces (ink on mint canvas) */
+    skeletonBase: darkMode
+      ? 'rgba(255, 255, 255, 0.1)'
+      : 'rgba(9, 45, 31, 0.06)',
+    skeletonHighlight: darkMode
+      ? 'rgba(255, 255, 255, 0.18)'
+      : 'rgba(9, 45, 31, 0.11)',
+    skeletonTokenMid: darkMode
+      ? 'rgba(255, 255, 255, 0.22)'
+      : 'rgba(9, 45, 31, 0.09)',
+    skeletonTokenHighlight: darkMode
+      ? 'rgba(255, 255, 255, 0.32)'
+      : 'rgba(9, 45, 31, 0.14)',
     // Warning / danger muted
     dangerMuted: darkMode ? '#DE4D77' : '#de4d77',
     warningMuted: darkMode ? '#FEBE2F' : '#b58e34',

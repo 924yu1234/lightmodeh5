@@ -11,6 +11,7 @@ export default function InvestModeTab() {
   const intl = useIntl();
   return (
     <PillTabs
+      fullWidth
       value={investMode}
       onChange={(v) => setInvestMode(v as 'single' | 'dual')}
       style={{ marginBottom: 20 }}

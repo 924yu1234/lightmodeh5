@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
+import { PillTabs, Tabs } from 'src/UI';
+
 import { useHomeTabs } from 'src/mobiles/home/service';
 import { useChangeFlag, useUserFlag } from 'src/state/user/hooks';
+import { ThemeType } from 'src/theme';
 
 import { useIntl, useSetLocale } from 'js/locals';
 
@@ -36,21 +39,27 @@ export default function HomeList() {
   return (
     <StyledTopPairs className="top-list">
       <div className="section-title">{intl.Markets}</div>
-      <div className="list-title">
-        {showTabs.map((tab: any) => {
-          const title = tab.title[locale] || tab.title['en-US'];
-          return (
-            <div
-              className={`list-title-item ${
-                currentTab === tab.tab ? 'active' : ''
-              }`}
-              onClick={() => changeTab(tab.tab)}
-            >
-              {title}
-            </div>
-          );
-        })}
-      </div>
+      {!!showTabs?.length && (
+        <div className="home-markets-tabs">
+          <PillTabs
+            className="home-markets-pill-tabs"
+            fullWidth
+            tabHeight={40}
+            value={currentTab}
+            onChange={(v) => {
+              if (v) changeTab(v);
+            }}
+          >
+            <Tabs.List>
+              {showTabs.map((tab: any) => (
+                <Tabs.Tab key={tab.tab} value={tab.tab}>
+                  {tab.title[locale] || tab.title['en-US']}
+                </Tabs.Tab>
+              ))}
+            </Tabs.List>
+          </PillTabs>
+        </div>
+      )}
       {currentTab === 'favorites' && (
         <div className="list-content">
           <FavoritesTable />
@@ -72,25 +81,48 @@ export default function HomeList() {
 
 export const StyledTopPairs = styled.div`
   margin-top: 10px;
-  .list-title {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid ${(props) => props.theme.innerBorder};
-    .list-title-item {
-      margin-bottom: -1px;
-      font-size: 14px;
-      ${(props) => props.theme.fontRegular};
-      cursor: pointer;
-      color: ${({ theme }) => theme.t_b7b};
-      line-height: 34px;
-      margin-right: 40px;
-      border-bottom: 1px solid transparent;
-      &.active {
-        color: ${(props) => props.theme.blue};
-        border-bottom-color: ${(props) => props.theme.blue};
+
+  .home-markets-tabs {
+    margin-bottom: 8px;
+    width: 40%;
+    max-width: 40%;
+
+    .home-markets-pill-tabs.mantine-SegmentedControl-root {
+      width: 100%;
+      max-width: 100%;
+
+      .mantine-SegmentedControl-label {
+        padding: 0 12px;
+        font-size: 13px;
+        ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
+        letter-spacing: 0.01em;
       }
     }
   }
+
+  /* Markets tables — flat header (no gray slab); see impeccable light-mode doc */
+  .dg-table-wrapper .dg-table .dg-table-thead {
+    background: transparent !important;
+    height: auto;
+    border-bottom: 1px solid
+      ${({ theme }: { theme: ThemeType }) => theme.innerBorder};
+
+    tr th {
+      border-radius: 0 !important;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: ${({ theme }: { theme: ThemeType }) => theme.mutedText};
+      font-size: 13px;
+      ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
+      letter-spacing: 0.02em;
+      text-transform: none;
+    }
+  }
+
+  .list-content {
+    margin-top: 8px;
+  }
+
   .dg-table {
     .dg-table-thead tr th {
       line-height: 34px;

@@ -30,7 +30,8 @@ const StyledSwitch = styled(MantineSwitch)`
 
     .mantine-Switch-thumb {
       border: none;
-      background: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+      background: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.bg_white};
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 

@@ -176,18 +176,33 @@ const StyledPositionsList = styled.div`
   .item {
     padding: ${({ theme }: { theme: ThemeType }) =>
       theme.isMobile ? '18px 20px' : '20px 24px'};
-    background-image: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(255, 255, 255, 0.05) 100%
-    );
+    background-image: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode
+        ? 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%)'
+        : 'none'};
+    background-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'transparent' : theme.cardBg};
+    border: 1px solid
+      ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? 'transparent' : theme.cardBorder};
+    box-shadow: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'none' : theme.componentLibraryCardShadow};
     border-radius: ${({ theme }: { theme: ThemeType }) =>
       theme.isMobile ? '10px' : '10px'};
     cursor: pointer;
     &:hover {
       transform: translateY(-4px);
+      background-color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? 'transparent' : theme.infoBarBg};
+      background-image: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode
+          ? 'linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.08) 100%)'
+          : 'none'};
+      box-shadow: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? 'none' : theme.primaryBtnHoverShadow};
     }
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+      background-color 0.2s ease, background-image 0.2s ease;
     .item-top {
       display: flex;
       align-items: center;
@@ -198,7 +213,8 @@ const StyledPositionsList = styled.div`
         ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
         font-size: 16px;
         line-height: 20px;
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+        color: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff : theme.ink};
         margin-right: auto;
       }
     }
@@ -215,12 +231,14 @@ const StyledPositionsList = styled.div`
           font-size: 12px;
           line-height: 18px;
           white-space: nowrap;
-          color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_60};
+          color: ${({ theme }: { theme: ThemeType }) =>
+            theme.darkMode ? theme.t_b7b_60 : theme.mutedText};
         }
         .item-info-value {
           font-size: 16px;
           line-height: 18px;
-          color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+          color: ${({ theme }: { theme: ThemeType }) =>
+            theme.darkMode ? theme.t_fff : theme.ink};
         }
       }
     }

@@ -19,6 +19,12 @@ export const StyledFullView = css`
     background: ${(props) => props.theme.bg};
     width: 100%;
     height: 100%;
+    border-radius: 12px;
+    border: 1px solid ${(props) => props.theme.innerBorder};
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: ${(props) =>
+      props.theme.darkMode ? 'none' : props.theme.componentLibraryCardShadow};
   }
   .area-top {
     grid-area: top;
@@ -62,6 +68,12 @@ export const StyledMiniView = css`
     background: ${(props) => props.theme.bg};
     width: 100%;
     height: 100%;
+    border-radius: 12px;
+    border: 1px solid ${(props) => props.theme.innerBorder};
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: ${(props) =>
+      props.theme.darkMode ? 'none' : props.theme.componentLibraryCardShadow};
   }
   .area-top {
     grid-area: top;

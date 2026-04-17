@@ -42,6 +42,7 @@ export default function IncreaseInvestmentModal() {
         </div>
         <div className="modal-content">
           <PillTabs
+            fullWidth
             value={investMode}
             onChange={(v) => setInvestMode(v as 'single' | 'dual')}
           >
@@ -102,7 +103,7 @@ const StyledModal = styled.div`
     font-size: 16px;
   }
 
-  .mantine-Tabs-root {
+  .mantine-SegmentedControl-root {
     margin-bottom: 20px;
   }
 

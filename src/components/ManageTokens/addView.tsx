@@ -47,7 +47,7 @@ export default function ManageTokensAddView({
         {intl.manage_tokens_contract_address}
       </div>
       <Input
-        className="contract-address-input"
+        uiVariant="homeSearch"
         value={contractAddress}
         onChange={(e: any) => setContractAddress(e.target.value)}
         placeholder={intl.manage_tokens_contract_address_placeholder}
@@ -102,10 +102,6 @@ const StyledManageTokensAddView = styled.div`
     margin-bottom: 8px;
   }
 
-  .contract-address-input .mantine-Input-input {
-    height: 50px;
-  }
-
   .field-tip {
     margin-top: 5px;
     min-height: 18px;
@@ -129,10 +125,12 @@ const StyledManageTokensAddView = styled.div`
 
     .value {
       ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_f4f};
+      color: ${({ theme }: { theme: ThemeType }) => theme.ink};
       font-size: 14px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 5px;
+      background: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.bg_white_10 : theme.shellSurfaceSecondary};
+      border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.cardBorder};
+      border-radius: 8px;
       padding: 5px 16px;
       height: 50px;
       display: flex;

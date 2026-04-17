@@ -18,7 +18,7 @@ const StyledSkeleton = styled(MantineSkeleton)<{ $tokenIcon: boolean }>`
     }
   }
 
-  background: ${({ theme }: { theme: ThemeType }) => theme.bg_white_10};
+  background: ${({ theme }: { theme: ThemeType }) => theme.skeletonBase};
 
   &::before,
   &::after {
@@ -28,9 +28,9 @@ const StyledSkeleton = styled(MantineSkeleton)<{ $tokenIcon: boolean }>`
   &[data-animate] {
     background: linear-gradient(
       90deg,
-      ${({ theme }: { theme: ThemeType }) => theme.bg_white_10} 25%,
-      ${({ theme }: { theme: ThemeType }) => theme.bg_white_20} 50%,
-      ${({ theme }: { theme: ThemeType }) => theme.bg_white_10} 75%
+      ${({ theme }: { theme: ThemeType }) => theme.skeletonBase} 25%,
+      ${({ theme }: { theme: ThemeType }) => theme.skeletonHighlight} 50%,
+      ${({ theme }: { theme: ThemeType }) => theme.skeletonBase} 75%
     );
     background-size: 200% 100%;
     animation: skeleton-shimmer 1.5s infinite linear;
@@ -39,14 +39,14 @@ const StyledSkeleton = styled(MantineSkeleton)<{ $tokenIcon: boolean }>`
   ${({ $tokenIcon, theme }: { $tokenIcon: boolean; theme: ThemeType }) =>
     $tokenIcon &&
     css`
-      background: ${theme.bg_white_30};
+      background: ${theme.skeletonTokenMid};
 
       &[data-animate] {
         background: linear-gradient(
           90deg,
-          ${theme.bg_white_30} 25%,
-          ${theme.bg_white_40} 50%,
-          ${theme.bg_white_30} 75%
+          ${theme.skeletonTokenMid} 25%,
+          ${theme.skeletonTokenHighlight} 50%,
+          ${theme.skeletonTokenMid} 75%
         );
         background-size: 200% 100%;
       }

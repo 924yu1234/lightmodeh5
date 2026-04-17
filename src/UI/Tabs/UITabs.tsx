@@ -33,6 +33,13 @@ const StyledTabs = styled(MantineTabs)`
     outline: none;
     border-radius: 0;
     border-bottom-width: 1.2px;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 120ms cubic-bezier(0.25, 1, 0.5, 1), color 180ms ease,
+      border-color 180ms ease;
+
+    &:active:not([data-disabled]) {
+      transform: scale(0.985);
+    }
   }
 
   && .mantine-Tabs-tab[data-active] {
@@ -53,6 +60,15 @@ const StyledTabs = styled(MantineTabs)`
 
   && .mantine-Tabs-tab + .mantine-Tabs-tab {
     margin: 0 0 0 30px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    && .mantine-Tabs-tab {
+      transition-duration: 0.01ms;
+      &:active:not([data-disabled]) {
+        transform: none;
+      }
+    }
   }
 `;
 

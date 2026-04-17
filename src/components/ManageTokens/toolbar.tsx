@@ -26,8 +26,9 @@ export default function ManageTokensToolbar({
     <StyledManageTokensToolbar>
       <div className="toolbar-container">
         <Input
+          uiVariant="homeSearch"
           leftSection={<IconSearch />}
-          className="search-input"
+          className="manage-tokens-search-input"
           value={search}
           onChange={(e: any) => setSearch(e.target.value)}
           placeholder={intl.btn_search}
@@ -78,26 +79,13 @@ const StyledManageTokensToolbar = styled.div`
     }
   }
 
-  .search-input {
+  .manage-tokens-search-input {
     flex: 1;
-
-    .mantine-Input-input {
-      border-radius: 18px;
-      height: 40px;
-      padding-left: 40px;
-    }
-
-    .mantine-Input-section {
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b};
-      justify-content: center;
-      margin-left: 0;
-      padding-right: 0;
-      width: 40px;
-    }
+    min-width: 0;
   }
 
   .cancel {
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) => theme.mutedText};
     font-size: 14px;
     line-height: 22px;
     cursor: pointer;

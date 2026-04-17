@@ -1,4 +1,5 @@
-const DeGateTerms = 'https://app.degate.com/terms'; const PrivyTerms = 'https://www.privy.io/user-terms-of-service';
+const DeGateTerms = 'https://app.degate.com/terms';
+const PrivyTerms = 'https://www.privy.io/user-terms-of-service';
 
 const zh = {
   language: 'zh-CN',
@@ -432,7 +433,7 @@ const zh = {
   Est_Daily_Rewards: '预计每日奖励',
   Protocol: '协议',
 
-  //1.24
+  // 1.24
   Bridge: '跨链',
   multi_chain: '多链',
   multi_chain_tips:

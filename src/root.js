@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { Component, useCallback, useEffect, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import {
   Navigate,
   Route,
@@ -28,6 +29,46 @@ import useMessage from './providers/useMessage';
 import useWallet, { useIsAppH5, useIsMobile } from './providers/useWallet';
 import MantineThemeProvider from './UI/Provider';
 import { logCsp } from './utils/log';
+
+/** Surfaces render errors instead of a blank screen after the initial HTML spinner. */
+class RootErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+
+  render() {
+    const { error } = this.state;
+    if (error) {
+      return (
+        <div
+          style={{
+            padding: 24,
+            color: '#fff',
+            background: '#2a1010',
+            fontFamily: 'monospace',
+            whiteSpace: 'pre-wrap',
+            minHeight: '100vh',
+            boxSizing: 'border-box',
+          }}
+        >
+          <h2 style={{ marginTop: 0 }}>DeGate UED — 页面渲染出错</h2>
+          <p>请把下面信息发给开发者或在 Console 查看完整堆栈。</p>
+          <code>{String(error && error.message ? error.message : error)}</code>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+RootErrorBoundary.propTypes = {
+  children: PropTypes.node,
+};
 
 export default function root({ updaters }) {
   let disabledRoutes = [];
@@ -86,31 +127,36 @@ export default function root({ updaters }) {
         <NotificationProvider>
           {/* <ErrorBoundary> */}
           <HistoryRouter history={appHistory}>
-            {walletStateReady && (
-              <Routes>
-                {disabledRoutes.map((d) => {
-                  return (
-                    <Route
-                      path={d}
-                      key={d}
-                      element={<Navigate to="/disabled" replace />}
-                    />
-                  );
-                })}
-                <Route path="/disabled" element={<Disabled />} />
-                <Route path="/ued-components" element={<ComponentLibrary />} />
-                <Route
-                  path="*"
-                  element={
-                    <>
-                      {isMobile && <Mobile />}
-                      {isAppH5 && <AppH5 />}
-                      {!isMobile && !isAppH5 && <App />}
-                    </>
-                  }
-                />
-              </Routes>
-            )}
+            <RootErrorBoundary>
+              {walletStateReady !== false && (
+                <Routes>
+                  {disabledRoutes.map((d) => {
+                    return (
+                      <Route
+                        path={d}
+                        key={d}
+                        element={<Navigate to="/disabled" replace />}
+                      />
+                    );
+                  })}
+                  <Route path="/disabled" element={<Disabled />} />
+                  <Route
+                    path="/ued-components"
+                    element={<ComponentLibrary />}
+                  />
+                  <Route
+                    path="*"
+                    element={
+                      <>
+                        {isMobile && <Mobile />}
+                        {isAppH5 && <AppH5 />}
+                        {!isMobile && !isAppH5 && <App />}
+                      </>
+                    }
+                  />
+                </Routes>
+              )}
+            </RootErrorBoundary>
             {updaters}
           </HistoryRouter>
           {/* </ErrorBoundary> */}

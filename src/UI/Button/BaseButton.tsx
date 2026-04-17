@@ -3,7 +3,6 @@ import { Button } from '@mantine/core';
 import styled from 'styled-components';
 
 import { useGaEvent } from 'src/hooks/useGaEvent';
-import { ThemeType } from 'src/theme';
 
 import {
   buyButtonStyle,
@@ -44,7 +43,6 @@ const StyledUIButton = styled(Button as any)<{
   $isFullWidth?: boolean;
 }>`
   & {
-    ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
     ${commonButtonStyle};
     ${({ $uiSize }: { $uiSize?: 'default' | 'small' }) =>
       $uiSize === 'small' ? smallButtonStyle : ''}

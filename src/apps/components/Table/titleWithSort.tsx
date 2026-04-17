@@ -48,6 +48,7 @@ const StyledSortTitle = styled.div<{ align: 'left' | 'center' | 'right' }>`
   align-items: center;
   cursor: pointer;
   width: 100%;
+  ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
   justify-content: ${({ align }) => {
     if (align === 'left') {
       return 'flex-start;';

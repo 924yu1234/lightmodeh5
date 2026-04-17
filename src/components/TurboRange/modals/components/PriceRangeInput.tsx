@@ -93,9 +93,13 @@ const StyledPriceRangeInput = styled.div`
   .step-button {
     width: 50px;
     height: 40px;
-    border: 1px solid ${({ theme }) => theme.border_white_20};
-    background: ${({ theme }) => theme.bg_white_10};
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    border: 1px solid
+      ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.border_white_20 : theme.cardBorder};
+    background: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.bg_white_10 : theme.shellSurfaceSecondary};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff : theme.ink};
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
@@ -115,12 +119,14 @@ const StyledPriceRangeInput = styled.div`
     }
 
     &:hover:not(:disabled) {
-      background: ${({ theme }) => theme.bg_white_20};
-      border-color: ${({ theme }) => theme.border_blue};
+      background: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.bg_white_20 : theme.pressTint};
+      border-color: ${({ theme }: { theme: ThemeType }) => theme.border_blue};
     }
 
     &:active:not(:disabled) {
-      background: ${(props) => props.theme.bg_white_30};
+      background: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.bg_white_30 : theme.pressTint};
       transform: translateY(1px);
     }
 

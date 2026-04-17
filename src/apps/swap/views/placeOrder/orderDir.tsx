@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
+import { SegmentedControl } from 'src/UI';
+
 import SwapSettingsEntrance from 'src/components/SwapSettings/entrance';
 import { OrderDirs } from 'src/constants/interface';
 import {
@@ -15,28 +17,31 @@ export default function OrderDir() {
   const intl = useIntl();
   const orderDir = useSwapOrderDir();
   const changeOrder = useChangeSwapOrderDir();
-  const setSell = useCallback(() => {
-    changeOrder(OrderDirs.SELL);
-  }, [changeOrder]);
-  const setBuy = useCallback(() => {
-    changeOrder(OrderDirs.BUY);
-  }, [changeOrder]);
+  const setFromSegment = useCallback(
+    (v: string) => {
+      if (v === 'buy') changeOrder(OrderDirs.BUY);
+      if (v === 'sell') changeOrder(OrderDirs.SELL);
+    },
+    [changeOrder]
+  );
+
+  const segmentValue = orderDir === OrderDirs.BUY ? 'buy' : 'sell';
+
   return (
     <StyledOrderDir className="order-dir">
-      <div className="order-dir-inner">
-        <div
-          className={`tab-buy ${orderDir === OrderDirs.BUY ? 'active' : ''}`}
-          onClick={setBuy}
-        >
-          {intl['trade.tab_buy']}
-        </div>
-        <div
-          className={`tab-sell ${orderDir === OrderDirs.SELL ? 'active' : ''}`}
-          onClick={setSell}
-        >
-          {intl['trade.tab_sell']}
-        </div>
-      </div>
+      <SegmentedControl
+        className="swap-order-dir-segment"
+        appearance="swap"
+        swapVisual={segmentValue === 'buy' ? 'buy' : 'sell'}
+        value={segmentValue}
+        onChange={(v) => {
+          if (v === 'buy' || v === 'sell') setFromSegment(v);
+        }}
+        data={[
+          { value: 'buy', label: intl['trade.tab_buy'] },
+          { value: 'sell', label: intl['trade.tab_sell'] },
+        ]}
+      />
       <SwapSettingsEntrance />
     </StyledOrderDir>
   );
@@ -48,42 +53,20 @@ export const StyledOrderDir = styled.div`
   display: flex;
   align-items: center;
   padding: 11px 14px 0;
+  gap: 10px;
 
-  .order-dir-inner {
-    height: 32px;
-    width: 170px;
-    border-radius: 5px;
-    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.innerBorder};
-    display: flex;
-    align-items: center;
-    margin-right: auto;
-  }
+  .swap-order-dir-segment.mantine-SegmentedControl-root {
+    flex: 0 1 50%;
+    width: 50%;
+    max-width: 50%;
+    min-width: 0;
+    height: 42px;
+    min-height: 42px;
 
-  .tab-buy,
-  .tab-sell {
-    cursor: pointer;
-    height: 100%;
-    flex: 1;
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b};
-    display: flex;
-    align-items: center;
-    ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-    font-size: 14px;
-    justify-content: center;
-    border: 1px solid ${({ theme }) => theme.border_transparent};
-  }
-  .tab-buy {
-    border-radius: 5px 0 0 5px;
-    &.active {
-      border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.buy};
-      color: ${({ theme }: { theme: ThemeType }) => theme.buy};
-    }
-  }
-  .tab-sell {
-    border-radius: 0 5px 5px 0;
-    &.active {
-      border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.sell};
-      color: ${({ theme }: { theme: ThemeType }) => theme.sell};
+    .mantine-SegmentedControl-label {
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
     }
   }
 `;

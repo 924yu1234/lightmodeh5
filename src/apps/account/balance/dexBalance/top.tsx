@@ -105,27 +105,32 @@ const StyledTop = styled.div`
   .box {
     width: 100%;
     height: 110px;
-    background: ${({ theme }: { theme: ThemeType }) => theme.bg_05};
-    border-radius: 5px;
+    background: ${({ theme }: { theme: ThemeType }) => theme.cardBg};
+    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.cardBorder};
+    border-radius: 12px;
     display: flex;
     align-items: center;
     padding: 25px 20px;
+    box-shadow: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'none' : theme.componentLibraryCardShadow};
     .total,
     .profits {
       min-width: 130px;
       .item-title {
-        ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
+        ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
         font-size: 14px;
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+        color: ${({ theme }: { theme: ThemeType }) => theme.mutedText};
         line-height: 24px;
         display: flex;
         align-items: center;
+        letter-spacing: 0.01em;
       }
       .item-value {
-        ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
+        ${({ theme }: { theme: ThemeType }) => theme.fontBold};
         font-size: 22px;
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+        color: ${({ theme }: { theme: ThemeType }) => theme.ink};
         line-height: 36px;
+        letter-spacing: -0.02em;
       }
     }
     .line {

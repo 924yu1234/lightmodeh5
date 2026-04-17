@@ -21,6 +21,8 @@ interface PrivyCodeModalProps {
   onSuccess: () => void;
 }
 
+const CODE_INPUT_SLOT_IDS = ['c0', 'c1', 'c2', 'c3', 'c4', 'c5'] as const;
+
 export default function PrivyCodeModal({
   visible,
   email,
@@ -35,22 +37,19 @@ export default function PrivyCodeModal({
 
   const inputsRef = useRef<any[]>([]);
 
-  const verify = useCallback(
-    (_code: string) => {
-      setLoading(true);
-      // Mock: any 6-digit code succeeds after short delay
+  const verify = useCallback(() => {
+    setLoading(true);
+    // Mock: any 6-digit code succeeds after short delay
+    setTimeout(() => {
+      setLoading(false);
+      setSuccess(true);
       setTimeout(() => {
-        setLoading(false);
-        setSuccess(true);
-        setTimeout(() => {
-          setSuccess(false);
-          setValues(['', '', '', '', '', '']);
-          onSuccess();
-        }, 800);
-      }, 600);
-    },
-    [onSuccess]
-  );
+        setSuccess(false);
+        setValues(['', '', '', '', '', '']);
+        onSuccess();
+      }, 800);
+    }, 600);
+  }, [onSuccess]);
 
   const handleChange = useCallback(
     (e: any, index: number) => {
@@ -62,7 +61,7 @@ export default function PrivyCodeModal({
       setValues(newValues);
 
       if (val && newValues.join('').length === 6) {
-        verify(newValues.join(''));
+        verify();
         e.target.blur();
         return;
       }
@@ -93,7 +92,7 @@ export default function PrivyCodeModal({
         inputsRef.current[pasteData.length]?.focus();
       }
       if (pasteData.length === 6) {
-        verify(newValues.join(''));
+        verify();
       }
     },
     [values, verify]
@@ -128,7 +127,7 @@ export default function PrivyCodeModal({
         </div>
         <div className="items">
           {values.map((value: string, index: number) => (
-            <React.Fragment key={index}>
+            <React.Fragment key={CODE_INPUT_SLOT_IDS[index]}>
               <Input
                 ref={(el: any) => {
                   inputsRef.current[index] = el;
@@ -163,7 +162,7 @@ export default function PrivyCodeModal({
           </div>
         )}
         <div className="resend">
-          <div className="resend-text">{"Didn't get an email?"}</div>
+          <div className="resend-text">Didn&apos;t get an email?</div>
           <div
             className={`resend-btn ${inResend ? 'disabled' : ''}`}
             onClick={resend}
@@ -236,7 +235,11 @@ const StyledPrivyLogin = styled.div<{ success: boolean; codeErr: number }>`
           theme: ThemeType;
           success: boolean;
           codeErr: number;
-        }) => (success ? theme.green : codeErr ? theme.red : 'transparent')};
+        }) => {
+          if (success) return theme.green;
+          if (codeErr) return theme.red;
+          return 'transparent';
+        }};
       }
     }
 

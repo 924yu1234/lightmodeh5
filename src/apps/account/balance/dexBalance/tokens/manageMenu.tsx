@@ -142,6 +142,9 @@ export const StyledManageMenu = styled.div`
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
+    font-size: 14px;
+    color: ${({ theme }: { theme: ThemeType }) => theme.t_f4f};
 
     &:hover {
       color: ${({ theme }: { theme: ThemeType }) => theme.blue};
@@ -166,10 +169,12 @@ export const StyledManageMenu = styled.div`
   }
 
   .manage-panel {
-    background: ${({ theme }: { theme: ThemeType }) => theme.bgMenu};
-    border-radius: 5px;
-    background: #22223c;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    background: ${({ theme }: { theme: ThemeType }) => theme.modalBg};
+    border-radius: 8px;
+    border: 1px solid
+      ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.border_transparent : theme.cardBorder};
+    box-shadow: ${({ theme }: { theme: ThemeType }) => theme.boxShadow};
     overflow: hidden;
   }
 
@@ -195,9 +200,9 @@ export const StyledManageMenu = styled.div`
     min-height: 54px;
     padding: 0 18px;
     cursor: pointer;
-    ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
+    ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
     font-size: 14px;
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) => theme.t_f4f};
     transition: background 0.2s ease;
 
     &:hover,

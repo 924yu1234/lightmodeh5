@@ -195,7 +195,8 @@ const StyledModalWrapper = styled(Modal)<{ isMobile: boolean }>`
     ${({ theme }: { theme: ThemeType }) => theme.fontBold};
     font-size: 20px;
     line-height: 24px;
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff : theme.ink};
     .about-turbo-range {
       margin-left: auto;
     }
@@ -261,7 +262,8 @@ const StyledModalWrapper = styled(Modal)<{ isMobile: boolean }>`
         justify-content: flex-start;
         width: 100%;
         align-items: center;
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+        color: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff : theme.ink};
         height: 52px;
         padding: 0 30px;
         &.active-modal {

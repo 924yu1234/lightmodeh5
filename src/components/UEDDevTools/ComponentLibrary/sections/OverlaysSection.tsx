@@ -158,9 +158,10 @@ const StyledSection = styled.div`
   }
   .hover-target {
     padding: 8px 16px;
-    background: ${({ theme }: { theme: ThemeType }) => theme.bg_white_10};
+    background: ${({ theme }: { theme: ThemeType }) => theme.panelBg};
+    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.cardBorder};
     color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 13px;
     cursor: pointer;
     user-select: none;

@@ -49,7 +49,8 @@ export const StyledDashboard1920 = css`
 `;
 
 export const StyledDashboard = styled.div`
-  background: #13132f;
+  background: ${({ theme }: { theme: ThemeType }) =>
+    theme.darkMode ? '#13132f' : theme.bg};
   overflow-y: auto;
   height: 100%;
   position: relative;
@@ -87,14 +88,18 @@ export const StyledDashboard = styled.div`
     line-height: 44px;
     ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
     margin-bottom: 10px;
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff : theme.ink};
+    letter-spacing: 0.01em;
   }
   .dashboard-tips {
     font-size: 14px;
     line-height: 20px;
     ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff}aa;
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? `${theme.t_fff}aa` : theme.mutedText};
     margin-bottom: 30px;
-    max-width: 500px;
+    max-width: 520px;
   }
 
   .tabs-row {
@@ -103,38 +108,28 @@ export const StyledDashboard = styled.div`
     margin-bottom: 24px;
     gap: 16px;
 
-    .main-pill-tabs {
+    .main-pill-tabs.mantine-SegmentedControl-root {
       margin: 0;
-      width: auto;
-      display: inline-block;
+      flex: 0 1 50%;
+      width: 50%;
+      max-width: 50%;
+      min-width: 0;
+      display: flex;
 
-      .mantine-Tabs-list {
-        width: auto;
-        display: inline-flex;
-        gap: 7px;
-      }
-      .mantine-Tabs-tab {
+      .mantine-SegmentedControl-label {
         padding: 0 24px;
         font-size: 15px;
-        height: 40px;
-        &[data-active] {
-          border-bottom: 2px solid
-            ${({ theme }: { theme: ThemeType }) => theme.blue};
-        }
-        .mantine-Tabs-tabLabel {
+
+        .strategies-icon {
+          height: 25px;
+          width: 25px;
           display: flex;
           align-items: center;
-          .strategies-icon {
-            height: 25px;
-            width: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-          .svg > div {
-            height: 25px;
-            width: 25px;
-          }
+          justify-content: center;
+        }
+        .svg > div {
+          height: 25px;
+          width: 25px;
         }
       }
     }

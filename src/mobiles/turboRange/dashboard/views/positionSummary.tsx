@@ -99,12 +99,18 @@ const StyledPositionSummary = styled.div`
     width: 100%;
     height: 100%;
     min-height: 135px;
-    background-image: ${({ theme }: { theme: ThemeType }) =>
-      theme.summaryCardBg};
     border-radius: 16px;
     padding: 15px 20px;
     position: relative;
     overflow: hidden;
+    background-image: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.summaryCardBg : 'none'};
+    background-color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'transparent' : theme.cardBg};
+    border: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'none' : `1px solid ${theme.cardBorder}`};
+    box-shadow: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'none' : theme.componentLibraryCardShadow};
     &::after {
       content: '';
       position: absolute;
@@ -114,8 +120,10 @@ const StyledPositionSummary = styled.div`
       height: 80%;
       background: radial-gradient(
         circle at top right,
-        rgba(34, 186, 125, 0.2) 0%,
-        transparent 70%
+        ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode
+            ? 'rgba(34, 186, 125, 0.2) 0%, transparent 70%'
+            : 'rgba(34, 186, 125, 0.08) 0%, transparent 70%'}
       );
       pointer-events: none;
       z-index: 1;
@@ -137,10 +145,15 @@ const StyledPositionSummary = styled.div`
     right: 1%;
     z-index: 0;
     height: 80%;
+    opacity: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 1 : 0.14};
   }
   .details-link {
-    background: ${({ theme }) => theme.bg_white_10};
-    border: 1px solid ${(props) => props.theme.border_white_30};
+    background: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.bg_white_10 : theme.shellSurfaceSecondary};
+    border: 1px solid
+      ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.border_white_30 : theme.cardBorder};
     border-radius: 18px;
     padding: 5px 15px;
     height: 34px;
@@ -148,7 +161,8 @@ const StyledPositionSummary = styled.div`
     font-size: 13px;
     line-height: 18px;
     ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff : theme.ink};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -167,15 +181,18 @@ const StyledPositionSummary = styled.div`
       font-size: 13px;
       line-height: 18px;
       ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff_80};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff_80 : theme.mutedText};
     }
     .summary-item-value {
       font-size: 22px;
       line-height: 22px;
       ${({ theme }: { theme: ThemeType }) => theme.fontBold};
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
       &.profit {
         font-size: 16px;
+        color: ${({ theme }: { theme: ThemeType }) => theme.green};
       }
       &.updating {
         font-size: 13px;

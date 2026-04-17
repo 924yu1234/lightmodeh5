@@ -74,6 +74,9 @@ const StyledActions = styled.div`
   flex-direction: column;
   align-items: center;
   flex: 1;
+  border-radius: 10px;
+  padding: 6px 8px;
+  transition: color 0.15s ease, background-color 0.15s ease;
 
   ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
   font-size: 14px;
@@ -85,5 +88,36 @@ const StyledActions = styled.div`
     width: 30px;
     height: 30px;
     margin-bottom: 5px;
+    border-radius: 8px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }: { theme: ThemeType }) => theme.blue};
+      background: ${({ theme }: { theme: ThemeType }) => theme.pressTint};
+
+      .item-icon {
+        transform: scale(1.06);
+        box-shadow: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? 'none' : theme.ghostBtnHoverShadow};
+      }
+    }
+  }
+
+  &:active {
+    background: ${({ theme }: { theme: ThemeType }) => theme.hover};
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    .item-icon {
+      transition: none;
+    }
+
+    &:hover .item-icon {
+      transform: none;
+    }
   }
 `;

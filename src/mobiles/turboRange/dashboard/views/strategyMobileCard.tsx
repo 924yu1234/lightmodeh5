@@ -87,13 +87,31 @@ export default function StrategyDesktopCard({
 }
 
 const StyledStrategyMobileCard = styled.div`
-  background-image: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
+  background-image: ${({ theme }: { theme: ThemeType }) =>
+    theme.darkMode
+      ? 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%)'
+      : 'none'};
+  background-color: ${({ theme }: { theme: ThemeType }) =>
+    theme.darkMode ? 'transparent' : theme.cardBg};
+  border: 1px solid
+    ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'transparent' : theme.cardBorder};
+  box-shadow: ${({ theme }: { theme: ThemeType }) =>
+    theme.darkMode ? 'none' : theme.componentLibraryCardShadow};
   border-radius: 10px;
   padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-2px);
+      background-color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? 'transparent' : theme.infoBarBg};
+      box-shadow: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? 'none' : theme.primaryBtnHoverShadow};
+    }
+  }
 
   &.skeleton {
     min-height: 120px;
@@ -122,7 +140,8 @@ const StyledStrategyMobileCard = styled.div`
 
     .card-name {
       ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
       font-size: 15px;
       line-height: 20px;
     }
@@ -130,8 +149,10 @@ const StyledStrategyMobileCard = styled.div`
     .card-duration {
       margin-left: auto;
       font-size: 11px;
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff_60};
-      background: ${({ theme }) => theme.bg_white_10};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff_60 : theme.mutedText};
+      background: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.bg_white_10 : theme.shellSurfaceSecondary};
       padding: 2px 6px;
       border-radius: 8px;
     }
@@ -155,14 +176,15 @@ const StyledStrategyMobileCard = styled.div`
     justify-content: center;
     border-radius: 10px;
     gap: 10px;
-    background: #50e4a219;
+    background: ${({ theme }: { theme: ThemeType }) => theme.bg_buy_10};
     height: 40px;
     padding: 0 16px;
 
     .primary-label {
       font-size: 14px;
       line-height: 20px;
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff_60};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff_60 : theme.mutedText};
     }
 
     .primary-value {
@@ -183,14 +205,16 @@ const StyledStrategyMobileCard = styled.div`
       .secondary-label {
         font-size: 12px;
         line-height: 18px;
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff_60};
+        color: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff_60 : theme.mutedText};
         margin-bottom: 2px;
       }
       .secondary-value {
         font-size: 16px;
         line-height: 20px;
         ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+        color: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff : theme.ink};
       }
     }
   }

@@ -5,6 +5,7 @@ import { ThemeType } from 'src/theme';
 export const StyledList = styled.div`
   overflow: hidden;
   height: 100%;
+  background: ${({ theme }: { theme: ThemeType }) => theme.bg};
   padding-top: ${({ theme }: { theme: ThemeType }) =>
     !theme.showH5Header ? 0 : 52}px;
 
@@ -30,9 +31,7 @@ export const StyledList = styled.div`
     }
   }
 
-  .mantine-Tabs-root {
-    .mantine-Tabs-list {
-      margin-bottom: 16px;
-    }
+  .mobile-main-tabs.mantine-SegmentedControl-root {
+    margin-bottom: 16px;
   }
 `;

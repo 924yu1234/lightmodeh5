@@ -66,7 +66,8 @@ export default function Top() {
         </StyledUser>
         <Input
           className="search"
-          leftSection={<IconSearch />}
+          uiVariant="homeSearch"
+          leftSection={<IconSearch size={16} />}
           value=""
           onClick={() => {
             navigate('/search');
@@ -105,20 +106,7 @@ const StyledTop = styled.div<{ showDownload: boolean }>`
   .mantine-Input-wrapper.search {
     margin-left: 10px;
     flex: 1;
-    .mantine-Input-input {
-      border-radius: 18px;
-      flex: 1;
-      height: 32px;
-      padding-left: 40px;
-      font-size: 14px;
-      ${(props) => props.theme.fontRegular};
-      .mantine-Input-icon {
-        width: 40px;
-        .search-icon {
-          width: 16px;
-        }
-      }
-    }
+    min-width: 0;
   }
   .menu-more-wrap {
     display: flex;

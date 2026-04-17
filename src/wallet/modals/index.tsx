@@ -10,12 +10,10 @@ import useAutoLock from 'src/wallet/hooks/useAutoLock';
 
 import AutoLockedTips from './AutoLockedTips';
 import EarnConfirmModal from './EarnConfirm';
-import ReceiveModal from './Receive';
 import SigningProgressModal from './SigningProgress';
 import SwapConfirmModal from './SwapConfirm';
 import TurboRangeConfirmModal from './TurboRangeConfirm';
 import UpcomingLockTips from './UpcomingLockTips';
-import ViewAddressModal from './ViewAddress';
 
 export default function WalletModals() {
   // Initialize auto-lock timer
@@ -29,8 +27,6 @@ export default function WalletModals() {
       <SigningProgressModal />
       <AutoLockedTips />
       <UpcomingLockTips />
-      <ViewAddressModal />
-      <ReceiveModal />
     </>
   );
 }

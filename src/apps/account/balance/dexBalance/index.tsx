@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 
-import { Input } from 'src/UI';
+import { Input, PillTabs, Tabs } from 'src/UI';
 
 import IconSearch from 'src/components/Icons/serch';
 import { Type_DAChains } from 'src/da';
@@ -37,7 +37,7 @@ export default function DexBalance() {
   const updateFlag = useChangeFlag(`hide_small_balances_${account}`);
   const { orderBy, orderDir } = useSort('asset_balances');
   const updateSort = useUpdateSort('asset_balances');
-  const [tab, setTab] = useState('tokens');
+  const [tab, setTab] = useState<'tokens' | 'earn'>('tokens');
   const showModal = useShowModal();
   useCheckGetEarnDetail();
   const refreshSwapBalance = useRefreshSwapBalance();
@@ -58,54 +58,58 @@ export default function DexBalance() {
   return (
     <StyledAccountAsset>
       <Top />
-      <div className="balance-tabs">
-        <div
-          className={`balance-tab ${tab === 'tokens' ? 'active' : ''}`}
-          onClick={() => setTab('tokens')}
-        >
-          <div className="active-bar" />
-          <div className="balance-tab-title">{intl.Tokens}</div>
+      <div className="balance-main-tabs-wrapper">
+        <div className="balance-pill-tabs-row">
+          <PillTabs
+            className="balance-pill-tabs"
+            value={tab}
+            onChange={(v) => {
+              if (v === 'tokens' || v === 'earn') setTab(v);
+            }}
+            tabHeight={44}
+          >
+            <Tabs.List>
+              <Tabs.Tab value="tokens">{intl.Tokens}</Tabs.Tab>
+              <Tabs.Tab value="earn">{intl.Earn}</Tabs.Tab>
+            </Tabs.List>
+          </PillTabs>
         </div>
-        <div
-          className={`balance-tab ${tab === 'earn' ? 'active' : ''}`}
-          onClick={() => setTab('earn')}
-        >
-          <div className="active-bar" />
-          <div className="balance-tab-title">{intl.Earn}</div>
-        </div>
-      </div>
-      <div className="balances-tpl">
-        {tab === 'tokens' && (
-          <div className="table-tpl">
-            <div className="search-tpl">
-              <Input
-                ref={searchRef as any}
-                leftSection={<IconSearch />}
-                value={search}
-                onChange={(e: any) => setSearch(e.target.value)}
-                placeholder={intl['account.assets_search_placeholder']}
+        <div className="balance-tab-panel">
+          {tab === 'tokens' && (
+            <div className="table-tpl">
+              <div className="search-tpl">
+                <div className="balance-search-field">
+                  <Input
+                    ref={searchRef as any}
+                    uiVariant="homeSearch"
+                    leftSection={<IconSearch />}
+                    value={search}
+                    onChange={(e: any) => setSearch(e.target.value)}
+                    placeholder={intl['account.assets_search_placeholder']}
+                  />
+                </div>
+                <ManageMenu
+                  chain={chain}
+                  setChain={setChain}
+                  hideSmallbalances={hideSmallbalances}
+                  updateFlag={updateFlag}
+                  onOpenManageTokens={() =>
+                    showModal({ modal: ModalKeys.manageTokens })
+                  }
+                />
+              </div>
+              <Table
+                dataSource={data}
+                loading={loading}
+                orderBy={orderBy}
+                orderDir={orderDir}
+                updateSort={updateSort}
               />
-              <ManageMenu
-                chain={chain}
-                setChain={setChain}
-                hideSmallbalances={hideSmallbalances}
-                updateFlag={updateFlag}
-                onOpenManageTokens={() =>
-                  showModal({ modal: ModalKeys.manageTokens })
-                }
-              />
+              {!loading && !!search && !data?.length && <SearchTips />}
             </div>
-            <Table
-              dataSource={data}
-              loading={loading}
-              orderBy={orderBy}
-              orderDir={orderDir}
-              updateSort={updateSort}
-            />
-            {!loading && !!search && !data?.length && <SearchTips />}
-          </div>
-        )}
-        {tab === 'earn' && <EarnList />}
+          )}
+          {tab === 'earn' && <EarnList />}
+        </div>
       </div>
     </StyledAccountAsset>
   );

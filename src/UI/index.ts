@@ -1,5 +1,6 @@
 export type {
   MiniBtnProps,
+  PrimaryBtnProps,
   UIButtonProps,
   UIButtonSize,
   UIButtonVariant,
@@ -47,7 +48,10 @@ export type { UISectionCardProps } from './SectionCard';
 export { default as UISectionCard } from './SectionCard';
 export type { UISectionTitleProps } from './SectionTitle';
 export { default as UISectionTitle } from './SectionTitle';
-export type { UISegmentedControlProps } from './SegmentedControl';
+export type {
+  UISegmentedControlAppearance,
+  UISegmentedControlProps,
+} from './SegmentedControl';
 export { default as UISegmentedControl } from './SegmentedControl';
 export { default as SegmentedControl } from './SegmentedControl';
 export type { UISelectProps } from './Select';

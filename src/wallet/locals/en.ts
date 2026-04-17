@@ -1,4 +1,5 @@
-const DeGateTerms = 'https://app.degate.com/terms'; const PrivyTerms = 'https://www.privy.io/user-terms-of-service';
+const DeGateTerms = 'https://app.degate.com/terms';
+const PrivyTerms = 'https://www.privy.io/user-terms-of-service';
 
 const en = {
   language: 'en-US',
@@ -372,7 +373,7 @@ const en = {
   'trade.i_understand': `I understand the &nbsp;`,
   'trade.flow_of_funds_tips': `<h3>Flow of Funds</h3>Funds will go to your DeGate Balance, not yourwallet balance.<br /><br /><h3>About DeGate Balance</h3>DeGate Balance represents the value thatusers hold within the DeGate smart contract.<br />Users maintain complete custody of DeGate Balance thanks to the fullydecentralized DeGate smart contract.`,
 
-  //1.16
+  // 1.16
   email: 'Email',
   login_by_email: 'Login by Email',
   powered_by_privy: 'Powered by Privy',
@@ -408,7 +409,7 @@ const en = {
   switch_address_tips_MetaMask: 'Please go to MetaMask to switch address.',
   Settings: 'Settings',
 
-  //1.20
+  // 1.20
   sync_to_app: 'Sync to DeGate App',
   sync_to_app_tips:
     'You are about to generate a QR code by signing with your wallet. <b>Do NOT</b> share the QR code with anyone.',
@@ -462,7 +463,7 @@ const en = {
   Est_Daily_Rewards: 'Est. Daily Rewards',
   Protocol: 'Protocol',
 
-  //1.24
+  // 1.24
   Bridge: 'Bridge',
   multi_chain: 'Multi-chain',
   multi_chain_tips:

@@ -9,10 +9,14 @@ import styled from 'styled-components';
 
 import { ThemeType } from 'src/theme';
 
+import AppChromeSection from './sections/AppChromeSection';
 import ButtonsSection from './sections/ButtonsSection';
+import CardsSection from './sections/CardsSection';
 import DataDisplaySection from './sections/DataDisplaySection';
 import InputsSection from './sections/InputsSection';
+import LinksSection from './sections/LinksSection';
 import MenuSection from './sections/MenuSection';
+import MobileListRowsSection from './sections/MobileListRowsSection';
 import OverlaysSection from './sections/OverlaysSection';
 import SelectionSection from './sections/SelectionSection';
 import SelectSection from './sections/SelectSection';
@@ -23,18 +27,74 @@ interface SectionDef {
   id: string;
   label: string;
   component: React.ComponentType;
+  /** Sidebar group label; consecutive items with the same group render one heading. */
+  navGroup?: string;
 }
 
 const SECTIONS: SectionDef[] = [
-  { id: 'buttons', label: 'Buttons', component: ButtonsSection },
-  { id: 'inputs', label: 'Inputs', component: InputsSection },
-  { id: 'selection', label: 'Selection', component: SelectionSection },
-  { id: 'tabs', label: 'Tabs', component: TabsSection },
-  { id: 'overlays', label: 'Overlays', component: OverlaysSection },
-  { id: 'data', label: 'Data Display', component: DataDisplaySection },
-  { id: 'menu', label: 'Menu', component: MenuSection },
-  { id: 'select', label: 'Select', component: SelectSection },
-  { id: 'tables', label: 'Tables', component: TablesSection },
+  {
+    id: 'buttons',
+    label: 'Buttons',
+    component: ButtonsSection,
+    navGroup: 'Core',
+  },
+  { id: 'inputs', label: 'Inputs', component: InputsSection, navGroup: 'Core' },
+  {
+    id: 'links',
+    label: 'Text links',
+    component: LinksSection,
+    navGroup: 'Core',
+  },
+  {
+    id: 'app-chrome',
+    label: 'Header & entries',
+    component: AppChromeSection,
+    navGroup: 'Product chrome',
+  },
+  {
+    id: 'list-rows',
+    label: 'Mobile list rows',
+    component: MobileListRowsSection,
+    navGroup: 'Product chrome',
+  },
+  {
+    id: 'cards',
+    label: 'Cards',
+    component: CardsSection,
+    navGroup: 'Surfaces',
+  },
+  {
+    id: 'selection',
+    label: 'Selection',
+    component: SelectionSection,
+    navGroup: 'System',
+  },
+  { id: 'tabs', label: 'Tabs', component: TabsSection, navGroup: 'System' },
+  {
+    id: 'overlays',
+    label: 'Overlays',
+    component: OverlaysSection,
+    navGroup: 'System',
+  },
+  {
+    id: 'data',
+    label: 'Data Display',
+    component: DataDisplaySection,
+    navGroup: 'System',
+  },
+  { id: 'menu', label: 'Menu', component: MenuSection, navGroup: 'System' },
+  {
+    id: 'select',
+    label: 'Select',
+    component: SelectSection,
+    navGroup: 'System',
+  },
+  {
+    id: 'tables',
+    label: 'Tables',
+    component: TablesSection,
+    navGroup: 'System',
+  },
 ];
 
 export default function ComponentLibrary() {
@@ -56,16 +116,25 @@ export default function ComponentLibrary() {
           <p>src/UI library reference</p>
         </div>
         <nav className="sidebar-nav">
-          {SECTIONS.map((s) => (
-            <button
-              key={s.id}
-              type="button"
-              className={`nav-item ${active === s.id ? 'active' : ''}`}
-              onClick={() => handleNavClick(s.id)}
-            >
-              {s.label}
-            </button>
-          ))}
+          {SECTIONS.map((s, i) => {
+            const prev = i > 0 ? SECTIONS[i - 1] : null;
+            const showGroup =
+              s.navGroup && (!prev || prev.navGroup !== s.navGroup);
+            return (
+              <React.Fragment key={s.id}>
+                {showGroup && (
+                  <div className="nav-group-label">{s.navGroup}</div>
+                )}
+                <button
+                  type="button"
+                  className={`nav-item ${active === s.id ? 'active' : ''}`}
+                  onClick={() => handleNavClick(s.id)}
+                >
+                  {s.label}
+                </button>
+              </React.Fragment>
+            );
+          })}
         </nav>
         <div className="sidebar-footer">
           <a href="/" className="back-link">
@@ -91,14 +160,15 @@ export default function ComponentLibrary() {
 const StyledLibrary = styled.div`
   display: flex;
   min-height: 100vh;
-  background: ${({ theme }: { theme: ThemeType }) => theme.bg};
+  background: ${({ theme }: { theme: ThemeType }) => theme.pageBg};
   color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
 
   .sidebar {
     width: 240px;
-    background: ${({ theme }: { theme: ThemeType }) => theme.bg_white_05};
+    flex-shrink: 0;
+    background: ${({ theme }: { theme: ThemeType }) => theme.shellBg};
     border-right: 1px solid
-      ${({ theme }: { theme: ThemeType }) => theme.border_b7b_20};
+      ${({ theme }: { theme: ThemeType }) => theme.divider};
     position: sticky;
     top: 0;
     height: 100vh;
@@ -111,7 +181,7 @@ const StyledLibrary = styled.div`
   .sidebar-header {
     padding: 0 20px 24px;
     border-bottom: 1px solid
-      ${({ theme }: { theme: ThemeType }) => theme.border_b7b_20};
+      ${({ theme }: { theme: ThemeType }) => theme.divider};
 
     h1 {
       ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
@@ -122,7 +192,7 @@ const StyledLibrary = styled.div`
     p {
       margin: 0;
       font-size: 12px;
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_80};
+      color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b};
     }
   }
 
@@ -134,52 +204,84 @@ const StyledLibrary = styled.div`
     gap: 4px;
   }
 
+  .nav-group-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_80};
+    padding: 12px 12px 6px;
+    margin-top: 4px;
+
+    &:first-child {
+      padding-top: 0;
+      margin-top: 0;
+    }
+  }
+
   .nav-item {
     background: none;
     border: none;
     text-align: left;
     padding: 10px 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b};
     font-size: 14px;
     cursor: pointer;
-    transition: all 0.15s;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.15s ease, color 0.15s ease;
 
     &:hover {
-      background: ${({ theme }: { theme: ThemeType }) => theme.bg_white_05};
+      background: ${({ theme }: { theme: ThemeType }) => theme.pressTint};
       color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
     }
 
     &.active {
-      background: ${({ theme }: { theme: ThemeType }) => theme.bg_white_10};
+      background: ${({ theme }: { theme: ThemeType }) => theme.tabTrack};
       color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
       ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
+    }
+
+    &:focus-visible {
+      outline: 2px solid ${({ theme }: { theme: ThemeType }) => theme.blue};
+      outline-offset: 2px;
     }
   }
 
   .sidebar-footer {
     padding: 16px 20px;
-    border-top: 1px solid
-      ${({ theme }: { theme: ThemeType }) => theme.border_b7b_20};
+    border-top: 1px solid ${({ theme }: { theme: ThemeType }) => theme.divider};
   }
 
   .back-link {
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_80};
+    color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b};
     font-size: 13px;
     text-decoration: none;
+    border-radius: 4px;
     &:hover {
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) => theme.blue};
+    }
+    &:focus-visible {
+      outline: 2px solid ${({ theme }: { theme: ThemeType }) => theme.blue};
+      outline-offset: 2px;
     }
   }
 
   .content {
     flex: 1;
-    padding: 32px 40px;
+    min-width: 0;
+    padding: 32px 40px 48px;
     max-width: 1200px;
 
     section {
       margin-bottom: 48px;
       scroll-margin-top: 24px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-item {
+      transition: none;
     }
   }
 `;

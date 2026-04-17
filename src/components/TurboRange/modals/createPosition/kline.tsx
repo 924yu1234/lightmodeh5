@@ -68,7 +68,8 @@ export default function Kline({ poolAddress }: { poolAddress: string }) {
 const StyledChart = styled.div`
   width: 100%;
   height: 100%;
-  background: ${({ theme }: { theme: ThemeType }) => theme.bg_181c27};
+  background: ${({ theme }: { theme: ThemeType }) =>
+    theme.darkMode ? theme.bg_181c27 : theme.shellSurfaceSecondary};
   .chart-spin {
     height: calc(100% - 70px);
     .spin-inner {
@@ -88,14 +89,17 @@ const StyledChart = styled.div`
     ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
 
     .token-title {
-      color: ${(props) => props.theme.t_fff_aa};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff_aa : theme.mutedText};
     }
     .token-price {
-      color: ${({ theme }) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
     }
     .token-price-change {
       margin-top: 2px;
-      color: ${({ theme }) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
     }
   }
   .iframe-error-message {

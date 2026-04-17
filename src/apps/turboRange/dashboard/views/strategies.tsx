@@ -69,22 +69,37 @@ const StyledStrategies = styled.div`
     grid-column: 1 / -1;
     text-align: center;
     padding: 60px 0;
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff_60};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff_60 : theme.mutedText};
     font-size: 14px;
   }
 
   .strategy-card {
-    background-image: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.01) -102.86%,
-      rgba(255, 255, 255, 0.1) 165%
-    );
+    background: ${({ theme }: { theme: ThemeType }) => theme.cardBg};
+    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.cardBorder};
     border-radius: 10px;
     padding: 20px 24px;
-    transition: all 0.2s ease;
+    box-shadow: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'none' : theme.componentLibraryCardShadow};
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+      background-color 0.2s ease;
 
-    &:hover {
-      transform: translateY(-4px);
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-4px);
+        background: ${({ theme }: { theme: ThemeType }) => theme.infoBarBg};
+        box-shadow: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? 'none' : theme.primaryBtnHoverShadow};
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+      @media (hover: hover) {
+        &:hover {
+          transform: none;
+        }
+      }
     }
 
     &.skeleton {
@@ -118,7 +133,8 @@ const StyledStrategies = styled.div`
 
     .card-name {
       ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
       font-size: 16px;
       line-height: 22px;
     }
@@ -140,13 +156,14 @@ const StyledStrategies = styled.div`
     justify-content: center;
     border-radius: 10px;
     gap: 10px;
-    background: #50e4a219;
+    background: ${({ theme }: { theme: ThemeType }) => theme.bg_buy_10};
     padding: 12px 16px;
 
     .primary-label {
       font-size: 14px;
       line-height: 20px;
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff_60};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff_60 : theme.mutedText};
     }
 
     .primary-value {
@@ -167,14 +184,16 @@ const StyledStrategies = styled.div`
       .secondary-label {
         font-size: 12px;
         line-height: 18px;
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff_60};
+        color: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff_60 : theme.mutedText};
         margin-bottom: 2px;
       }
       .secondary-value {
         font-size: 14px;
         line-height: 20px;
         ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+        color: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff : theme.ink};
       }
     }
   }

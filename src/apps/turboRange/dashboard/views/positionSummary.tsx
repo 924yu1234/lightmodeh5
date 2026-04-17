@@ -78,7 +78,11 @@ const StyledPositionSummary = styled.div`
   margin-bottom: 30px;
   .position-summary-inner {
     border-radius: 10px;
-    border: 1px solid #ffffff26;
+    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.innerBorder};
+    background: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'transparent' : theme.cardBg};
+    box-shadow: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'none' : theme.componentLibraryCardShadow};
     min-height: 80px;
     padding: 0 20px;
     display: flex;
@@ -89,7 +93,8 @@ const StyledPositionSummary = styled.div`
     font-size: 14px;
     line-height: 22px;
     ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff : theme.mutedText};
     white-space: nowrap;
   }
   .summary-item {
@@ -108,7 +113,8 @@ const StyledPositionSummary = styled.div`
       font-size: 20px;
       line-height: 22px;
       ${({ theme }: { theme: ThemeType }) => theme.fontBold};
-      color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+      color: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? theme.t_fff : theme.ink};
       &.color-green {
         color: ${({ theme }: { theme: ThemeType }) => theme.green};
       }

@@ -18,6 +18,7 @@ export const ConnectionErr = 10004;
 export const DepositGas = 10005;
 
 const noopFn = () => {};
+const noopPromise = () => Promise.resolve();
 
 export function WalletProvider({ children }: { children: React.ReactNode }) {
   const { mode, isLoggedIn } = useUEDSettings();
@@ -27,25 +28,21 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
     const isH5Mode = mode === 'h5';
 
     const ws = walletSnapshot as any;
-    // H5 mode always uses the injected token (real app handles auth);
-    // isLoggedIn toggle only affects PC/Mobile modes.
-    const hasToken = (isLoggedIn || isH5Mode) && !!ws.accessToken?.token;
+    const hasToken = isLoggedIn && !!ws.accessToken?.token;
 
     // Sync window globals for H5 mode
     if (isH5Mode) {
-      if (!window._degate_app) {
-        (window as any)._degate_app = {
-          isApp: true,
-          appVersion: '1.0.20',
-          locale: ws.locale || 'en',
-          account: ws.account,
-          deviceId: ws.deviceId || 'ued-device',
-          da_owner: ws.accessToken?.da_owner,
-          accessToken: hasToken ? ws.accessToken.token : '',
-          callAppPromise: () => Promise.resolve({}) as any, // UED: null so makeRequest falls back to real axios
-          solverAddresses: ws.solverAddresses,
-        };
-      }
+      (window as any)._degate_app = {
+        isApp: true,
+        appVersion: '1.0.20',
+        locale: ws.locale || 'en',
+        account: ws.account,
+        deviceId: ws.deviceId || 'ued-device',
+        da_owner: ws.accessToken?.da_owner,
+        accessToken: hasToken ? ws.accessToken.token : '',
+        callAppPromise: noopPromise,
+        solverAddresses: ws.solverAddresses,
+      };
     } else {
       delete (window as any)._degate_app;
     }
@@ -77,7 +74,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       deviceId: ws.deviceId || 'ued-device',
       isApp: isH5Mode,
       isFullVersion: ws.isFullVersion ?? true,
-      callAppPromise: () => Promise.resolve({}) as any, // UED: null so makeRequest falls back to real axios
+      callAppPromise: noopPromise as any,
       updateWallet: noopFn as any,
       hasUnlocked: hasToken && (ws.hasUnlocked ?? true),
     } as Wallet;

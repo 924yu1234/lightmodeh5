@@ -8,6 +8,7 @@ const { ProvidePlugin, DllReferencePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const { RetryChunkLoadPlugin } = require('webpack-retry-chunk-load-plugin');
+const styleLoader = require.resolve('style-loader');
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 // const whyDidYouRender = require('@welldone-software/why-did-you-render');
 // Linting and type checking are only necessary as part of development and testing.
@@ -115,14 +116,16 @@ module.exports = {
         )
       }
 
-      const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
-      const devPublicUrlOrPath = `http://localhost:${DEFAULT_PORT}/`;
+      // Dev: use `/` so JS/CSS load from whatever host the user opened
+      // (e.g. `http://127.0.0.1:3001` vs `http://localhost:3001`). A hardcoded
+      // `http://localhost:PORT/` publicPath breaks the non-localhost host.
+      const devPublicUrlOrPath = '/';
 
       // For UED public deploys (Vercel etc.), use a real `/` publicPath so
       // assets are served directly. The `vvvvv/` placeholder is only useful
       // when docker/fixEnv.js does runtime substitution.
       const isPublicDeploy = process.env.REACT_APP_PUBLIC_DEPLOY === '1';
-      const prodPublicPath = isPublicDeploy ? '/' : '/';
+      const prodPublicPath = isPublicDeploy ? '/' : 'vvvvv/';
 
       webpackConfig.output = Object.assign(webpackConfig.output, {
         publicPath: isProduction ? prodPublicPath : devPublicUrlOrPath,
@@ -168,6 +171,19 @@ module.exports = {
 
       webpackConfig.ignoreWarnings = [/Failed to parse source map/];
 
+      // Dev: inject CSS via style-loader so Mantine/global styles apply with the
+      // first paint. MiniCssExtract in dev often yields a late-loaded stylesheet
+      // and a long "black screen" after the HTML spinner (especially on slow disks).
+      const insertCss =
+        isProduction || process.env.FORCE_CSS_EXTRACT === '1'
+          ? {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: '../../',
+              },
+            }
+          : styleLoader;
+
       webpackConfig.module.rules = [
         {
           test: /\.(js|mjs|jsx|ts|tsx)$/,
@@ -179,26 +195,12 @@ module.exports = {
         },
         {
           test: /\.css$/,
-          use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                publicPath: '../../',
-              },
-            },
-            'css-loader',
-            'postcss-loader',
-          ],
+          use: [insertCss, 'css-loader', 'postcss-loader'],
         },
         {
           test: /\.less$/,
           use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                publicPath: '../../',
-              },
-            },
+            insertCss,
             'css-loader',
             {
               loader: 'less-loader',

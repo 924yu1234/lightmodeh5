@@ -11,6 +11,11 @@
 - 三种访问模式：PC / Mobile / APP H5（通过右下角 ⚙ 设置按钮切换）
 - 运行方式：`npm start`（默认端口 3001）
 
+## 共享设计上下文（Figma Test 根目录）
+
+- 与 **同文件夹下其他项目** 共用的 Impeccable 说明：**`../.impeccable.md`**（即 `Figma Test/.impeccable.md`，与 `app-light-mode-main`、`App UI Light Mode` 等并列仓库同级）。
+- 本仓库实现以 **`src/theme.tsx`** 为准；共享文档里若出现 `W.*` / `walletTheme.ts` 等路径，对应 **Wallet / App UI Light** 工程；对齐原则（信任、克制、层级、品牌绿语义等）时仍以该文件为准，token 名映射到 `theme.xxx`。
+
 ## 核心规则
 
 1. **只改 UI / 样式 / 主题**，不改业务逻辑
@@ -23,6 +28,7 @@
 
 | 文件 | 内容 | 何时读 |
 |------|------|--------|
+| `../.impeccable.md` | Figma Test 根目录共享：品牌与界面原则（多仓库共用） | 做视觉 / 交互对齐时 |
 | `.claude/rules/ued-scope.md` | UED 修改边界（可改 / 禁止） | **必读** |
 | `.claude/rules/for-ued-designer.md` | UED 非开发者操作指南（中文） | UED 人员使用时 |
 | `.claude/rules/mock-api-guide.md` | Mock 系统说明 | 涉及数据时 |

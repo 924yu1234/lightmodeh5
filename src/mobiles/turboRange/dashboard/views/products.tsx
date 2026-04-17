@@ -7,14 +7,13 @@ import TokenIcon from 'src/components/Token/icon';
 import ProductName from 'src/components/TurboRange/productName';
 import SkeletonProduct from 'src/components/TurboRange/Skeletons/Product';
 import useCustomNavigate from 'src/hooks/useCustomNavigate';
+import { useIntl } from 'src/locals';
 import {
   useShowLoadingSkeleton,
   useTurboRangeProducts,
 } from 'src/state/turboRange/hooks';
 import { useCreatePosition } from 'src/state/turboRange/useCreatePosition';
 import { ThemeType } from 'src/theme';
-
-import { useIntl } from 'js/locals';
 
 export default function Products() {
   const intl = useIntl();
@@ -69,7 +68,7 @@ export default function Products() {
                     </div>
                     <GALinkWrapper
                       eventName="turbo_range_list_invest_USDC"
-                      className="invest-btn"
+                      className="invest-action"
                       onClick={(e: any) => {
                         e.stopPropagation();
                         e.preventDefault();
@@ -79,7 +78,7 @@ export default function Products() {
                         });
                       }}
                     >
-                      <IconRightOutlined />
+                      <IconRightOutlined size={14} />
                     </GALinkWrapper>
                   </div>
                 </div>
@@ -92,6 +91,7 @@ export default function Products() {
   );
 }
 
+/** App H5 / mobile — All Products row cards (`.impeccable.md` light: white surface, green for APY only). */
 const StyledProducts = styled.div`
   .list-content {
     display: grid;
@@ -102,17 +102,45 @@ const StyledProducts = styled.div`
     margin: 0 0 20px 0;
 
     .item {
-      background-image: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.03) 100%
-      );
+      background: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode
+          ? 'linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%)'
+          : theme.cardBg};
+      border: 1px solid
+        ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? 'transparent' : theme.cardBorder};
+      box-shadow: ${({ theme }: { theme: ThemeType }) =>
+        theme.darkMode ? 'none' : theme.componentLibraryCardShadow};
       border-radius: 10px;
       padding: 16px 20px;
       min-height: 115px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+        background-color 0.2s ease, border-color 0.2s ease;
+
       &:active {
-        transform: translateY(-4px);
+        transform: translateY(-2px);
       }
+
+      @media (hover: hover) {
+        &:hover {
+          transform: translateY(-2px);
+          background: ${({ theme }: { theme: ThemeType }) =>
+            theme.darkMode
+              ? 'linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.06) 100%)'
+              : theme.infoBarBg};
+          box-shadow: ${({ theme }: { theme: ThemeType }) =>
+            theme.darkMode ? 'none' : theme.primaryBtnHoverShadow};
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+        &:active,
+        &:hover {
+          transform: none;
+        }
+      }
+
       .item-info {
         display: flex;
         align-items: center;
@@ -121,12 +149,9 @@ const StyledProducts = styled.div`
           ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
           font-size: 16px;
           line-height: 20px;
-          color: ${({ theme }: { theme: ThemeType }) => theme.t_fff};
+          color: ${({ theme }: { theme: ThemeType }) =>
+            theme.darkMode ? theme.t_fff : theme.ink};
           margin-right: auto;
-        }
-        .invest-btn {
-          height: 30px;
-          padding: 0 10px;
         }
         margin-bottom: 7px;
       }
@@ -136,7 +161,8 @@ const StyledProducts = styled.div`
         align-items: center;
         gap: 10px;
         ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-        color: ${({ theme }: { theme: ThemeType }) => theme.t_fff_60};
+        color: ${({ theme }: { theme: ThemeType }) =>
+          theme.darkMode ? theme.t_fff_60 : theme.mutedText};
         font-size: 14px;
         line-height: 20px;
         .item-profit-value {
@@ -149,17 +175,31 @@ const StyledProducts = styled.div`
       }
     }
   }
-  .invest-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    border: 1px solid ${(props) => props.theme.border_blue_50};
+
+  .invest-action {
+    margin-left: auto;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: auto;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid ${({ theme }: { theme: ThemeType }) => theme.cardBorder};
+    background: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.bg_white_10 : theme.shellSurfaceSecondary};
+    color: ${({ theme }: { theme: ThemeType }) => theme.blue};
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+
     .icon-right-outlined {
       color: ${({ theme }: { theme: ThemeType }) => theme.blue};
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background: ${({ theme }: { theme: ThemeType }) => theme.pressTint};
+        border-color: ${({ theme }: { theme: ThemeType }) =>
+          theme.inputHoverBorder};
+      }
     }
   }
 `;
