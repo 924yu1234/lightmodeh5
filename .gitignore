@@ -40,3 +40,5 @@ dist/
 .windsurf/
 .zencoder/
 skills-lock.json
+
+.vercel/

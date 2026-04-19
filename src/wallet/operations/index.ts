@@ -6,9 +6,11 @@
  */
 import { useCallback } from 'react';
 
+import { CommonToken } from 'src/constants/interface';
 import { Operations } from 'src/constants/interface/operations';
 import { useShowModal } from 'src/state/application/hooks';
 import ModalKeys from 'src/state/application/modalKeys';
+import { clearWalletSnapshot } from 'src/wallet/config';
 
 /**
  * Creates mock wallet operations that show confirm modals
@@ -16,6 +18,28 @@ import ModalKeys from 'src/state/application/modalKeys';
  */
 export function useWalletModalOperations(): Partial<Operations> {
   const showModal = useShowModal();
+
+  const viewAddress = useCallback(() => {
+    showModal({ modal: ModalKeys.WALLET_VIEW_ADDRESS });
+  }, [showModal]);
+
+  const receive = useCallback(
+    (token?: CommonToken) => {
+      return new Promise((resolve, reject) => {
+        showModal({
+          modal: ModalKeys.WALLET_RECEIVE,
+          token,
+          resPromise: { resolve, reject },
+        });
+      });
+    },
+    [showModal]
+  );
+
+  const disconnect = useCallback(() => {
+    clearWalletSnapshot();
+    window.location.reload();
+  }, []);
 
   const createTurboRangeOrder = useCallback(
     (order: any) => {
@@ -70,6 +94,9 @@ export function useWalletModalOperations(): Partial<Operations> {
   );
 
   return {
+    viewAddress,
+    receive,
+    disconnect,
     createTurboRangeOrder,
     createSwapOrder,
     createEarnOrder,

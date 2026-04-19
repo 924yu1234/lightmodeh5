@@ -234,31 +234,31 @@ export default function makeRequest(
     !isSwapInfo
   ) {
     const callAppPromise = window.callAppPromise;
-    if (!callAppPromise) {
-      return makeRequest(params, maxRetries, true);
-    }
-    try {
-      return callAppPromise('httpRequest', {
-        cacheTime: 30 * 60 * 1000, // 30 minutes
-        ...params,
-      }).catch((error: any) => {
-        if (!error?.includes('不支持的HTTP请求路径')) {
-          logRequest({
-            event: 'APP httpRequest error',
-            url: params?.url,
-            error,
-          });
-        }
-        return makeRequest(params, maxRetries, true);
-      });
-    } catch (error) {
-      logRequest({
-        event: 'APP httpRequest error',
-        url: params?.url,
-        error,
-      });
-      return makeRequest(params, maxRetries, true);
-    }
+    // if (!callAppPromise) {
+    return makeRequest(params, maxRetries, true);
+    // }
+    // try {
+    //   return callAppPromise('httpRequest', {
+    //     cacheTime: 30 * 60 * 1000, // 30 minutes
+    //     ...params,
+    //   }).catch((error: any) => {
+    //     if (!error?.includes('不支持的HTTP请求路径')) {
+    //       logRequest({
+    //         event: 'APP httpRequest error',
+    //         url: params?.url,
+    //         error,
+    //       });
+    //     }
+    //     return makeRequest(params, maxRetries, true);
+    //   });
+    // } catch (error) {
+    //   logRequest({
+    //     event: 'APP httpRequest error',
+    //     url: params?.url,
+    //     error,
+    //   });
+    //   return makeRequest(params, maxRetries, true);
+    // }
   }
 
   return axiosService(params).catch((error) => {
