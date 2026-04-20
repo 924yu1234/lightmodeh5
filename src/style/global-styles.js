@@ -1,8 +1,5 @@
 import { createGlobalStyle, css } from 'styled-components';
 
-export const fontFamily =
-  'font-family: "OpenSansRegular", "PingFang SC",  Helvetica, Arial, sans-serif;';
-
 /** 配色 视觉规范 * */
 export const color = {
   main: '#41A3F7', // 主色/链接色
@@ -65,7 +62,7 @@ export default createGlobalStyle`
   }
 
   html body {
-    ${fontFamily}
+    ${({ theme }) => theme.fontBody}
     font-size: 14px;
     font-weight: 400;
     color: ${(props) => props.theme.t_d4d};
@@ -202,7 +199,7 @@ export default createGlobalStyle`
     --adm-font-size-main: 13px;
     --adm-color-text: #333333;
   
-    --adm-font-family: "OpenSansRegular", "PingFang SC",  Helvetica, Arial, sans-serif;
+    --adm-font-family: ${({ theme }) => theme.admFontFamily};
   }
 
   .tips-border {

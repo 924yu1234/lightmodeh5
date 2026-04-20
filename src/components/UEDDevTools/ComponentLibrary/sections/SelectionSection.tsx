@@ -58,7 +58,7 @@ export default function SelectionSection() {
 
       <ComponentCard
         title="SegmentedControl"
-        description="Pill-style button group selector."
+        description="All variants follow ⚙ theme. Swap: Light = pill Buy/Sell; Dark = legacy bordered (swap page). Default uses dark black + b7b track only when ⚙ Dark."
         variants={[
           {
             label: 'Swap Buy / Sell',
@@ -91,9 +91,10 @@ export default function SelectionSection() {
             ),
           },
           {
-            label: '4 options',
+            label: 'Default — follows ⚙ theme (4 segments)',
             node: (
               <SegmentedControl
+                appearance="default"
                 value={seg4}
                 onChange={setSeg4}
                 data={[

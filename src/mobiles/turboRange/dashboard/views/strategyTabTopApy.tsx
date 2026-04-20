@@ -9,6 +9,7 @@ import {
 } from 'src/state/turboRange/hooks';
 import { TurboRangeStrategy } from 'src/state/turboRange/reducer';
 
+import { TurboRangeStaggerItem } from './listStagger';
 import StrategyCardsMobileSkeleton from './strategyCardsMobileSkeleton';
 import StrategyMobileCard from './strategyMobileCard';
 
@@ -40,26 +41,27 @@ export default function StrategyTabTopApy() {
       )}
       {!showSkeleton &&
         sortedPositions.length > 0 &&
-        sortedPositions.map((position) => (
-          <StrategyMobileCard
-            key={position.id}
-            position={position}
-            primary={{
-              label: intl.turboRange.all_time_apy,
-              value: position.apy_display || '--',
-            }}
-            secondary={[
-              {
-                label: intl.turboRange.principal,
-                value: position.principalValue_display || '--',
-              },
-              {
-                label: intl.turboRange.all_time_yield,
-                value: position.totalYield_display || '--',
-              },
-            ]}
-            onViewDetails={handleViewDetails}
-          />
+        sortedPositions.map((position, index) => (
+          <TurboRangeStaggerItem key={position.id} $index={index}>
+            <StrategyMobileCard
+              position={position}
+              primary={{
+                label: intl.turboRange.all_time_apy,
+                value: position.apy_display || '--',
+              }}
+              secondary={[
+                {
+                  label: intl.turboRange.principal,
+                  value: position.principalValue_display || '--',
+                },
+                {
+                  label: intl.turboRange.all_time_yield,
+                  value: position.totalYield_display || '--',
+                },
+              ]}
+              onViewDetails={handleViewDetails}
+            />
+          </TurboRangeStaggerItem>
         ))}
     </div>
   );

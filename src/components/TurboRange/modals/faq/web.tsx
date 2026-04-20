@@ -30,7 +30,11 @@ export default function FAQWeb() {
 const StyledTips = styled.div`
   display: flex;
   align-items: center;
-  background: #ffffff19;
+  background: ${({ theme }: { theme: ThemeType }) =>
+    theme.darkMode ? theme.bg_white_10 : theme.shellSurfaceSecondary};
+  border: 1px solid
+    ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? 'transparent' : theme.innerBorder};
   border-radius: 23px;
   min-width: 80px;
   padding: 0 15px;

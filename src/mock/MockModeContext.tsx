@@ -1,5 +1,8 @@
 import React, { useCallback, useContext, useMemo, useState } from 'react';
 
+import type { UEDFontPreset } from 'src/ued/fontPreset';
+import { isUEDFontPreset } from 'src/ued/fontPreset';
+
 export type UEDMode = 'pc' | 'mobile' | 'h5';
 export type UEDTheme = 'dark' | 'light';
 
@@ -10,6 +13,8 @@ export interface UEDSettings {
   simulateError: boolean;
   locale: string;
   theme: UEDTheme;
+  /** Global UI font stack for A/B comparison (UED ⚙ Typography). */
+  fontPreset: UEDFontPreset;
 }
 
 interface UEDSettingsContextValue extends UEDSettings {
@@ -19,6 +24,7 @@ interface UEDSettingsContextValue extends UEDSettings {
   setSimulateError: (v: boolean) => void;
   setLocale: (locale: string) => void;
   setTheme: (theme: UEDTheme) => void;
+  setFontPreset: (preset: UEDFontPreset) => void;
   updateSettings: (patch: Partial<UEDSettings>) => void;
 }
 
@@ -31,7 +37,13 @@ const STORAGE_KEY = 'ued_settings';
 function loadSettings(): UEDSettings {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) return { ...defaultSettings, ...JSON.parse(saved) };
+    if (saved) {
+      const raw = JSON.parse(saved) as Partial<UEDSettings>;
+      const fontPreset = isUEDFontPreset(raw.fontPreset)
+        ? raw.fontPreset
+        : defaultSettings.fontPreset;
+      return { ...defaultSettings, ...raw, fontPreset };
+    }
   } catch {
     // ignore
   }
@@ -53,6 +65,7 @@ const defaultSettings: UEDSettings = {
   simulateError: false,
   locale: 'en-US',
   theme: 'dark',
+  fontPreset: 'default',
 };
 
 export function UEDSettingsProvider({
@@ -64,7 +77,11 @@ export function UEDSettingsProvider({
 
   const updateSettings = useCallback((patch: Partial<UEDSettings>) => {
     setSettings((prev) => {
-      const next = { ...prev, ...patch };
+      const merged = { ...prev, ...patch };
+      const fontPreset = isUEDFontPreset(merged.fontPreset)
+        ? merged.fontPreset
+        : defaultSettings.fontPreset;
+      const next = { ...merged, fontPreset };
       saveSettings(next);
       return next;
     });
@@ -79,6 +96,7 @@ export function UEDSettingsProvider({
       setSimulateError: (simulateError) => updateSettings({ simulateError }),
       setLocale: (locale) => updateSettings({ locale }),
       setTheme: (theme) => updateSettings({ theme }),
+      setFontPreset: (fontPreset) => updateSettings({ fontPreset }),
       updateSettings,
     }),
     [settings, updateSettings]

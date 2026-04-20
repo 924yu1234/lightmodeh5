@@ -12,10 +12,10 @@ export type UISegmentedControlAppearance =
 
 export type UISegmentedControlProps = SegmentedControlProps & {
   /**
-   * `swap` — App Swap Buy/Sell bar (sliding ink→green / ink→red pill).
-   * `compact` — Create Position 24H/7D/30D dense segment.
+   * `swap` — Buy/Sell: light = sliding ink→green / ink→red pill; dark = legacy bordered pair (innerBorder + buy/sell outline).
+   * `compact` — 24H/7D/30D dense segment; pill-radius track + indicator (both themes).
    * `pill` — PillTabs (Single/Dual, dashboard main tabs): sliding pill + track.
-   * `default` — theme-safe neutral track (replaces legacy hard-coded black).
+   * `default` — light: `tabTrack` + green-tint indicator; dark: legacy black/b7b track + pill (tokens).
    */
   appearance?: UISegmentedControlAppearance;
   /** When `appearance="swap"`, pill gradient; defaults from `value` buy/sell. */
@@ -49,11 +49,9 @@ const StyledSegmentedControl = styled(SegmentedControl).withConfig({
     ${({ $appearance, theme }) =>
       $appearance === 'default' &&
       css`
-        background: ${theme.darkMode
-          ? 'rgba(255, 255, 255, 0.08)'
-          : theme.tabTrack};
+        background: ${theme.darkMode ? theme.bg_black_20 : theme.tabTrack};
         padding: 4px;
-        border-radius: 10px;
+        border-radius: ${theme.darkMode ? '5px' : '10px'};
 
         .mantine-SegmentedControl-control {
           height: 44px;
@@ -61,7 +59,7 @@ const StyledSegmentedControl = styled(SegmentedControl).withConfig({
 
         .mantine-SegmentedControl-label {
           line-height: 44px;
-          padding: 0 8px;
+          padding: ${theme.darkMode ? '0 5px' : '0 8px'};
           ${theme.fontRegular};
           font-size: 14px;
           color: ${theme.darkMode
@@ -76,16 +74,63 @@ const StyledSegmentedControl = styled(SegmentedControl).withConfig({
         }
 
         .mantine-SegmentedControl-indicator {
-          border-radius: 8px;
+          border-radius: ${theme.darkMode ? '5px' : '8px'};
           height: 44px;
-          background: ${theme.darkMode
-            ? 'rgba(255, 255, 255, 0.14)'
-            : theme.bg_buy_10};
+          background: ${theme.darkMode ? theme.bg_b7b_20 : theme.bg_buy_10};
         }
       `}
 
     ${({ $appearance, $swapVisual, theme }) =>
       $appearance === 'swap' &&
+      theme.darkMode &&
+      css`
+        min-width: ${theme.swapSegmentedMinWidth};
+        height: 32px;
+        padding: 0;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: 1px solid ${theme.innerBorder};
+        background: transparent;
+
+        .mantine-SegmentedControl-control {
+          height: 30px;
+          padding: 0;
+        }
+
+        .mantine-SegmentedControl-label {
+          height: 30px;
+          line-height: 30px;
+          padding: 0 6px;
+          font-size: 14px;
+          letter-spacing: 0.01em;
+          color: ${theme.t_b7b};
+          transition: color 180ms ease;
+          ${theme.fontMedium};
+
+          &[data-active] {
+            color: ${$swapVisual === 'buy' ? theme.buy : theme.sell};
+          }
+        }
+
+        .mantine-SegmentedControl-indicator {
+          border-radius: ${$swapVisual === 'buy'
+            ? '5px 0 0 5px'
+            : '0 5px 5px 0'};
+          height: calc(100% - 2px);
+          top: 1px;
+          background: transparent;
+          box-shadow: none;
+          border: 1px solid
+            ${$swapVisual === 'buy' ? theme.buy : theme.sell};
+          transition: transform 320ms cubic-bezier(0.34, 1.36, 0.64, 1),
+            border-color 180ms ease,
+            border-radius 180ms ease;
+        }
+      `}
+
+    ${({ $appearance, $swapVisual, theme }) =>
+      $appearance === 'swap' &&
+      !theme.darkMode &&
       css`
         min-width: ${theme.swapSegmentedMinWidth};
         height: 42px;
@@ -194,18 +239,25 @@ const StyledSegmentedControl = styled(SegmentedControl).withConfig({
         min-height: 28px;
         height: 28px;
         padding: 1px;
-        border-radius: 10px;
+        border-radius: 999px;
         background: ${theme.segmentedCompactTrackBg};
         box-shadow: ${theme.segmentedCompactInsetShadow};
 
         .mantine-SegmentedControl-control {
           height: calc(100% - 2px);
           min-height: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .mantine-SegmentedControl-label {
-          height: 100%;
-          line-height: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: 1;
+          align-self: stretch;
+          line-height: 1;
           padding: 0 8px;
           font-size: 12px;
           ${theme.fontMedium};
@@ -219,7 +271,7 @@ const StyledSegmentedControl = styled(SegmentedControl).withConfig({
         }
 
         .mantine-SegmentedControl-indicator {
-          border-radius: 8px;
+          border-radius: 999px;
           height: calc(100% - 2px);
           top: 1px;
           background: ${theme.segmentedCompactActiveBg};
@@ -270,7 +322,9 @@ const UISegmentedControl = React.forwardRef<
 
     const r =
       radius ??
-      (appearance === 'swap' || appearance === 'pill'
+      (appearance === 'swap' ||
+      appearance === 'pill' ||
+      appearance === 'compact'
         ? ('xl' as const)
         : ('md' as const));
 

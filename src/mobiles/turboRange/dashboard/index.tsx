@@ -125,7 +125,7 @@ export default function TurboRangeDashboard() {
       {showH5Header && (
         <Header
           title={intl.turboRange.Turbo_Range}
-          backUrl="/home"
+          historyBack
           extraEle={<FAQMobile />}
         />
       )}

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { ThemeType } from 'src/theme';
 
 export const StyledInvest = styled.div`
-  background: ${({ theme }) => theme.bg};
+  background: ${({ theme }: { theme: ThemeType }) =>
+    theme.darkMode ? theme.bg : theme.pageBg};
   height: 100%;
   display: flex;
   flex-direction: column;

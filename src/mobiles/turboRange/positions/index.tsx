@@ -33,7 +33,7 @@ export default function TurboRangePositions() {
   return (
     <StyledInvest>
       {showH5Header && (
-        <Header title={intl.turboRange.my_positions} backUrl="/turbo-range" />
+        <Header title={intl.turboRange.my_positions} historyBack />
       )}
       <div className="page-inner">
         <TurboRangeNotification />

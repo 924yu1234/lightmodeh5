@@ -60,8 +60,6 @@ export const StyledOrderDir = styled.div`
     width: 50%;
     max-width: 50%;
     min-width: 0;
-    height: 42px;
-    min-height: 42px;
 
     .mantine-SegmentedControl-label {
       font-size: 14px;

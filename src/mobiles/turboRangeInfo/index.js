@@ -91,7 +91,7 @@ export default function TurboRangeInfo() {
 
   return (
     <StyledChart>
-      {showH5Header && <Header title="" />}
+      {showH5Header && <Header title="" historyBack />}
       <div className="page-inner">
         <div className="chart-top">
           <TokenIcon token={baseToken} size={32} hideChainIcon />

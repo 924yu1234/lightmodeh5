@@ -7,7 +7,13 @@ import { useIsAppH5, useWalletOprs } from 'src/providers/useWallet';
 
 import IconMobileBack from 'js/components/Icons/mobileBack';
 
-export default function Header({ title, extraEle, backUrl = '', goBack }) {
+export default function Header({
+  title,
+  extraEle,
+  backUrl = '',
+  goBack,
+  historyBack,
+}) {
   const navigate = useCustomNavigate();
   const isAppH5 = useIsAppH5();
   const { callAppPromise } = useWalletOprs();
@@ -15,6 +21,10 @@ export default function Header({ title, extraEle, backUrl = '', goBack }) {
     <StyledHeader className="m-header">
       <IconMobileBack
         onClick={() => {
+          if (historyBack) {
+            navigate(-1);
+            return;
+          }
           if (isAppH5) {
             callAppPromise('appBack');
             return;
@@ -41,6 +51,8 @@ Header.propTypes = {
   extraEle: PropTypes.any,
   backUrl: PropTypes.string,
   goBack: PropTypes.func,
+  /** When true, always use SPA history back (aligns App H5 Turbo Range with in-app browser stack). */
+  historyBack: PropTypes.bool,
 };
 
 export const StyledHeader = styled.div`

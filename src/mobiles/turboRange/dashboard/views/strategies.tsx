@@ -91,13 +91,14 @@ const StyledMobileStrategies = styled.div`
   .strategy-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
   }
 
   .empty-state {
     text-align: center;
     padding: 40px 0;
-    color: ${({ theme }: { theme: ThemeType }) => theme.t_fff_60};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.darkMode ? theme.t_fff_60 : theme.mutedText};
     font-size: 14px;
   }
 `;

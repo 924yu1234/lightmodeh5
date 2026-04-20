@@ -27,7 +27,7 @@ function AmountTokenChipDemo({ symbol }: { symbol: string }) {
   );
 }
 
-/** Token selector pill — Swap Pay (flat) or Bridge (optional chain line). */
+/** Token selector pill — Swap Pay (flat) or Bridge (stacked token + chain); full pill radius. */
 function SwapPayTokenPill({
   symbol,
   chain,
@@ -489,7 +489,7 @@ const SwapPayTokenPillRoot = styled.span<{ $hasChain?: boolean }>`
   height: auto;
   padding: ${({ $hasChain }) =>
     $hasChain ? '6px 10px 6px 6px' : '4px 10px 4px 6px'};
-  border-radius: 18px;
+  border-radius: 999px;
   cursor: default;
   background: ${({ theme }: { theme: ThemeType }) =>
     theme.darkMode ? theme.bg_b7b_10 : theme.segmentedCompactTrackBg};

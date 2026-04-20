@@ -1,45 +1,52 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import IconFaq2 from 'src/components/Icons/faq2';
 import { useIntl } from 'src/locals';
 import { useShowModal } from 'src/state/application/hooks';
 import ModalKeys from 'src/state/application/modalKeys';
 import { ThemeType } from 'src/theme';
 
+/** H5 header — green “FAQ” text link (Turbo Range H5 spec). */
 export default function FAQMobile() {
   const intl = useIntl();
   const showModal = useShowModal();
 
   return (
-    <>
-      <StyledTips
-        className="about-turbo-range"
-        onClick={() => {
-          showModal({ modal: ModalKeys.turboRangeFAQ });
-        }}
-      >
-        <IconFaq2 size={16} />
-        {intl.FAQ}
-      </StyledTips>
-    </>
+    <StyledFaqLink
+      type="button"
+      className="about-turbo-range"
+      onClick={() => {
+        showModal({ modal: ModalKeys.turboRangeFAQ });
+      }}
+    >
+      {intl.FAQ}
+    </StyledFaqLink>
   );
 }
 
-const StyledTips = styled.div`
-  display: flex;
-  align-items: center;
-  ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-  font-size: 14px;
-  line-height: 20px;
-  color: ${({ theme }) => theme.t_000};
+const StyledFaqLink = styled.button`
+  margin: 0;
+  padding: 4px 2px;
+  border: none;
+  background: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  justify-content: center;
-  color: ${({ theme }) => theme.blue};
-  .icon-tips {
-    color: ${({ theme }) => theme.blue};
+  ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
+  font-size: 15px;
+  line-height: 22px;
+  color: ${({ theme }: { theme: ThemeType }) => theme.green};
+  transition: opacity 0.15s ease, color 0.15s ease;
+
+  &:active {
+    opacity: 0.82;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }: { theme: ThemeType }) => theme.accentDark};
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `;

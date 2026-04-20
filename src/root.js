@@ -80,7 +80,7 @@ export default function root({ updaters }) {
   const isMobile = useIsMobile();
   const isAppH5 = useIsAppH5();
   const showH5Header = useShowH5Header();
-  const { theme: uedTheme } = useUEDSettings();
+  const { theme: uedTheme, fontPreset: uedFontPreset } = useUEDSettings();
   const themeObject = useMemo(
     () =>
       getTheme({
@@ -90,8 +90,9 @@ export default function root({ updaters }) {
         isAppH5,
         showH5Header,
         theme: uedTheme,
+        fontPreset: uedFontPreset,
       }),
-    [width, height, isMobile, isAppH5, showH5Header, uedTheme]
+    [width, height, isMobile, isAppH5, showH5Header, uedTheme, uedFontPreset]
   );
   const message = useMessage();
   window.message = message;

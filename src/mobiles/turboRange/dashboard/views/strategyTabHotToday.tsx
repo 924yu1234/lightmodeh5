@@ -9,6 +9,7 @@ import {
 } from 'src/state/turboRange/hooks';
 import { TurboRangeStrategy } from 'src/state/turboRange/reducer';
 
+import { TurboRangeStaggerItem } from './listStagger';
 import StrategyCardsMobileSkeleton from './strategyCardsMobileSkeleton';
 import StrategyMobileCard from './strategyMobileCard';
 
@@ -40,26 +41,27 @@ export default function StrategyTabHotToday() {
       )}
       {!showSkeleton &&
         sortedPositions.length > 0 &&
-        sortedPositions.map((position) => (
-          <StrategyMobileCard
-            key={position.id}
-            position={position}
-            primary={{
-              label: intl.turboRange.yesterday_apy,
-              value: position.yesterday_apy_display || '--',
-            }}
-            secondary={[
-              {
-                label: intl.turboRange.principal,
-                value: position.principalValue_display || '--',
-              },
-              {
-                label: intl.turboRange.yesterday_yield,
-                value: position.yesterdayYield_display || '--',
-              },
-            ]}
-            onViewDetails={handleViewDetails}
-          />
+        sortedPositions.map((position, index) => (
+          <TurboRangeStaggerItem key={position.id} $index={index}>
+            <StrategyMobileCard
+              position={position}
+              primary={{
+                label: intl.turboRange.yesterday_apy,
+                value: position.yesterday_apy_display || '--',
+              }}
+              secondary={[
+                {
+                  label: intl.turboRange.principal,
+                  value: position.principalValue_display || '--',
+                },
+                {
+                  label: intl.turboRange.yesterday_yield,
+                  value: position.yesterdayYield_display || '--',
+                },
+              ]}
+              onViewDetails={handleViewDetails}
+            />
+          </TurboRangeStaggerItem>
         ))}
     </div>
   );

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { UEDMode, UEDTheme, useUEDSettings } from 'src/mock/MockModeContext';
 import { ThemeType } from 'src/theme';
+import { UED_FONT_PRESET_OPTIONS } from 'src/ued/fontPreset';
 
 const MODES: { value: UEDMode; label: string }[] = [
   { value: 'pc', label: 'PC' },
@@ -76,6 +77,27 @@ export default function UEDSettingsPanel({ onClose }: Props) {
                 onClick={() => settings.setTheme(t.value)}
               >
                 {t.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="section">
+          <div className="section-label">Typography (font preview)</div>
+          <div className="font-preset-hint">
+            Latin + 中文 fallback (Noto Sans SC). Saved with UED settings for
+            side-by-side comparison.
+          </div>
+          <div className="btn-group">
+            {UED_FONT_PRESET_OPTIONS.map((opt) => (
+              <button
+                type="button"
+                key={opt.value}
+                className={settings.fontPreset === opt.value ? 'active' : ''}
+                title={opt.hint}
+                onClick={() => settings.setFontPreset(opt.value)}
+              >
+                {opt.label}
               </button>
             ))}
           </div>
@@ -234,6 +256,13 @@ const StyledPanel = styled.div`
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 6px;
+  }
+
+  .font-preset-hint {
+    font-size: 11px;
+    line-height: 1.4;
+    color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_60};
+    margin: -2px 0 8px;
   }
 
   .btn-group {

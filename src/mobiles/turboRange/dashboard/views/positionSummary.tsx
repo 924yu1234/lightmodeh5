@@ -1,6 +1,5 @@
-import React from 'react';
-import bg from 'imgs/turbo_range_card_bg.svg';
-import styled from 'styled-components';
+import React, { useCallback } from 'react';
+import styled, { css } from 'styled-components';
 
 import AccountCheckWrapper from 'src/components/Empty/AccountCheckWrapper';
 import IconRightOutlined from 'src/components/Icons/RightOutlined';
@@ -17,6 +16,7 @@ import {
 import { ThemeType } from 'src/theme';
 import { formatUsd } from 'src/utils/format';
 
+/** App H5 — My Positions hero card (`theme.summaryCardBg` + white type), matching Turbo Range H5 design spec. */
 export default function PositionSummary() {
   const intl = useIntl();
   const { positions, loadingPositions } = useTurboRangeActivePositions();
@@ -26,61 +26,74 @@ export default function PositionSummary() {
 
   const { positionValue, last24hYield, totalYield } =
     useTurboRangePositionSummary();
+
+  const showNoPosition =
+    !loadingPositions && positions?.length === 0 && hasAccessToken;
+
+  const goPositions = useCallback(() => {
+    navigate('/turbo-range/positions');
+  }, [navigate]);
+
   return (
     <>
       <StyledPositionSummary className="position-summary">
         <AccountCheckWrapper source="turbo_range">
           {!showSkeleton ? (
             <div className="position-summary-inner">
-              <img src={bg} alt="turbo_range_card_bg" className="bg" />
-
               <div
-                className="summary-content"
-                onClick={() => navigate('/turbo-range/positions')}
+                className="summary-top"
+                onClick={goPositions}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    goPositions();
+                  }
+                }}
+                role="button"
+                tabIndex={0}
               >
-                <div className="summary-item">
+                <div className="summary-lead">
                   <div className="summary-item-title">
                     {intl.turboRange.my_positions}
                   </div>
-                  <div className="summary-item-value">
-                    {formatUsd(positionValue)}
+                  {showNoPosition ? (
+                    <div className="no-position-text">
+                      {intl.turboRange.you_have_no_position}
+                    </div>
+                  ) : (
+                    <div className="summary-item-value summary-main-value">
+                      {formatUsd(positionValue)}
+                    </div>
+                  )}
+                </div>
+                {!showNoPosition && (
+                  <div className="details-link">
+                    <span>{intl.Details}</span>
+                    <IconRightOutlined size={14} />
                   </div>
-                </div>
-                <div className="details-link">
-                  {intl.Details}
-                  <IconRightOutlined />
-                </div>
-                {!loadingPositions && (
-                  <>
-                    {positions?.length > 0 || !hasAccessToken ? (
-                      <>
-                        <div className="summary-item">
-                          <div className="summary-item-title">
-                            {intl.turboRange.total_yield}
-                          </div>
-                          <div className="summary-item-value profit">
-                            {formatUsd(totalYield)}
-                          </div>
-                        </div>
-                        <div className="summary-item">
-                          <div className="summary-item-title">
-                            {intl.turboRange.last_24h_yield}
-                          </div>
-                          <div className="summary-item-value profit">
-                            {formatUsd(last24hYield)}
-                          </div>
-                        </div>
-                      </>
-                    ) : (
-                      <div className="summary-item">
-                        <div className="summary-item-title">
-                          {intl.turboRange.you_have_no_position}
-                        </div>
-                      </div>
-                    )}
-                  </>
                 )}
               </div>
+
+              {!loadingPositions && !showNoPosition && (
+                <div className="summary-metrics">
+                  <div className="summary-item">
+                    <div className="summary-item-title">
+                      {intl.turboRange.all_time_yield}
+                    </div>
+                    <div className="summary-item-value">
+                      {formatUsd(totalYield)}
+                    </div>
+                  </div>
+                  <div className="summary-item summary-item--second">
+                    <div className="summary-item-title">
+                      {intl.turboRange.last_24h}
+                    </div>
+                    <div className="summary-item-value">
+                      {formatUsd(last24hYield)}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             <SkeletonSummary />
@@ -91,112 +104,135 @@ export default function PositionSummary() {
     </>
   );
 }
+
+const heroTypography = css`
+  .summary-item-title {
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.turboRangeHeroTextMuted};
+  }
+
+  .summary-item-value {
+    font-size: 17px;
+    line-height: 22px;
+    ${({ theme }: { theme: ThemeType }) => theme.fontBold};
+    color: ${({ theme }: { theme: ThemeType }) => theme.turboRangeHeroText};
+  }
+
+  .summary-main-value {
+    font-size: 30px;
+    line-height: 34px;
+    letter-spacing: -0.02em;
+  }
+
+  .no-position-text {
+    font-size: 14px;
+    line-height: 22px;
+    ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
+    color: ${({ theme }: { theme: ThemeType }) =>
+      theme.turboRangeHeroTextMuted};
+  }
+`;
+
 const StyledPositionSummary = styled.div`
   position: relative;
   z-index: 2;
-  min-height: 135px;
+  margin-bottom: 6px;
+
   .position-summary-inner {
-    width: 100%;
-    height: 100%;
-    min-height: 135px;
-    border-radius: 16px;
-    padding: 15px 20px;
     position: relative;
     overflow: hidden;
-    background-image: ${({ theme }: { theme: ThemeType }) =>
-      theme.darkMode ? theme.summaryCardBg : 'none'};
-    background-color: ${({ theme }: { theme: ThemeType }) =>
-      theme.darkMode ? 'transparent' : theme.cardBg};
-    border: ${({ theme }: { theme: ThemeType }) =>
-      theme.darkMode ? 'none' : `1px solid ${theme.cardBorder}`};
+    border-radius: 12px;
+    border: none;
+    padding: 14px 16px 12px;
+    background: ${({ theme }: { theme: ThemeType }) => theme.summaryCardBg};
     box-shadow: ${({ theme }: { theme: ThemeType }) =>
-      theme.darkMode ? 'none' : theme.componentLibraryCardShadow};
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 60%;
-      height: 80%;
-      background: radial-gradient(
-        circle at top right,
-        ${({ theme }: { theme: ThemeType }) =>
-          theme.darkMode
-            ? 'rgba(34, 186, 125, 0.2) 0%, transparent 70%'
-            : 'rgba(34, 186, 125, 0.08) 0%, transparent 70%'}
-      );
-      pointer-events: none;
-      z-index: 1;
+      theme.darkMode ? 'none' : theme.turboRangeHeroShadow};
+    ${heroTypography}
+  }
+
+  .summary-top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    outline: none;
+
+    &:focus-visible {
+      box-shadow: ${({ theme }: { theme: ThemeType }) =>
+        theme.ctaGhostFocusRing};
+      border-radius: 8px;
     }
   }
-  .summary-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    position: relative;
-  }
-  .bg {
-    position: absolute;
-    bottom: 0;
-    right: 1%;
-    z-index: 0;
-    height: 80%;
-    opacity: ${({ theme }: { theme: ThemeType }) =>
-      theme.darkMode ? 1 : 0.14};
-  }
-  .details-link {
-    background: ${({ theme }: { theme: ThemeType }) =>
-      theme.darkMode ? theme.bg_white_10 : theme.shellSurfaceSecondary};
-    border: 1px solid
-      ${({ theme }: { theme: ThemeType }) =>
-        theme.darkMode ? theme.border_white_30 : theme.cardBorder};
-    border-radius: 18px;
-    padding: 5px 15px;
-    height: 34px;
-    text-align: right;
-    font-size: 13px;
-    line-height: 18px;
-    ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-    color: ${({ theme }: { theme: ThemeType }) =>
-      theme.darkMode ? theme.t_fff : theme.ink};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    width: fit-content;
-    margin-left: auto;
-    margin-top: 5px;
-  }
-  .summary-item {
+
+  .summary-lead {
+    flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
-    gap: 2px;
-    .summary-item-title {
-      font-size: 13px;
-      line-height: 18px;
-      ${({ theme }: { theme: ThemeType }) => theme.fontRegular};
-      color: ${({ theme }: { theme: ThemeType }) =>
-        theme.darkMode ? theme.t_fff_80 : theme.mutedText};
+    gap: 6px;
+  }
+
+  .summary-metrics {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: stretch;
+    margin-top: 10px;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .summary-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 0;
+    padding-right: 12px;
+
+    &--second {
+      padding-right: 0;
+      padding-left: 12px;
+      border-left: 1px solid
+        ${({ theme }: { theme: ThemeType }) => theme.turboRangeHeroDivider};
     }
-    .summary-item-value {
-      font-size: 22px;
-      line-height: 22px;
-      ${({ theme }: { theme: ThemeType }) => theme.fontBold};
-      color: ${({ theme }: { theme: ThemeType }) =>
-        theme.darkMode ? theme.t_fff : theme.ink};
-      &.profit {
-        font-size: 16px;
-        color: ${({ theme }: { theme: ThemeType }) => theme.green};
-      }
-      &.updating {
-        font-size: 13px;
-      }
+  }
+
+  .details-link {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: ${({ theme }: { theme: ThemeType }) =>
+      theme.turboRangeHeroDetailsPillBg};
+    font-size: 14px;
+    line-height: 20px;
+    ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
+    color: ${({ theme }: { theme: ThemeType }) => theme.turboRangeHeroText};
+    cursor: pointer;
+    pointer-events: none;
+
+    .icon-right-outlined {
+      color: ${({ theme }: { theme: ThemeType }) => theme.turboRangeHeroText};
     }
+  }
+
+  .summary-top:active .details-link {
+    background: ${({ theme }: { theme: ThemeType }) =>
+      theme.turboRangeHeroDetailsPillBg};
+    filter: brightness(1.08);
   }
 `;

@@ -99,17 +99,29 @@ const StyledStrategyMobileCard = styled.div`
   box-shadow: ${({ theme }: { theme: ThemeType }) =>
     theme.darkMode ? 'none' : theme.componentLibraryCardShadow};
   border-radius: 10px;
-  padding: 20px;
+  padding: 20px 24px;
   transition: transform 0.2s ease, box-shadow 0.2s ease,
-    background-color 0.2s ease;
+    background-color 0.2s ease, border-color 0.2s ease;
+
+  &:active {
+    transform: translateY(-2px);
+  }
 
   @media (hover: hover) {
     &:hover {
-      transform: translateY(-2px);
+      transform: translateY(-4px);
       background-color: ${({ theme }: { theme: ThemeType }) =>
         theme.darkMode ? 'transparent' : theme.infoBarBg};
       box-shadow: ${({ theme }: { theme: ThemeType }) =>
         theme.darkMode ? 'none' : theme.primaryBtnHoverShadow};
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:active,
+    &:hover {
+      transform: none;
     }
   }
 
@@ -142,19 +154,17 @@ const StyledStrategyMobileCard = styled.div`
       ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
       color: ${({ theme }: { theme: ThemeType }) =>
         theme.darkMode ? theme.t_fff : theme.ink};
-      font-size: 15px;
-      line-height: 20px;
+      font-size: 16px;
+      line-height: 22px;
     }
 
     .card-duration {
       margin-left: auto;
-      font-size: 11px;
-      color: ${({ theme }: { theme: ThemeType }) =>
-        theme.darkMode ? theme.t_fff_60 : theme.mutedText};
-      background: ${({ theme }: { theme: ThemeType }) =>
-        theme.darkMode ? theme.bg_white_10 : theme.shellSurfaceSecondary};
-      padding: 2px 6px;
-      border-radius: 8px;
+      font-size: 12px;
+      line-height: 18px;
+      color: ${({ theme }: { theme: ThemeType }) => theme.t_b7b_60};
+      padding: 2px 8px;
+      border-radius: 10px;
     }
   }
 
@@ -170,15 +180,15 @@ const StyledStrategyMobileCard = styled.div`
   }
 
   .card-primary {
-    margin: 15px 0;
+    margin: 14px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     gap: 10px;
     background: ${({ theme }: { theme: ThemeType }) => theme.bg_buy_10};
-    height: 40px;
-    padding: 0 16px;
+    min-height: 44px;
+    padding: 12px 16px;
 
     .primary-label {
       font-size: 14px;
@@ -188,8 +198,8 @@ const StyledStrategyMobileCard = styled.div`
     }
 
     .primary-value {
-      font-size: 16px;
-      line-height: 18px;
+      font-size: 14px;
+      line-height: 20px;
       ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
       color: ${({ theme }: { theme: ThemeType }) => theme.green};
     }
@@ -210,7 +220,7 @@ const StyledStrategyMobileCard = styled.div`
         margin-bottom: 2px;
       }
       .secondary-value {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 20px;
         ${({ theme }: { theme: ThemeType }) => theme.fontMedium};
         color: ${({ theme }: { theme: ThemeType }) =>

@@ -30,7 +30,9 @@ export default function TurboRangeDeposit() {
 
   return (
     <StyledInvest>
-      {showH5Header && <Header title={intl.turboRange.create_position} />}
+      {showH5Header && (
+        <Header title={intl.turboRange.create_position} historyBack />
+      )}
       <div className="page-inner">
         <Invest poolAddress={poolAddress || ''} />
       </div>

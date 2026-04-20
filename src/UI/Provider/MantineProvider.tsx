@@ -1,8 +1,10 @@
 import React, { ReactNode } from 'react';
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
+import { useTheme } from 'styled-components';
 
 import { useNotificationLimit } from 'src/state/notification/utils';
+import { ThemeType } from 'src/theme';
 
 import StyleOthers from './styleOthers';
 
@@ -14,10 +16,11 @@ export default function MantineThemeProvider({
   children: ReactNode;
 }) {
   const limit = useNotificationLimit();
+  const t = useTheme() as ThemeType;
   return (
     <MantineProvider
       theme={{
-        fontFamily: 'OpenSansRegular, PingFang SC; font-weight: 400;',
+        fontFamily: t.mantineFontFamily,
       }}
     >
       {children}

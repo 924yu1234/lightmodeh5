@@ -5,7 +5,9 @@ import { ThemeType } from 'src/theme';
 export const StyledList = styled.div`
   overflow: hidden;
   height: 100%;
-  background: ${({ theme }: { theme: ThemeType }) => theme.bg};
+  /* Impeccable: soft page bed so white cards (cardBg) read clearly vs App Light product cards */
+  background: ${({ theme }: { theme: ThemeType }) =>
+    theme.darkMode ? theme.bg : theme.pageBg};
   padding-top: ${({ theme }: { theme: ThemeType }) =>
     !theme.showH5Header ? 0 : 52}px;
 

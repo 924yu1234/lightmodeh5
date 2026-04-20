@@ -1,6 +1,58 @@
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
+
+import type { UEDFontPreset } from 'src/ued/fontPreset';
+
 export type ThemeType = ReturnType<typeof getTheme>;
+
+function buildUIFontTokens(fontPreset: UEDFontPreset | undefined) {
+  if (!fontPreset || fontPreset === 'default') {
+    const mantineFontFamily =
+      'OpenSansRegular, "PingFang SC", Helvetica, Arial, sans-serif';
+    return {
+      uedFontPreset: 'default' as const,
+      mantineFontFamily,
+      fontBody:
+        'font-family: OpenSansRegular, "PingFang SC", Helvetica, Arial, sans-serif; font-weight: 400;',
+      admFontFamily:
+        '"OpenSansRegular", "PingFang SC", Helvetica, Arial, sans-serif',
+      fontRegular:
+        'font-family: OpenSansRegular, PingFang SC; font-weight: 400;',
+      fontRegularSemi:
+        'font-family: OpenSansSemiRegular, PingFang SC; font-weight: 400;',
+      fontMedium: 'font-family: OpenSansMedium, PingFang SC; font-weight: 500;',
+      fontBold: 'font-family: OpenSansBold, PingFang SC; font-weight: 600;',
+      fontBoldSemi:
+        'font-family: OpenSansSemiBold, PingFang SC; font-weight: 600;',
+    };
+  }
+
+  type NonDefault = Exclude<UEDFontPreset, 'default'>;
+  const stacks: Record<NonDefault, string> = {
+    instrument_sans:
+      '"Instrument Sans", "Noto Sans SC", "PingFang SC", sans-serif',
+    dm_sans: '"DM Sans", "Noto Sans SC", "PingFang SC", sans-serif',
+    inter: '"Inter", "Noto Sans SC", "PingFang SC", sans-serif',
+    source_han_sans:
+      '"Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif',
+  };
+
+  const family = stacks[fontPreset as NonDefault] ?? stacks.instrument_sans;
+  const boldWeight = fontPreset === 'source_han_sans' ? '700' : '600';
+
+  return {
+    uedFontPreset: fontPreset,
+    mantineFontFamily: family,
+    fontBody: `font-family: ${family}; font-weight: 400;`,
+    admFontFamily: family,
+    fontRegular: `font-family: ${family}; font-weight: 400;`,
+    fontRegularSemi: `font-family: ${family}; font-weight: 400;`,
+    fontMedium: `font-family: ${family}; font-weight: 500;`,
+    fontBold: `font-family: ${family}; font-weight: ${boldWeight};`,
+    fontBoldSemi: `font-family: ${family}; font-weight: ${boldWeight};`,
+  };
+}
+
 export default function getTheme({
   height,
   width,
@@ -8,6 +60,7 @@ export default function getTheme({
   isAppH5,
   showH5Header,
   theme = 'dark',
+  fontPreset,
 }: {
   height: number;
   width: number;
@@ -15,6 +68,8 @@ export default function getTheme({
   isAppH5: boolean;
   showH5Header: boolean;
   theme?: 'dark' | 'light';
+  /** UED preview / A-B font stacks (see ⚙ Typography). */
+  fontPreset?: UEDFontPreset;
 }) {
   const withAlpha = (hex: string, alphaHex: string) => `${hex}${alphaHex}`;
   const alphaMap = {
@@ -47,6 +102,7 @@ export default function getTheme({
       return acc;
     }, {} as Record<`${P}_${AlphaKey}`, string>);
   const darkMode = theme !== 'light';
+  const uiFonts = buildUIFontTokens(fontPreset);
   let modalTop = 150;
 
   const top = (height - 600) / 2;
@@ -464,6 +520,13 @@ export default function getTheme({
     summaryCardBg: darkMode
       ? 'linear-gradient(270deg, rgba(0, 138, 220, 0.8) 0%, #00a0ff 69%)'
       : 'linear-gradient(145deg, #082418 0%, #0e4228 55%, #1a7040 100%)',
+    /** Text / chrome on `summaryCardBg` (H5 Turbo Range hero — same in light & dark) */
+    turboRangeHeroText: '#ffffff',
+    turboRangeHeroTextMuted: 'rgba(255, 255, 255, 0.76)',
+    turboRangeHeroDetailsPillBg: 'rgba(255, 255, 255, 0.22)',
+    turboRangeHeroDivider: 'rgba(255, 255, 255, 0.32)',
+    turboRangeHeroShadow:
+      '0 10px 28px rgba(9, 45, 31, 0.18), 0 2px 8px rgba(9, 45, 31, 0.08)',
     // PillTabs active pill background (supports gradient)
     pillTabsActiveBg: darkMode
       ? '#00A0FF'
@@ -580,13 +643,7 @@ export default function getTheme({
     // Swap / sell CTA
     swapSellCta: darkMode ? '#DE4D77' : '#DC2626',
 
-    fontRegular: 'font-family: OpenSansRegular, PingFang SC; font-weight: 400;',
-    fontRegularSemi:
-      'font-family: OpenSansSemiRegular, PingFang SC; font-weight: 400;',
-    fontMedium: 'font-family: OpenSansMedium, PingFang SC; font-weight: 500;',
-    fontBold: 'font-family: OpenSansBold, PingFang SC; font-weight: 600;',
-    fontBoldSemi:
-      'font-family: OpenSansSemiBold, PingFang SC; font-weight: 600;',
+    ...uiFonts,
     fontImpact: 'font-family: Impact; font-weight: 900;',
     fontOxanimuBold: 'font-family: oxanimuBold; font-weight: 700;',
     fontSFProMedium: 'font-family: SFProMedium; font-weight: 500;',
