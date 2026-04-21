@@ -14,7 +14,7 @@
   },
   "rewrites": [
     {
-      "source": "/((?!static/|assets/|tradingView/|favicon\\.ico|manifest\\.json|robots\\.txt).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
