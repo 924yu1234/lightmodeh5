@@ -1,0 +1,47 @@
+# When the Vercel dashboard shows DEPLOYMENT_NOT_FOUND / no Production deployment, use this
+# workflow after adding GitHub Actions secrets (see comments below).
+#
+# Secrets (repo → Settings → Secrets and variables → Actions):
+#   VERCEL_TOKEN       — https://vercel.com/account/tokens
+#   VERCEL_ORG_ID      — Vercel → Team → Settings → Team ID, OR `npx vercel link` → .vercel/project.json → orgId
+#   VERCEL_PROJECT_ID  — Project → Settings → General → Project ID, OR .vercel/project.json → projectId
+#
+# Then: Actions → "Deploy to Vercel (production)" → Run workflow, or push to main.
+# Production URL: Vercel → lightmodeh5 → Settings → Domains (copy the *.vercel.app shown).
+
+name: Deploy to Vercel (production)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      # Produces .vercel/output for --prebuilt (uses vercel.json install/build settings)
+      - name: Vercel build
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Vercel deploy (prebuilt)
+        run: vercel deploy --prebuilt --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
