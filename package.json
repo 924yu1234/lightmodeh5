@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "DeGate UED Design System - UI/Theme adjustment project for UED team",
   "author": "guangliang.chen",
+  "engines": {
+    "node": "22.x"
+  },
   "moduleRoots": ".",
   "scripts": {
     "build_dll": "webpack --config webpack.dll.config.js",
