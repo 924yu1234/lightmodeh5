@@ -1,13 +1,15 @@
 # When the Vercel dashboard shows DEPLOYMENT_NOT_FOUND / no Production deployment, use this
 # workflow after adding GitHub Actions secrets (see comments below).
 #
-# Secrets (repo → Settings → Secrets and variables → Actions):
-#   VERCEL_TOKEN       — https://vercel.com/account/tokens
-#   VERCEL_ORG_ID      — Vercel → Team → Settings → Team ID, OR `npx vercel link` → .vercel/project.json → orgId
-#   VERCEL_PROJECT_ID  — Project → Settings → General → Project ID, OR .vercel/project.json → projectId
+# REQUIRED secrets (if missing, the workflow fails: "You defined --token, but it's missing a value"):
+#   https://github.com/924yu1234/lightmodeh5/settings/secrets/actions
 #
-# Then: Actions → "Deploy to Vercel (production)" → Run workflow, or push to main.
-# Production URL: Vercel → lightmodeh5 → Settings → Domains (copy the *.vercel.app shown).
+#   VERCEL_TOKEN       — Create at https://vercel.com/account/tokens
+#   VERCEL_ORG_ID      — Vercel → Project lightmodeh5 → Settings → General (or Team settings)
+#   VERCEL_PROJECT_ID  — same page, "Project ID"
+#
+# Getting IDs without CLI: Vercel Dashboard → your project → Settings → General.
+# Then: push to main, or run workflow manually.
 
 name: Deploy to Vercel (production)
 
@@ -22,9 +24,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check Vercel secrets are set
+        run: |
+          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
+            echo '::error::Add Repository secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID'
+            echo 'Open: https://github.com/924yu1234/lightmodeh5/settings/secrets/actions'
+            echo 'Token: https://vercel.com/account/tokens'
+            echo 'IDs: Vercel → lightmodeh5 → Settings → General (Project ID + Team/Org).'
+            exit 1
+          fi
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           cache: npm
 
       - name: Install dependencies
